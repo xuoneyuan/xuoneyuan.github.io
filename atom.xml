@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">falcone&#39;s sweet home</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2023-11-19T15:28:18&#43;08:00</updated>
+    <updated>2023-11-29T16:22:41&#43;08:00</updated>
     <id>https://xuoneyuan.github.io/</id>
     <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://xuoneyuan.github.io/atom.xml" />
@@ -16,6 +16,67 @@
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.120.3">Hugo</generator>
+        <entry>
+            <title type="text">我不知道还能说什么了</title>
+            <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/posts/7/" />
+            <id>https://xuoneyuan.github.io/posts/7/</id>
+            <updated>2023-11-29T16:22:11&#43;08:00</updated>
+            <published>2023-11-29T14:46:32&#43;08:00</published>
+            <author>
+                    <name>falcone</name>
+                    <uri>https://xuoneyuan.github.io/</uri>
+                    <email>xuoneyuan@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">很遗憾，这篇文章不是技术类的，时隔十多天，再次发博客，没想到竟然还是抱怨生活的。哈哈……</summary>
+            
+                <content type="html">&lt;p&gt;很遗憾，这篇文章不是技术类的，时隔十多天，再次发博客，没想到竟然还是抱怨生活的。哈哈。&lt;/p&gt;
+&lt;p&gt;当然这不代表我陷入了停滞期，相反，就在几天前，我跑到操场上一边吹着冷风，一边思考着到底应该发些什么。我想过写go的通道，Java里关于Spring bean的生命周期，写redis和MySQL数据一致性的问题，或者分布式锁，分布式ID的生成方案，好像死锁也可以，噢，我还可以写ACID，写nginx，写netty，写RPC框架，写kubernetes。可是最后，我什么也没有写出来。我只是觉得，我还没有对这个东西形成一个完整的认识，没有深刻的理解，我所写的一切，都是停留在最表面的层面，都只能借鉴别人现成的写好的东西，我有什么高论？我有什么看法？没有！我只不过是站在巨人的肩膀上看问题罢了，我不想装作这一切功劳都是我获得的一样，还没等别人看不下去，我自己就先吐了。&lt;/p&gt;
+&lt;p&gt;于是我什么也没写。于是在这个下午我不知道我要干什么。于是我在床上躺到两点多。&lt;/p&gt;
+&lt;p&gt;学会前端？后端？深度学习？拜托，你连anaconda都还没安装呢！回归网络安全？看会渗透？或者密码学？come on,我才不想学该死的cryptography！说实话，我对这玩意一点兴趣都没有。但是偏偏，你电又特别擅长这个。算了，干脆去图书馆吧。WTF,耳机又没带，小事，什么，充电宝也没电了！好，这么玩是吧。Calm down,比起这些，前面的一对情侣秀恩爱更让我无语。那行吧，到了点我自己走可以吧。&lt;/p&gt;
+&lt;p&gt;一切愤怒的导火索还要追寻到今天上午，我本来高高兴兴打开我的GPT3.8，这是我在网上找到一个国人团队制作的好用的大模型。他不如openAI官网的GTP4，但他比GTP3.5还是强多了。就在今天，他告诉我，由于部分薅羊毛用户的存在，本站的收费方式由包月制改成按照token收费。&lt;/p&gt;
+&lt;p&gt;我的脑子嗡一下麻了。仔细想想，他说的那个重度使用的人好像就是我。毕竟按他的计费方式，换算下来我一天最少能用30块钱，但是实际上我一天只花了一块多不到两块钱。这种感觉，就像之前一直利用的漏洞突然被修复一样，这个少数人才知道的后门被彻彻底底的堵死了，虽然我肯定没亏，但是接下来我又该怎么办呢？&lt;/p&gt;
+&lt;p&gt;听会儿G.E.M.的歌吧，下一首是霉霉的，嗯，感觉心情又好了一点。&lt;/p&gt;
+&lt;p&gt;说回学校，今天又在催填写去向的收集表了。F**K，真是哪壶不开提哪壶，屋漏偏逢连夜雨啊。你是故意找茬是不是？开玩笑的。但是，对于未来，我却出现了一丝犹豫，我对之前坚定的就业打算做了动摇。我突然觉得，学校也挺好的，起码跟社会比起来，他要单纯多了，简单多了。当然我也知道我是不可能一辈子都呆在学校的，但是多待个两三年好像也不错，我还有很多想法，很多打算，如果我去打工了，这些恐怕都要变成泡影了。我害怕我进入社会之后我就再也没有时间也没有精力去做那些应该在年轻时候做的事了。Wait，前面的情侣怎么走了？我都还没走呢！不考研了？不要你们的大好未来了？给我回来！&lt;/p&gt;
+&lt;p&gt;估计是我打字的声音太响了他们俩才走的吧。话说坐在我斜对面的哥们放本书在桌子上怎么现在都还没回来。看看时间，三点半了，去饮茶了？噢我忘了，可能他们两个人有课，啊，なるほど！天天考研考研的，这里是B区，考研在A区，果然魔怔的人是我啊。说回考研，考去哪里？反正不是本校。回家去？可以！我想想，武大中大厦大，这都是家门口的好大学啊。其实当年我的分数是超了中大数学系最少5分的，如果我敢报，或许我现在就在广州了吧。还有高中同学建议考虑考虑中科大软院，浙大软院的，说实话现在我的做题水平是真不行了，不是做题家了，400多分太特么难了！知难而退不丢人，光说不做是懦夫。&lt;/p&gt;
+&lt;p&gt;重申一次，我下午的效率非常非常低！这种状态真的什么都不想学。这可能跟我没有睡午觉的习惯有关。现在，我还是不知道我应该干什么，你让我学会课内的东西吧，真没动力了，又保不了研，这些东西一时间又用不上。学会数学，英语？我已经离开高中两年多了！无论是兴趣还是方法还是知识储备都是无限趋近于0，全部都忘光了，还给老师了。&lt;/p&gt;
+&lt;p&gt;还有一件让人心烦的事，就是我的两颗门牙往外凸越来越明显了，最近说话总觉得有些大舌头，跟女生说话都说不清了，最明显的例子就是，食堂阿姨竟然把我最常点的饭的名字都听错了！&lt;/p&gt;
+&lt;p&gt;呃呃呃呃呃，下一次更新什么，下一次什么时候更新？我现在到底应该干点什么。。。&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/categories/%E6%97%A5%E5%B8%B8/" term="日常" label="日常" />
+                            
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/tags/%E5%AD%A6%E4%B9%A0/" term="学习" label="学习" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/tags/%E7%94%9F%E6%B4%BB/" term="生活" label="生活" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">关于个人头像版本更新的公告</title>
             <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/posts/6/" />
