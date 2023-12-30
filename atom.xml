@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">falcone&#39;s sweet home</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2023-12-07T22:51:34&#43;08:00</updated>
+    <updated>2023-12-30T23:25:21&#43;08:00</updated>
     <id>https://xuoneyuan.github.io/</id>
     <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://xuoneyuan.github.io/atom.xml" />
@@ -17,10 +17,1173 @@
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.120.3">Hugo</generator>
         <entry>
+            <title type="text">falconeの音乐时光——告五人篇</title>
+            <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/posts/13/" />
+            <id>https://xuoneyuan.github.io/posts/13/</id>
+            <updated>2023-12-30T23:24:59&#43;08:00</updated>
+            <published>2023-12-30T23:08:18&#43;08:00</published>
+            <author>
+                    <name>falcone</name>
+                    <uri>https://xuoneyuan.github.io/</uri>
+                    <email>xuoneyuan@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">其实告五人很多歌都很好听的，有些冷门歌曲有时间听还是不错的 几首很火的歌就没啥推荐了，……</summary>
+            
+                <content type="html">&lt;p&gt;其实告五人很多歌都很好听的，有些冷门歌曲有时间听还是不错的&lt;/p&gt;
+&lt;p&gt;几首很火的歌就没啥推荐了，比如《唯一》、《给你一瓶魔法药水》、《爱人错过》都是些烂大街的歌曲了
+&lt;img src=&#34;https://xuoneyuan.github.io/images/xdyj.jpg&#34; alt=&#34;xidian&#34; title=&#34;Merry Christmas, Xidian University!&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;告五人&#34;&gt;告五人&lt;/h3&gt;
+&lt;h4 id=&#34;带我去找夜生活&#34;&gt;《带我去找夜生活》&lt;/h4&gt;
+
+
+
+
+&lt;div&gt;&lt;iframe id=&#34;biliplayer&#34; src=&#34;https://xuoneyuan.github.io//player.bilibili.com/player.html?bvid=BV1yX4y1P7Kd&amp;page=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34; loading=&#34;lazy&#34; &gt; &lt;/iframe&gt;&lt;/div&gt;
+
+&lt;style&gt;
+    
+    #biliplayer {
+      width: 100%;
+      height: 550px;
+    }
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+      #biliplayer {
+        width: 100%;
+        height: 250px;
+      }
+    }
+    &lt;/style&gt;
+    
+&lt;h4 id=&#34;温蒂公主的侍卫&#34;&gt;《温蒂公主的侍卫》&lt;/h4&gt;
+
+
+
+
+&lt;div&gt;&lt;iframe id=&#34;biliplayer&#34; src=&#34;https://xuoneyuan.github.io//player.bilibili.com/player.html?bvid=BV1WG411g7C5&amp;page=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34; loading=&#34;lazy&#34; &gt; &lt;/iframe&gt;&lt;/div&gt;
+
+&lt;style&gt;
+    
+    #biliplayer {
+      width: 100%;
+      height: 550px;
+    }
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+      #biliplayer {
+        width: 100%;
+        height: 250px;
+      }
+    }
+    &lt;/style&gt;
+    
+&lt;h4 id=&#34;法兰西多士&#34;&gt;《法兰西多士》&lt;/h4&gt;
+
+
+
+
+&lt;div&gt;&lt;iframe id=&#34;biliplayer&#34; src=&#34;https://xuoneyuan.github.io//player.bilibili.com/player.html?bvid=BV17r4y1M7pR&amp;page=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34; loading=&#34;lazy&#34; &gt; &lt;/iframe&gt;&lt;/div&gt;
+
+&lt;style&gt;
+    
+    #biliplayer {
+      width: 100%;
+      height: 550px;
+    }
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+      #biliplayer {
+        width: 100%;
+        height: 250px;
+      }
+    }
+    &lt;/style&gt;
+    
+&lt;p&gt;其实告五人还有很多歌曲也很好听，包括但不仅限于《好不容易》、《说我爱你的一百种方式》、《爱在夏天》、《披星戴月的想你》、《我想要占据你》、《红》、《与海无关》、《丑人多作怪》、《在这座城市遗失了你》、《从没去过巴塞隆纳》、《在未来的你跟我说声嗨》、《又到天黑》、《一念之间》、《不具名的花》、《我以为你不会出现》等等&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/categories/%E9%9F%B3%E4%B9%90/" term="音乐" label="音乐" />
+                            
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/tags/%E9%9F%B3%E4%B9%90/" term="音乐" label="音乐" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/tags/bilibili/" term="bilibili" label="bilibili" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">计算机网络</title>
+            <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/posts/11/" />
+            <id>https://xuoneyuan.github.io/posts/11/</id>
+            <updated>2023-12-30T23:04:40&#43;08:00</updated>
+            <published>2023-12-25T14:56:10&#43;08:00</published>
+            <author>
+                    <name>falcone</name>
+                    <uri>https://xuoneyuan.github.io/</uri>
+                    <email>xuoneyuan@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">计算机网络体系结构 计算机网络概述 计算机网络的概念 计算机网络就是一些互联的、自治的计算……</summary>
+            
+                <content type="html">&lt;h2 id=&#34;计算机网络体系结构&#34;&gt;计算机网络体系结构&lt;/h2&gt;
+&lt;h3 id=&#34;计算机网络概述&#34;&gt;计算机网络概述&lt;/h3&gt;
+&lt;h4 id=&#34;计算机网络的概念&#34;&gt;计算机网络的概念&lt;/h4&gt;
+&lt;p&gt;计算机网络就是一些互联的、自治的计算机系统的集合&lt;/p&gt;
+&lt;h4 id=&#34;计算机网络的组成&#34;&gt;计算机网络的组成&lt;/h4&gt;
+&lt;h5 id=&#34;物理组成&#34;&gt;物理组成&lt;/h5&gt;
+&lt;p&gt;包括硬件、软件、协议三大部分&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;硬件：由主机、通信处理机、通信线路和交换设备组成&lt;/li&gt;
+&lt;li&gt;软件：主要包括实现资源共享的软件和方便用户使用的各种工具软件&lt;/li&gt;
+&lt;li&gt;协议：数据在线路上传输需要遵循一定的规则&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;工作方式组成&#34;&gt;工作方式组成&lt;/h5&gt;
+&lt;p&gt;可分为边缘部分和核心部分&lt;/p&gt;
+&lt;h5 id=&#34;功能组成&#34;&gt;功能组成&lt;/h5&gt;
+&lt;p&gt;可分为&lt;strong&gt;通信子网&lt;/strong&gt;和&lt;strong&gt;资源子网&lt;/strong&gt;两部分&lt;/p&gt;
+&lt;h4 id=&#34;计算机网络的功能&#34;&gt;计算机网络的功能&lt;/h4&gt;
+&lt;h4 id=&#34;计算机网络的分类&#34;&gt;计算机网络的分类&lt;/h4&gt;
+&lt;h4 id=&#34;计算机网络主要性能指标&#34;&gt;计算机网络主要性能指标&lt;/h4&gt;
+&lt;h5 id=&#34;时延&#34;&gt;时延&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;发送时延，也称为传输时延&lt;br&gt;
+主机或路由器发送数据帧所需要的时间&lt;br&gt;
+发送时延 = 数据帧长度 (bit) / 发送速率 (bit/s)&lt;/li&gt;
+&lt;li&gt;传播时延&lt;br&gt;
+传播时延 = 信道长度 (m) / 电磁波在信道上的传播速度 （m/s)&lt;/li&gt;
+&lt;li&gt;处理时延&lt;/li&gt;
+&lt;li&gt;排队时延&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;总时延 = 发送时延 + 传播时延 + 处理时延 + 排队时延&lt;/strong&gt;
+
+
+
+&lt;div class=&#34;notice notice-info&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;一般排队时延和处理时延忽略不计&lt;br&gt;
+对于高速网络链路，提高的是数据发送速率不是比特在链路上的传播速度&lt;/p&gt;&lt;/div&gt;
+&lt;/p&gt;
+&lt;h5 id=&#34;时延带宽积&#34;&gt;时延带宽积&lt;/h5&gt;
+&lt;p&gt;又称为以比特为单位的链路长度&lt;br&gt;
+&lt;strong&gt;时延带宽积 = 传播时延 * 带宽&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&#34;往返时间&#34;&gt;往返时间&lt;/h5&gt;
+&lt;p&gt;从发送方发送数据开始，到发送方收到来自接收方的确认消息总共经历的时间&lt;/p&gt;
+&lt;h5 id=&#34;利用率&#34;&gt;利用率&lt;/h5&gt;
+&lt;p&gt;包括信道利用率和网络利用率&lt;/p&gt;
+&lt;h3 id=&#34;计算机网络体系结构与参考模型&#34;&gt;计算机网络体系结构与参考模型&lt;/h3&gt;
+&lt;h4 id=&#34;计算机网络分层结构&#34;&gt;计算机网络分层结构&lt;/h4&gt;
+&lt;h4 id=&#34;协议&#34;&gt;协议&lt;/h4&gt;
+&lt;h4 id=&#34;接口&#34;&gt;接口&lt;/h4&gt;
+&lt;p&gt;又称为服务访问点，从物理层开始每一层都向上层提供服务访问点，没有接口就不能提供服务&lt;/p&gt;
+&lt;h4 id=&#34;服务&#34;&gt;服务&lt;/h4&gt;
+&lt;p&gt;指下层为相邻上层提供的功能调用&lt;/p&gt;
+&lt;h4 id=&#34;isoosi参考模型和tcpip参考模型&#34;&gt;ISO/OSI参考模型和TCP/IP参考模型&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;5层结构的总结&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;层次&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;应用层（用户对用户）&lt;/td&gt;
+&lt;td&gt;任务：提供系统与用户的接口&lt;br&gt;功能：文件传输、访问和管理、电子邮件服务&lt;br&gt;协议：FTP、SMTP、HTTP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;传输层（应用对应用 进程对进程）&lt;/td&gt;
+&lt;td&gt;传输单位：报文段(TCP)或用户数据报(UDP)&lt;br&gt;任务：负责两个进程之间的通信&lt;br&gt;功能：为端到端连接提供可靠的传输服务和管理服务&lt;br&gt;协议：TCP、UDP、ARQ&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;网络层（主机对主机）&lt;/td&gt;
+&lt;td&gt;传输单位：数据报&lt;br&gt;所实现的硬件：路由器&lt;br&gt;任务：将传输层传下来的报文段封装成分组；选择适当的路由使得传输层传下来的分组能够交付到目的主机&lt;br&gt;功能：为传输层提供服务；组包和拆包；路由选择；拥塞控制&lt;br&gt;协议：ICMP、ARP、RAP、IP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;数据链路层&lt;/td&gt;
+&lt;td&gt;传输单位：帧&lt;br&gt;所实现的硬件：交换机、网桥&lt;br&gt;任务：将网络层传下来的IP数据报组装成帧&lt;br&gt;功能：链路连接的建立、拆除、分离；帧定界和帧同步；差错检测&lt;br&gt;协议：PPP、HDLC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;物理层&lt;/td&gt;
+&lt;td&gt;传输单位：比特&lt;br&gt;所实现的硬件：集线器、中继器&lt;br&gt;任务：透明地传输比特流&lt;br&gt;功能：为数据端设备提供传送数据通路&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+
+
+&lt;div class=&#34;notice notice-tip&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M504 256a248 248 0 11-496 0 248 248 0 01496 0zM227 387l184-184c7-6 7-16 0-22l-22-23c-7-6-17-6-23 0L216 308l-70-70c-6-6-16-6-23 0l-22 23c-7 6-7 16 0 22l104 104c6 7 16 7 22 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;补充知识&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;会话层&lt;br&gt;
+会话层的主要功能是在两个节点间建立、维护和释放面向用户的连接，并对会话进行管理和控制，保证会话数据可靠传送\&lt;/li&gt;
+&lt;li&gt;表示层&lt;br&gt;
+表示层负责处理在两个内部数据表示结构不同的通信系统间交换信息的表示格式，为数据加密和解密以及为提高传输效率提供必需的数据压缩及解压等功能&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+2. OSI参考模型和TCP/IP模型的区别&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;OSI参考模型&lt;/th&gt;
+&lt;th&gt;TCP/IP模型&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;3个主要概念：服务、接口、协议&lt;/td&gt;
+&lt;td&gt;没有明确区分服务、接口、协议&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;协议有很好的隐藏性&lt;/td&gt;
+&lt;td&gt;产生在协议发明之后&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;产生在协议发明之前&lt;/td&gt;
+&lt;td&gt;共有4层&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;共有7层&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;网络层：连接和无连接&lt;/td&gt;
+&lt;td&gt;网络层：仅有无连接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;传输层：仅有面向连接&lt;/td&gt;
+&lt;td&gt;传输层：面向连接和无连接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;TCP/IP模型是4层模型(应用层、传输层、网络层、网络接口层)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TCP/IP模型的网络层提供的是无连接不可靠的数据报服务&lt;/strong&gt;&lt;/p&gt;
+
+
+
+&lt;div class=&#34;notice notice-warning&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 576 512&#34;&gt;&lt;path d=&#34;M570 440c18 32-5 72-42 72H48c-37 0-60-40-42-72L246 24c19-32 65-32 84 0l240 416zm-282-86a46 46 0 100 92 46 46 0 000-92zm-44-165l8 136c0 6 5 11 12 11h48c7 0 12-5 12-11l8-136c0-7-5-13-12-13h-64c-7 0-12 6-12 13z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;物理层是不参与封装的，物理层以0、1比特流的形式透明地传输数据链路层递交的帧。网络层、应用层都把上层递交的数据加上首部，数据链路层在接收上层递交的数据时不但要给其加上首部，还要加上尾部&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;物理层&#34;&gt;物理层&lt;/h2&gt;
+&lt;h3 id=&#34;通信基础&#34;&gt;通信基础&lt;/h3&gt;
+&lt;h4 id=&#34;信号&#34;&gt;信号&lt;/h4&gt;
+&lt;p&gt;信号：数据的电气或电磁的表现，数据是传送信息的实体
+
+
+
+&lt;div class=&#34;notice notice-note&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M504 256a248 248 0 11-496 0 248 248 0 01496 0zm-248 50a46 46 0 100 92 46 46 0 000-92zm-44-165l8 136c0 6 5 11 12 11h48c7 0 12-5 12-11l8-136c0-7-5-13-12-13h-64c-7 0-12 6-12 13z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;无论数据或信号，都既可以是模拟的，也可以是数字的&lt;/li&gt;
+&lt;li&gt;信道上传送的信号分为基带信号和宽带信号。基带对应数字信号，宽带对应模拟信号&lt;/li&gt;
+&lt;li&gt;宽带传输可以等同于频带传输，只是宽带传输有更多的子信道&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;信源信道及信宿&#34;&gt;信源、信道及信宿&lt;/h4&gt;
+
+
+
+&lt;div class=&#34;notice notice-note&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M504 256a248 248 0 11-496 0 248 248 0 01496 0zm-248 50a46 46 0 100 92 46 46 0 000-92zm-44-165l8 136c0 6 5 11 12 11h48c7 0 12-5 12-11l8-136c0-7-5-13-12-13h-64c-7 0-12 6-12 13z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;数据传输方式分为串行传输和并行传输&lt;/li&gt;
+&lt;li&gt;通信方式分为同步通信(接收端时钟频率和发送端时钟频率相等)和异步通信&lt;/li&gt;
+&lt;li&gt;通信模式分为单工、半双工、全双工&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+&lt;h4 id=&#34;速率波特及码元&#34;&gt;速率、波特及码元&lt;/h4&gt;
+&lt;p&gt;波特率：表示单位时间内数字通信系统所传输的二进制码元个数(也可称为脉冲个数或者信号变化的次数)，单位是波特(Baud)，1波特表示数字通信系统每秒传输1个码元&lt;br&gt;
+比特率：表示单位时间内数字通信系统所传输的二进制码元个数，即比特数，单位为bit/s&lt;br&gt;
+正常情况下，每比特只能表示两种信号变化(0或1)，可看成二进制。但是一个码元仅携带一个比特数据率很低，所以通过一些手段将信号的变化次数增加，从而让一个码元携带更多的比特。例如增加到16种信号变化(可看成十六进制)，那么需要4bit(log&lt;sub&gt;2&lt;/sub&gt;16 = 4)来表示，此时一个码元携带了4bit&lt;/p&gt;
+&lt;h4 id=&#34;带宽&#34;&gt;带宽&lt;/h4&gt;
+&lt;p&gt;传统定义：通信线路允许通过的信号频带范围，就是允许通过的最高频率减去最低频率&lt;br&gt;
+但是在计算机网络中，带宽是用来表示网络的通信线路所能传送数据的能力&lt;/p&gt;
+&lt;h4 id=&#34;奈奎斯特定理&#34;&gt;奈奎斯特定理&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;采样定理
+假设原始信号中最大频率为f，那么采样频率f&lt;sub&gt;采样&lt;/sub&gt;必须大于或等于最大频率f的两倍，才能保证采样后的数字信号完整保留原始模拟信号的信息&lt;/li&gt;
+&lt;li&gt;奈奎斯特定理
+怎么寻找在保证不出现码间串扰的条件下码元传输速率的最大值？奈奎斯特在采样定理和无噪声的基础上，提出了奈奎斯特定理：&lt;br&gt;
+C&lt;sub&gt;max&lt;/sub&gt;=f&lt;sub&gt;采样&lt;/sub&gt;*log&lt;sub&gt;2&lt;/sub&gt;N=2f * log&lt;sub&gt;2&lt;/sub&gt;N (bit/s)&lt;br&gt;
+其中f表示理想低通信道的带宽；N表示每个码元的离散电平的数目
+
+
+
+&lt;div class=&#34;notice notice-info&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;奈奎斯特定理仅给出了在无噪声情况下码元的最大传输速率(2f)，并没有给出最大数据传输率，只要N足够大，最大数据传输速率C&lt;sub&gt;max&lt;/sub&gt;就可以无穷大&lt;/p&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;香农定理&#34;&gt;香农定理&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;信噪比(dB)=10log&lt;sub&gt;10&lt;/sub&gt;(S/N) (dB)&lt;/strong&gt;&lt;br&gt;
+引入信噪比之后可得出香农公式为&lt;br&gt;
+&lt;strong&gt;C&lt;sub&gt;max&lt;/sub&gt;=W*log&lt;sub&gt;2&lt;/sub&gt;(1+S/N) (bit/s)&lt;/strong&gt; &lt;br&gt;
+W为信道的带宽，想要提高最大数据传输速率，应该设法提高带宽或者信噪比&lt;/p&gt;
+&lt;h4 id=&#34;编码与调制&#34;&gt;编码与调制&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;调制&lt;br&gt;
+数字数据调制为模拟信号：带通调制、基带调制&lt;/li&gt;
+&lt;li&gt;编码&lt;br&gt;
+数字数据编码为数字信号&lt;br&gt;
+非归零码(NRZ):用低电平表示0，高电平表示1&lt;br&gt;
+曼彻斯特编码：将每个码元分成两个相等的间隔，前一个间隔为高电平而后一个间隔为低电平表示码元1，码元0正好相反&lt;br&gt;
+差分曼彻斯特编码：若码元为1，则其前半个码元的电平与上一个码元的后半个码元的电平一样；若码元为0，则其前半个码元的电平与上一个码元的后半个码元的电平相反&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;数据传输方式&#34;&gt;数据传输方式&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;电路交换&lt;br&gt;
+电路交换在通信之前要在通信双方之间建立一条被双方独占的物理通路&lt;/li&gt;
+&lt;li&gt;报文交换&lt;br&gt;
+数据交换的单位是报文，报文携带有目的地址、源地址等信息，在交换节点采用存储转发的传输方式&lt;/li&gt;
+&lt;li&gt;分组交换&lt;br&gt;
+分组交换仍采用存储转发传输方式，但将一个长报文先分割为若干个较短的分组，然后把这些分组逐个地发送出去&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;div class=&#34;notice notice-info&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;电路交换一定是面向连接的，分组交换存在面向连接和无连接两种情况&lt;/p&gt;&lt;/div&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;比较标准&lt;/th&gt;
+&lt;th&gt;电路交换&lt;/th&gt;
+&lt;th&gt;分组交换&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;建立连接&lt;/td&gt;
+&lt;td&gt;需要&lt;/td&gt;
+&lt;td&gt;不需要&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;专用物理路径&lt;/td&gt;
+&lt;td&gt;是&lt;/td&gt;
+&lt;td&gt;否&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;每个分组沿着规定的路径&lt;/td&gt;
+&lt;td&gt;是&lt;/td&gt;
+&lt;td&gt;否&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;分组按序到达&lt;/td&gt;
+&lt;td&gt;是&lt;/td&gt;
+&lt;td&gt;否&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;路由器的瘫痪对整体产生影响&lt;/td&gt;
+&lt;td&gt;是&lt;/td&gt;
+&lt;td&gt;否&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;可用带宽&lt;/td&gt;
+&lt;td&gt;固定&lt;/td&gt;
+&lt;td&gt;动态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;可能拥塞的时间点&lt;/td&gt;
+&lt;td&gt;建立呼叫连接的时候&lt;/td&gt;
+&lt;td&gt;每个分组传送的时候&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;可能有浪费的带宽&lt;/td&gt;
+&lt;td&gt;是&lt;/td&gt;
+&lt;td&gt;否&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;使用存储转发&lt;/td&gt;
+&lt;td&gt;否&lt;/td&gt;
+&lt;td&gt;是&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;透明性&lt;/td&gt;
+&lt;td&gt;是&lt;/td&gt;
+&lt;td&gt;否&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;数据报与虚电路&#34;&gt;数据报与虚电路&lt;/h4&gt;
+&lt;p&gt;数据报&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;发送分组前无需建立连接&lt;/li&gt;
+&lt;li&gt;网络尽最大努力交付，传输不保证可靠性，有可能丢失&lt;/li&gt;
+&lt;li&gt;在具有多个分组的报文中，交换机尚未接受完第二个分组，已经收到的第一个分组就可以转发出去，不仅减小了延迟，而且大大提高了吞吐量&lt;/li&gt;
+&lt;li&gt;当某一台交换机或一段链路故障时，可相应地更新转发表，寻找到另一条替代路径转发分组，对故障适应能力强&lt;/li&gt;
+&lt;li&gt;发送方和接收方不独占某一链路，资源利用率高&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;虚电路&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用户之间必须建立通信连接，数据传输过程中不再需要寻找路径，相对数据包方式时延较小&lt;/li&gt;
+&lt;li&gt;通常分组走同样的路径，所以分组一定是按序到达目的主机的&lt;/li&gt;
+&lt;li&gt;分组首部并不包含目的地址，而是包含虚电路标识符，相对数据报方式开销小&lt;/li&gt;
+&lt;li&gt;当某个交换机或某条链路出现故障彻底失效时，所有经过该交换机或该链路的虚电路将遭到破坏&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;比较标准&lt;/th&gt;
+&lt;th&gt;数据报服务&lt;/th&gt;
+&lt;th&gt;虚电路服务&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;连接的建立&lt;/td&gt;
+&lt;td&gt;无需建立连接&lt;/td&gt;
+&lt;td&gt;需要建立连接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;地址信息&lt;/td&gt;
+&lt;td&gt;每个分组包含完整的源地址和目的地址&lt;/td&gt;
+&lt;td&gt;每个分组包含一个虚电路号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;状态信息&lt;/td&gt;
+&lt;td&gt;路由器不保留任何有关连接的状态信息&lt;/td&gt;
+&lt;td&gt;每个虚电路都要求路由器为每个连接建立表项&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;分组的转发&lt;/td&gt;
+&lt;td&gt;单个分组独立转发&lt;/td&gt;
+&lt;td&gt;根据预定路径转发&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;路由器失效的影响&lt;/td&gt;
+&lt;td&gt;每个分组独立处理，影响局部&lt;/td&gt;
+&lt;td&gt;影响已建立的所有连接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;端到端的差错处理&lt;/td&gt;
+&lt;td&gt;由主机负责&lt;/td&gt;
+&lt;td&gt;由通信子网负责&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;端到端的流量控制&lt;/td&gt;
+&lt;td&gt;由主机负责&lt;/td&gt;
+&lt;td&gt;由通信子网负责&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;分组的顺序&lt;/td&gt;
+&lt;td&gt;无序&lt;/td&gt;
+&lt;td&gt;保持顺序&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;思路&lt;/td&gt;
+&lt;td&gt;可靠通信由用户主机来保证&lt;/td&gt;
+&lt;td&gt;可靠通信由网络来保证&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;注：数据报服务和虚电路服务都由网络层提供&lt;/p&gt;
+&lt;h3 id=&#34;传输介质&#34;&gt;传输介质&lt;/h3&gt;
+&lt;h4 id=&#34;传输介质分类&#34;&gt;传输介质分类&lt;/h4&gt;
+&lt;p&gt;导向型传输介质：包含双绞线、同轴电缆和光纤&lt;/p&gt;
+&lt;h3 id=&#34;物理层设备&#34;&gt;物理层设备&lt;/h3&gt;
+&lt;h4 id=&#34;中继器&#34;&gt;中继器&lt;/h4&gt;
+&lt;p&gt;放大器放大的是模拟信号，中继器放大的是数字信号&lt;/p&gt;
+&lt;h4 id=&#34;集线器&#34;&gt;集线器&lt;/h4&gt;
+&lt;p&gt;集线器不能隔离冲突域&lt;/p&gt;
+&lt;h2 id=&#34;数据链路层&#34;&gt;数据链路层&lt;/h2&gt;
+&lt;h3 id=&#34;数据链路层的功能&#34;&gt;数据链路层的功能&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;链路管理：负责数据链路的建立、维持和释放，主要用于面向连接的服务&lt;/li&gt;
+&lt;li&gt;帧同步：接收方确定收到的比特流中一帧的开始位置与结束位置&lt;/li&gt;
+&lt;li&gt;差错控制：用于使接收方确定接收到的数据就是由发送发送的数据&lt;/li&gt;
+&lt;li&gt;透明传输：不管数据是什么样的比特组合都应当能在链路上传送&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;div class=&#34;notice notice-note&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M504 256a248 248 0 11-496 0 248 248 0 01496 0zm-248 50a46 46 0 100 92 46 46 0 000-92zm-44-165l8 136c0 6 5 11 12 11h48c7 0 12-5 12-11l8-136c0-7-5-13-12-13h-64c-7 0-12 6-12 13z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;帧定界&lt;br&gt;
+解析：当两个主机互相传送信息时，网络层的分组必须封装成帧，并以帧的格式进行传送。将一段数据的前后分别添加首部和尾部，就构成了帧。首部和尾部中含有很多控制信息，这些信息的重要作用之一是确定帧的界限，即帧定界。例如在HDLC协议中的帧格式使用标志F(01111110)来标识帧的开始和结束&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;组帧&#34;&gt;组帧&lt;/h3&gt;
+&lt;p&gt;组帧的优点：如果出错只需发送出错的帧即可&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;字符计数法&lt;/li&gt;
+&lt;li&gt;字节填充的首尾界符法&lt;/li&gt;
+&lt;li&gt;比特填充的首尾标志法&lt;/li&gt;
+&lt;li&gt;物理编码违例法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;注：在使用字节填充的首尾界符法时，并不是所有形式的帧都需要帧开始符和帧结束符&lt;/p&gt;
+&lt;h3 id=&#34;差错控制&#34;&gt;差错控制&lt;/h3&gt;
+&lt;h4 id=&#34;检错编码&#34;&gt;检错编码&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;奇偶校验码&lt;br&gt;
+在信息码后面加一位校验码，分奇校验和偶校验&lt;br&gt;
+奇校验：添加一位校验码后，使得整个码字里面1的个数是奇数。接收端收到数据后就校验数据里1的个数，若检测到奇数个1，则认为传输没有出错；若检测到偶数个1，则说明传输过程中，数据发生了改变，要求重发&lt;br&gt;
+偶校验：添加一位校验码后，使得整个码字里面1的个数是偶数。接收端收到数据后就校验数据里1的个数，若检测到偶数个1，则认为传输没有出错；若检测到奇数个1，则说明传输过程中，数据发生了改变，要求重发&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;循环冗余码&lt;br&gt;
+学会二进制除法即可
+&lt;img src=&#34;https://xuoneyuan.github.io/images/jw-1.png&#34; alt=&#34;crc&#34; title=&#34;示例&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;纠错编码&#34;&gt;纠错编码&lt;/h4&gt;
+&lt;p&gt;海明码：在信息字段中插入若干位数据用于监督码字里的哪一位数据发生了变化，具有一位纠错能力&lt;/p&gt;
+&lt;p&gt;具体求解步骤如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;确定校验码的位数r&lt;/li&gt;
+&lt;li&gt;确定校验码的位置&lt;/li&gt;
+&lt;li&gt;确定数据的位置&lt;/li&gt;
+&lt;li&gt;求出校验位的值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;流量控制与可靠传输机制&#34;&gt;流量控制与可靠传输机制&lt;/h3&gt;
+&lt;h4 id=&#34;流量控制&#34;&gt;流量控制&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;停止-等待流量控制&lt;br&gt;
+发送方发出一帧，然后等待应答信号到达再发送下一帧；接收方每收到一帧后，返回一个应答信号，表示可以接收下一帧&lt;/li&gt;
+&lt;li&gt;滑动窗口流量控制&lt;br&gt;
+在任意时刻，发送方都维持了一组连续的允许发送的帧序号，称为发送窗口。同时接收方也维持了一组连续的允许接收的帧的序号，称为接收窗口。发送窗口和接收窗口的序号的上下界不一定要一样，甚至大小也可以不同。发送方窗口内的序列号代表了已经被发送但是还没有被确认的帧，或者是可以被发送的帧。发送端每收到一个帧的确认，发送窗口就向前滑动一个帧的位置。当发送窗口尺寸达到最大尺寸时，发送方会强行关闭网络层，直到出现一个空闲缓冲区。在接收端只有当收到的数据帧的发送序号落入接收窗口内才允许将该数据帧收下，并将窗口前移一个位置。若接收到的数据帧落在接收窗口之外，则一律将其丢弃。
+&lt;img src=&#34;https://xuoneyuan.github.io/images/jw-2.png&#34; alt=&#34;slide&#34; title=&#34;滑动窗口流量控制的发送窗口&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;可靠传输机制&#34;&gt;可靠传输机制&lt;/h4&gt;
+&lt;p&gt;总结可靠传输与无差错接收的区别&lt;br&gt;
+解析：在数据链路层若仅仅使用了循环冗余码检验差错检测技术，只能做到对帧的无差错接收，接收端虽然收到了帧，但最终还是因为有差错被丢弃，即没有被接收&lt;/p&gt;
+&lt;h4 id=&#34;滑动窗口机制&#34;&gt;滑动窗口机制&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;只有在接收窗口向前滑动时，发送窗口才有可能向前滑动&lt;/li&gt;
+&lt;li&gt;可靠传输机制包括3种协议只是在发送窗口和接收窗口大小上有所差别&lt;br&gt;
+停止-等待协议：发送窗口大小=1，接收窗口大小=1&lt;br&gt;
+后退N帧协议：发送窗口大小&amp;gt;1，接收窗口大小=1&lt;br&gt;
+选择重传协议：发送窗口大小&amp;gt;1，接收窗口大小&amp;gt;1&lt;/li&gt;
+&lt;li&gt;当接收窗口的大小为1时，一定可保证帧按序接收&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;停止-等待协议&#34;&gt;停止-等待协议&lt;/h4&gt;
+&lt;p&gt;基本思想：发送方传输一个帧后，必须等待对方的确认才能发送下一帧。若在规定时间内没有收到确认，则发送方超时，并重传原始帧&lt;/p&gt;
+&lt;p&gt;出现的差错主要有以下两类：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;第一类错误就是数据帧被损坏或者丢失 &lt;br&gt;
+处理数据帧被损坏的情况时，使用计时器即可解决。发送方在发送一个帧后，若数据能够被正确地接收到，则接收方就发送一个确认帧；若接收方收到的是一个被损坏的数据帧，则直接丢弃，只要计时器超过了发送方就会重新发送该数据帧，重复直至数据帧无错误地到达接收方为止&lt;/li&gt;
+&lt;li&gt;第二类错误是确认帧被破坏或者丢失&lt;br&gt;
+解决方法就是让发送方在每个待发的帧头部加一个编号，而接收方对每个到达的帧的编号进行识别，判断是新帧还是要抛弃的重复帧&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;后退n帧gbn协议&#34;&gt;后退N帧(GBN)协议&lt;/h4&gt;
+&lt;p&gt;基本原理：发送方发送完一个数据帧后，不是停下来等待确认帧，而是可以连续再发送若干个数据帧，如果这时收到了接收方的确认帧，那么还可以接着发送数据帧。如果某个帧出错了，接收方只能简单地丢弃该帧及其所有的后续帧。发送方超时后需要重发该出错帧及其后续的所有帧
+
+
+
+&lt;div class=&#34;notice notice-note&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M504 256a248 248 0 11-496 0 248 248 0 01496 0zm-248 50a46 46 0 100 92 46 46 0 000-92zm-44-165l8 136c0 6 5 11 12 11h48c7 0 12-5 12-11l8-136c0-7-5-13-12-13h-64c-7 0-12 6-12 13z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;为什么后退N帧协议的发送窗口尺寸W,必须满足1&amp;lt;W≤2&lt;sup&gt;n&lt;/sup&gt;-1?&lt;/p&gt;
+&lt;p&gt;解析:假设发送窗口的大小为2&lt;sup&gt;n&lt;/sup&gt;,发送方发送了0号帧,接收窗口发送ACKI（0号帧已收到，希望接收1号帧，但是ACK1丢失)，接着发送方发送了1号帧，接收窗口发送ACK2(1号帧已收到，希望接收2号帧，但是 ACK2丢失)，以此类推，直到发送方发了第2&lt;sup&gt;n&lt;/sup&gt;-1号帧，接收方发送 ACK2&lt;sup&gt;n&lt;/sup&gt;(丢失)，此时不能再发送数据了，因为已经发送了2个帧，但一个确认都没有收到，所以一段时间后0号帧的计时器会到达预定时间进行重发，此时接收方认为发过来的是新一轮的0号帧还是旧一轮的重传呢?接收方并不知道，很有可能接收方就把该0号帧当作新一轮的帧接收了，但实际上这个0号帧是重传的，所以出现了错误，即发送窗口的大小不可能为2&lt;sup&gt;n&lt;/sup&gt;。现在假设发送窗口的大小为2&lt;sup&gt;n&lt;/sup&gt;-1，情况和上面一样，发送方发送了0~2&lt;sup&gt;n&lt;/sup&gt;-2号帧，接收方发送的确认帧都丢失了，如果没有丢失就应该接着传2&lt;sup&gt;n&lt;/sup&gt;-1号帧，但是丢失了，发送方应该发送0号帧。由于这种情况接收方可以判断出来(下一帧只要不是第2&lt;sup&gt;n&lt;/sup&gt;1号帧就是重传），因此不会发生错误。如果发送窗口尺寸小于2&lt;sup&gt;n&lt;/sup&gt;-1，那就更不会发生错误了。&lt;br&gt;
+综上所述，后退N帧协议的最大发送窗口是2&lt;sup&gt;n&lt;/sup&gt;-1&lt;/p&gt;&lt;/div&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;选择重传sr协议&#34;&gt;选择重传(SR)协议&lt;/h4&gt;
+&lt;p&gt;基本思想：若一帧出错，则其后续帧先存入接收方的缓冲区中，同时要求发送方重传出错帧，一旦收到重传帧后，就和原先存在缓冲区的其余帧一起按正确的顺序送至主机
+
+
+
+&lt;div class=&#34;notice notice-note&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M504 256a248 248 0 11-496 0 248 248 0 01496 0zm-248 50a46 46 0 100 92 46 46 0 000-92zm-44-165l8 136c0 6 5 11 12 11h48c7 0 12-5 12-11l8-136c0-7-5-13-12-13h-64c-7 0-12 6-12 13z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;为什么选择重传协议的最大发送窗口的大小是2&lt;sup&gt;n-1&lt;/sup&gt;?&lt;br&gt;
+解析:现在先假设选择重传协议的最大发送窗口是W,那么可以一次性发送0~W-1号帧，并且接收方都已经接收到了，但是这W个确认帧全部都在传输的过程中丢失了，此时接收窗口的位置已经移动到W~2W-1。如果发送方再发一轮，这W个帧应该落在W～2W-1，但是此时的W帧是重传的，所以若要正确，就必须满足2W-1是在最大序号2&lt;sup&gt;n&lt;/sup&gt;-1之内，也就是说2W-1≤2&lt;sup&gt;n&lt;/sup&gt;-1，即W&amp;lt;2&lt;sup&gt;n-1&lt;/sup&gt;。综上所述，选择重传协议的最大发送窗口是2&lt;sup&gt;n-1&lt;/sup&gt;。&lt;/li&gt;
+&lt;li&gt;假设n=3，2-=4，若发送窗口为5，则接收窗口为5。假设t时刻发送方发送序号为0~4的帧，t时刻接收方接收到序号为0~4的帧，接收窗口滑动到[5,6,7,0,1]，并发送0~4号的确认帧。但是确认帧在传输中都丢失了。于是，发送方在t3时刻重发帧0。当t时刻接收方收到帧0时，由于帧0在其接收范围，0被错误地当作新帧接收，导致协议错误。因此，对于选择重传协议，必须使发送窗口的大小小于或等于2&lt;sup&gt;n-1&lt;/sup&gt;。&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;介质访问控制&#34;&gt;介质访问控制&lt;/h3&gt;
+&lt;h4 id=&#34;介质访问控制分类&#34;&gt;介质访问控制分类&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;信道划分&lt;/li&gt;
+&lt;li&gt;随机访问&lt;/li&gt;
+&lt;li&gt;轮询访问
+1是静态分配信道的方法，2、3是动态分配信道的方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;信道划分介质访问控制&#34;&gt;信道划分介质访问控制&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;频分多路复用&lt;/li&gt;
+&lt;li&gt;时分多路复用&lt;/li&gt;
+&lt;li&gt;波分多路复用&lt;/li&gt;
+&lt;li&gt;码分多路复用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;随机访问介质访问控制&#34;&gt;随机访问介质访问控制&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;ALOHA协议&lt;br&gt;
+当网络中的任何一个节点需要发送数据时，可以不进行任何检测就发送数据。如果在一段时间内没有收到确认，该节点就认为传输过程中发生了冲突。发生冲突的节点需要等待一段随机时间后再发送数据，直至发送成功为止。&lt;/li&gt;
+&lt;li&gt;CSMA协议&lt;br&gt;
+载波侦听多路访问（CSMA）协议是在 ALOHA 协议的基础上改进而来的一种多路访问控制协议。在CSMA中，每个节点发送数据之前都使用载波侦听技术来判定通信信道是否空闲。常用的CSMA有以下3种策略。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;1-坚持 CSMA:当发送节点监听到信道空闲时，立即发送数据，否则继续监听。&lt;/li&gt;
+&lt;li&gt;p-坚持 CSMA:当发送节点监听到信道空闲时，以概率p发送数据，以概率1-p延迟一段时间并重新监听。&lt;/li&gt;
+&lt;li&gt;非坚持CSMA:当发送节点一旦监听到信道空闲时，立即发送数据，否则延迟一段随机的时间再重新监听。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;CSMA/CD协议&lt;br&gt;
+CSMA/CD全称为带冲突检测的载波侦听多路访问协议，它是在局域网中被广泛应用的介质访问控制协议。&lt;br&gt;
+CSMA/CD 工作流程:每个站在发送数据之前要先检测一下总线上是否有其他计算机在发送数据，若有，则暂时不发送数据，以免发生冲突;若没有，则发送数据。计算机在发送数据的同时检测信道上是否有冲突发生，若有，则采用截断二进制指数类型退避算法来等待一段随机时间后再次重发。总体来说，可概括为“先听后发，边听边发，冲突停发，随机重发”。
+
+
+
+&lt;div class=&#34;notice notice-info&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;在二进制指数后退算法中，N次碰撞之后，站点会在0~M之间选择一个随机数，分以下3类情况讨论。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;当1≤N≤10时，M=2N-1&lt;/li&gt;
+&lt;li&gt;当1≤N≤10时，M=2N-1&lt;/li&gt;
+&lt;li&gt;当N=16时，直接丢弃，并给计算机发送一个错误报告&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;注意:二进制指数后退算法解决了站点检测到冲突后继续等待的时间问题&lt;/p&gt;&lt;/div&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CSMA/CA协议&lt;br&gt;
+CSMA/CA主要用在无线局域网中，由IEEE 802.11标准定义，它在 CSMA 的基础上增加了冲突避免的功能。冲突避免要求每个节点在发送数据之前监听信道。如果信道空闲，则发送数据。发送节点在发送完一个帧后，必须等待一段时间(称为帧间间隔)，检查接收方是否发回帧的确认。若收到确认，则表明无冲突发生;若在规定时间内没有收到确认，表明出现冲突，重发该帧。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;局域网&#34;&gt;局域网&lt;/h3&gt;
+&lt;h4 id=&#34;局域网的基本概念与体系结构&#34;&gt;局域网的基本概念与体系结构&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;局域网最主要的特点&lt;/li&gt;
+&lt;li&gt;局域网的主要优点&lt;/li&gt;
+&lt;li&gt;局域网的主要技术要素&lt;/li&gt;
+&lt;li&gt;局域网的主要拓扑结构&lt;/li&gt;
+&lt;li&gt;局域网的主要传输介质&lt;/li&gt;
+&lt;li&gt;局域网的主要介质访问控制方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;以太网的工作原理&#34;&gt;以太网的工作原理&lt;/h4&gt;
+&lt;p&gt;以太网采用总线拓扑结构，所有计算机都共享一条总线，信息以广播方式发送。为了保证数据通信的方便性和可靠性，以太网使用了CSMA/CD技术对总线进行访问控制。考虑到局域网信道质量好，以太网采取了以下两项重要的措施以使通信更加简便&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;采用无连接的工作方式&lt;/li&gt;
+&lt;li&gt;不对发送的数据帧进行编号，也不要求对发送方发送确认&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此以太网提供的服务是不可靠的服务,即尽最大努力交付,差错的纠正由传输层的TCP完成&lt;/p&gt;
+&lt;h4 id=&#34;以太网的mac帧&#34;&gt;以太网的MAC帧&lt;/h4&gt;
+&lt;p&gt;局域网中的每台计算机都有一个唯一的号码，称为MAC 地址或物理地址、硬件地址。每块网卡出厂即被赋予一个全球唯一的MAC地址,它被固化在网卡的ROM中,共48bit(6B)&lt;/p&gt;
+&lt;h4 id=&#34;以太网的传输介质&#34;&gt;以太网的传输介质&lt;/h4&gt;
+&lt;p&gt;传统以太网可使用的传输介质有4种，即粗缆、细缆、双绞线和光纤。对应的，MAC层下面给出了这4种传输介质的物理层，即10Base5（粗缆)、10Base2(细缆)、10Base-T(双绞线）和10Base-F(光纤)。其中，Base是指电缆上的信号为基带信号，采用曼彻斯特编码;Base前面的10表示数据传输速率为10Mbit/s;Base后面的5或2表示每一段电缆最长为500m或200m(实为185m);T表示双绞线，F表示光纤。&lt;/p&gt;
+
+
+
+&lt;div class=&#34;notice notice-info&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;以太网的MAC协议提供的是无连接不可靠服务&lt;br&gt;
+有连接与无连接的判断:MAC 帧首部格式中只有目的 MAC 地址、源MAC地址和类型字段，并没有建立连接的字段，所以以太网MAC协议提供的是无连接的服务&lt;br&gt;
+可靠与不可靠的判断:以太网帧是一种无编号的帧，当目的站收到有差错的数据帧时，就丢弃此帧，其他什么也不做，差错的纠正由高层来决定，所以以太网的MAC 协议是不可靠的&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;广域网&#34;&gt;广域网&lt;/h3&gt;
+&lt;h4 id=&#34;广域网的基本概念&#34;&gt;广域网的基本概念&lt;/h4&gt;
+
+
+
+&lt;div class=&#34;notice notice-note&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M504 256a248 248 0 11-496 0 248 248 0 01496 0zm-248 50a46 46 0 100 92 46 46 0 000-92zm-44-165l8 136c0 6 5 11 12 11h48c7 0 12-5 12-11l8-136c0-7-5-13-12-13h-64c-7 0-12 6-12 13z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;从层次上考虑，广域网和局域网的区别很大，局域网使用的协议主要在数据链路层，而广域网使用的协议主要在网络层&lt;/p&gt;
+&lt;p&gt;广域网中存在一个最重要的问题，即路由选择和分组转发。路由选择协议负责搜索分组从某个节点到目的节点的最佳传输路由，以便构造路由表。从路由表再构造出转发分组的转发表，分组是通过转发表进行转发的&lt;/p&gt;&lt;/div&gt;
+
+&lt;h4 id=&#34;ppp&#34;&gt;PPP&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;PPP是一个面向字节的协议&lt;/li&gt;
+&lt;li&gt;PPP不需要的功能:纠错（PPP只负责检错)、流量控制（由TCP负责)、序号(PPP是不可靠传输协议，所以不需要对帧进行编号)、多点线路(PPP是点对点的通信方式)、半双工或单工（PPP只支持全双工链路）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;hdlc协议&#34;&gt;HDLC协议&lt;/h4&gt;
+&lt;p&gt;高级数据链路控制（HDLC）协议是ISO制定的面向比特(PPP是面向字节的，这个要记住）的数据链路控制协议。它可适用于链路的两种基本配置:非平衡配置和平衡配置
+
+
+
+&lt;div class=&#34;notice notice-tip&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M504 256a248 248 0 11-496 0 248 248 0 01496 0zM227 387l184-184c7-6 7-16 0-22l-22-23c-7-6-17-6-23 0L216 308l-70-70c-6-6-16-6-23 0l-22 23c-7 6-7 16 0 22l104 104c6 7 16 7 22 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;PPP的帧格式和 HDLC协议的帧格式的区别&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PPP是面向字节的，而HDLC 协议是面向比特的。可以看出，PPP应该使用字节填充，而HDLC协议应该使用比特填充&lt;/li&gt;
+&lt;li&gt;PPP帧比HDLC 协议帧多一个2字节的协议字段。当协议字段值为0x0021时,表示信息字段是护数据报&lt;/li&gt;
+&lt;li&gt;PPP不使用序号和确认机制，只保证无差错接收（通过硬件进行循环冗余码校验)，而端到端差错检测由高层协议完成。HDLC 协议的信息帧使用了编号和确认机制&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;数据链路层设备&#34;&gt;数据链路层设备&lt;/h3&gt;
+&lt;h4 id=&#34;网桥的概念和基本原理&#34;&gt;网桥的概念和基本原理&lt;/h4&gt;
+&lt;p&gt;在数据链路层扩展局域网使用的是网桥。网桥工作在数据链路层，其特点是具有过滤帧的功能。网桥至少有两个端口，每个端口与一个网段相连。网桥每从一个端口接收到一个帧，就先暂存到缓存中。若该帧未出现差错，且欲发往的目的站MAC地址属于另一个网段（同一个网段无需转发，应该丢弃)，则通过查找转发表，将该帧从对应的端口发出。因此，仅在同一个网段中通信的帧，不会被网桥转发到另一个网段中，因而不会加重整个网络的负担。&lt;/p&gt;
+&lt;h4 id=&#34;以太网交换机及其工作原理&#34;&gt;以太网交换机及其工作原理&lt;/h4&gt;
+&lt;p&gt;以太网交换机实质上是多端口网桥，它工作在数据链路层。以太网交换机的每个端口都直接与主机或集线器相连，并且一般都工作在全双工方式。当主机需要通信时，交换机能同时连通许多对的端口，使每一对相互通信的主机都能像独占通信媒体那样，进行无冲突地传输数据，通信完成后断开连接。&lt;/p&gt;
+&lt;h4 id=&#34;各层设备的广播域冲突域及总结&#34;&gt;各层设备的广播域、冲突域及总结&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;设备名称&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;隔离冲突域&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;隔离广播域&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;集线器&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;中继器&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;交换机&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✔️&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;网桥&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✔️&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;路由器&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✔️&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✔️&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;网络层&#34;&gt;网络层&lt;/h2&gt;
+&lt;h3 id=&#34;网络层的功能&#34;&gt;网络层的功能&lt;/h3&gt;
+&lt;h4 id=&#34;异构网络互连&#34;&gt;异构网络互连&lt;/h4&gt;
+&lt;p&gt;将网络互联起来需要一些中间设备，根据中继系统所在的层次，有以下4种不同的中继系统。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;物理层：中继器或集线器&lt;/li&gt;
+&lt;li&gt;数据链路层：网桥或交换机&lt;/li&gt;
+&lt;li&gt;网络层：路由器&lt;/li&gt;
+&lt;li&gt;网络层以上：网关&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;路由与转发&#34;&gt;路由与转发&lt;/h4&gt;
+&lt;p&gt;路由器的主要功能包括路由选择（确定哪一条路径）与分组转发(当一个分组到达时所采用的动作)。根据所需性能要求，可以采用适当的路由算法来构造路由表进行路由选择。不仅如此，该路由表还会根据从各相邻路由器所得到的关于整个网络的拓扑变化情况，动态地改变所选择的路由，以便得到最佳路由&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;路由选择:根据路由算法确定一个进来的分组应该被传送到哪一条输出路线上。如果子网内部使用数据报，那么对每一个进来的分组都要重新选择路径。如果子网内部使用虚电路，那么只有当创建一个新的虚电路时，才需要确定路由路径&lt;/li&gt;
+&lt;li&gt;分组转发:路由器根据转发表将用户的IP数据报从合适的端口转发出去&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;注意:路由表是根据路由选择算法得出的，而转发表是从路由表得出的&lt;/p&gt;
+&lt;h4 id=&#34;拥塞控制&#34;&gt;拥塞控制&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;开环控制&lt;/li&gt;
+&lt;li&gt;闭环控制&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;div class=&#34;notice notice-info&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;注意:拥塞控制和流量控制的关系密切，但二者之间也存在一些差异。拥塞控制必须确保通信子网能够传送待传送的数据，是一个全局性的问题，涉及所有主机、路由器以及导致网络传输能力下降的所有因素。而流量控制只与给定的发送端和接收端之间的点对点通信量有关，其任务是使发送端发送数据的速率不能快得让接收端来不及接收&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;路由算法&#34;&gt;路由算法&lt;/h3&gt;
+&lt;h4 id=&#34;静态路由与动态路由&#34;&gt;静态路由与动态路由&lt;/h4&gt;
+&lt;p&gt;静态路由特点是简单和开销小，但不能及时适应网络状态的变化&lt;br&gt;
+动态路由特点是较好地适应网络状态的变化，分为两种基本类型：距离-向量路由算法和链路状态路由算法&lt;/p&gt;
+&lt;h4 id=&#34;距离-向量路由算法&#34;&gt;距离-向量路由算法&lt;/h4&gt;
+&lt;p&gt;在距离-向量路由算法中，所有的节点都定期地将它们整个路由选择表传送给所有与之直接相邻的节点。这种路由选择表包含每条路径的目的地（另一节点）和路径的代价（距离)&lt;/p&gt;
+&lt;h4 id=&#34;链路状态路由算法&#34;&gt;链路状态路由算法&lt;/h4&gt;
+&lt;p&gt;链路状态路由算法要求每个参与该算法的节点都有完全的网络拓扑信息，它们执行下述两项任务&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;主动测试所有邻接节点的状态，两个共享一条链接的节点是相邻节点，它们连接到同一条链路&lt;/li&gt;
+&lt;li&gt;定期地将链路状态传播给所有其他节点（或称为路由节点)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;层次路由&#34;&gt;层次路由&lt;/h4&gt;
+&lt;p&gt;因特网将整个互联网划分为许多较小的自治系统，每个自治系统有权自主地决定本系统内应采用何种路由选择协议&lt;br&gt;
+因特网把路由选择协议分为两大类&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一个自治系统内部所使用的路由选择协议称为内部网关协议（IGP)，具体的协议有RIP和OSPF等&lt;/li&gt;
+&lt;li&gt;自治系统之间使用的路由选择协议称为外部网关协议（EGP)，主要在不同自治系统的路由器之间交换路由信息，并负责为分组在不同自治系统之间选择最优的路径，具体的协议有BGP&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;ipv4&#34;&gt;IPv4&lt;/h3&gt;
+&lt;h4 id=&#34;ipv4分组&#34;&gt;IPv4分组&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/ipv4.png&#34; alt=&#34;ip&#34; title=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;ipv4地址&#34;&gt;IPv4地址&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;IPv4地址的分类&lt;br&gt;
+A类地址：网络号为前面8位，第一位规定为0，每个A类网络上的最大主机是2&lt;sup&gt;24&lt;/sup&gt;-2&lt;br&gt;
+B类地址：网络号为前面16位，前两位规定为10，每个B类网络上的最大主机是2&lt;sup&gt;16&lt;/sup&gt;-2&lt;br&gt;
+C类地址：网络号为前面24位，前三位规定为110，每个C类网络上的最大主机是2&lt;sup&gt;8&lt;/sup&gt;-2&lt;/li&gt;
+&lt;li&gt;6种特殊地址
+&lt;img src=&#34;https://xuoneyuan.github.io/images/6-ipv4.png&#34; alt=&#34;ip&#34; title=&#34;&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;nat&#34;&gt;NAT&lt;/h4&gt;
+&lt;p&gt;NAT 就是将专用网内部使用的本地IP地址转换成有效的外部全球IP地址，使得整个专用网只需要一个全球IP地址就可以与因特网连通&lt;/p&gt;
+&lt;h4 id=&#34;子网划分与子网掩码&#34;&gt;子网划分与子网掩码&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;子网划分&lt;br&gt;
+划分子网的基本思路:从主机号借用若干个比特作为子网号，而主机号也就相应减少了若干个比特，网络号不变。于是三级的IP地址可记为&lt;br&gt;
+IP地址::={&amp;lt;网络号&amp;gt;，&amp;lt;子网号&amp;gt;，&amp;lt;主机号&amp;gt;}&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;div class=&#34;notice notice-note&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M504 256a248 248 0 11-496 0 248 248 0 01496 0zm-248 50a46 46 0 100 92 46 46 0 000-92zm-44-165l8 136c0 6 5 11 12 11h48c7 0 12-5 12-11l8-136c0-7-5-13-12-13h-64c-7 0-12 6-12 13z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;某网络的P地址空间为192.168.5.0/24，采用长子网划分，子网掩码为255.255.255.248，则该网络的最大子网个数为32，每个子网内的最大可分配地址个数为6&lt;br&gt;
+解析：先将子网掩码写成二进制为11111111 11111111 11111111 11111000，可见IP地址空间192.168.5.0/24(本来主机位是8位）拿出了5位来划分子网，所以一共可以划分32个子网(这里使用的是 CIDR,所以全“0”、全“1”的子网不用去除);而主机位只有3位了，所以最大可分配的地址是23-2=6个(要去除全“0”、全“1”的地址)。&lt;/p&gt;&lt;/div&gt;
+
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;子网掩码&lt;br&gt;
+子网掩码是一个与P地址相对应的32位的二进制串，它由一串1和0组成。其中，1对应于P地址中的网络号和子网号，0对应于主机号。因为1对1进行与操作，结果为1;1对0进行与操作，结果为0&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;cidr&#34;&gt;CIDR&lt;/h4&gt;
+&lt;p&gt;无分类编址（CIDR）是为解决IP地址耗尽而提出的一种措施&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;CIDR消除了传统的A类、B类和C类地址以及划分子网的概念，因而可以更加有效地分配IPv4的地址空间。CIDR使用各种长度的“网络前缀”来代替分类地址中的网络号和子网号。于是，IP地址又从三级编址回到了两级编址，其地址格式为   IP地址::-{&amp;lt;网络前缀&amp;gt;，&amp;lt;主机号&amp;gt;}&lt;br&gt;
+为了区分网络前缀，通常采用“斜线记法”(又称CIDR记法)，即IP地址/网络前缀所占位数&lt;/li&gt;
+&lt;li&gt;将网络前缀都相同的连续的IP地址组成“CIDR地址块”。一个CIDR地址块可以表示很多地址，这种地址的聚合常称为路由聚合(也称构成超网)，它使得路由表中的一个项目可以表示很多个原来传统分类地址的路由，因此可以缩短路由表，减小路由器之间选择信息的交换，从而提高网络性能&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;div class=&#34;notice notice-warning&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 576 512&#34;&gt;&lt;path d=&#34;M570 440c18 32-5 72-42 72H48c-37 0-60-40-42-72L246 24c19-32 65-32 84 0l240 416zm-282-86a46 46 0 100 92 46 46 0 000-92zm-44-165l8 136c0 6 5 11 12 11h48c7 0 12-5 12-11l8-136c0-7-5-13-12-13h-64c-7 0-12 6-12 13z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;最长前缀匹配原则:在使用CIDR时，路由表中的每个项目由网络前缀和下一跳地址组成，这样就会导致查找路由表时可能会得到不止一个匹配结果。应当从匹配结果中选择具有最长网络前缀的路由，因为网络前缀越长，其地址块就越小，路由就越具体&lt;/p&gt;&lt;/div&gt;
+
+&lt;h4 id=&#34;arp&#34;&gt;ARP&lt;/h4&gt;
+&lt;p&gt;在每个主机中都有一个ARP高速缓存，里面存放的是所在局域网上的各主机和路由器的IP地址到硬件地址的映射表，ARP的职责就是动态地维护该表。&lt;/p&gt;
+&lt;p&gt;当源主机欲向本局域网上的某个目标主机发送IP分组时，应先在其ARP高速缓存中查看有无目标主机的IP地址。如果有，就可查出其对应的硬件地址，再将此硬件地址写入MAC帧，然后通过局域网将该MAC帧发往此硬件地址。如果没有，则先通过广播ARP请求分组，在获得目标主机的ARP响应分组后，将目标主机的硬件地址写入ARP 高速缓存，建立目标主机的P地址到硬件地址的映射关系。&lt;/p&gt;
+&lt;p&gt;ARP是解决同一个局域网上的主机或路由器的IP地址和硬件地址的映射问题的。如果所要找的主机和源主机不在同一个局域网上，那么就要通过ARP找到一个位于本局域网上的某个路由器的硬件地址，然后把分组发送给这个路由器，让这个路由器把分组转发给下一个网络，剩下的工作就由下一个网络来做。&lt;/p&gt;
+&lt;p&gt;ARP请求分组是广播送的，ARP响应分组是普通的单播，即从一个源地址发送到一个目的地址&lt;/p&gt;
+&lt;h4 id=&#34;dhcp&#34;&gt;DHCP&lt;/h4&gt;
+&lt;p&gt;动态主机配置协议（DHCP）常用于给主机动态地分配P地址&lt;/p&gt;
+&lt;p&gt;DHCP是应用层协议，DHCP报文使用 UDP传输&lt;/p&gt;
+&lt;h4 id=&#34;icmp&#34;&gt;ICMP&lt;/h4&gt;
+&lt;p&gt;ICMP报文分为两种，即ICMP差错报告报文和ICMP询问报文&lt;/p&gt;
+&lt;p&gt;ICMP差错报告报文的分类&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;终点不可达。当路由器或主机不能交付数据报时，就向源点发送终点不可达报文。&lt;/li&gt;
+&lt;li&gt;源站抑制。当路由器或主机由于拥塞而丢弃数据报时，就向源点发送源点抑制报文，使源点知道应当把数据报的发送速率放慢。&lt;/li&gt;
+&lt;li&gt;时间超过。当IP分组的TTL值被减为0后，路由器除了要丢弃该分组外，还要向源点发送时间超过报文。当终点在预先规定的时间内不能收到一个数据报的全部数据报片时，就把已收到的数据报片都丢弃，并向源点发送时间超过报文。&lt;/li&gt;
+&lt;li&gt;参数问题。当路由器或目的主机收到的数据报的首部中有字段的值不正确时，就丢弃该数据报，并向源点发送参数问题报文（现在一般都不发)。&lt;/li&gt;
+&lt;li&gt;改变路由（重定向)。路由器把改变路由报文发送给主机，让主机知道下次应将数据报发送给其他的路由器（比当前更好的路由)。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ICMP询问报文的分类&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;有回送请求和回答报文&lt;/li&gt;
+&lt;li&gt;时间戳请求和回答报文&lt;/li&gt;
+&lt;li&gt;掩码地址请求和回答报文&lt;/li&gt;
+&lt;li&gt;路由器询问和通告报文&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;路由协议&#34;&gt;路由协议&lt;/h3&gt;
+&lt;h4 id=&#34;路由选择协议分类&#34;&gt;路由选择协议分类&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;内部网关协议(IGP)&lt;/li&gt;
+&lt;li&gt;外部网关协议(EGP)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;rip&#34;&gt;RIP&lt;/h4&gt;
+&lt;p&gt;RIP认为一个好的路由就是它通过的路由器的数目少，即“距离短”。RIP 允许一条路径最多只能包含15个路由器。“距离”的最大值为16时即相当于不可达。可见，RIP只适用于小型互联网。RIP不能在两个网络之间同时使用多条路由。RIP选择一个具有最少路由器的路由（最短路由)，哪怕还存在另一条高速（低时延）但路由器较多的路由&lt;/p&gt;
+&lt;p&gt;RIP的三要点:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;仅和相邻路由器交换信息&lt;/li&gt;
+&lt;li&gt;交换的信息是当前本路由器所知道的全部信息，即自己的路由表&lt;/li&gt;
+&lt;li&gt;按固定的时间间隔（如每隔30s）交换路由信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;ospf&#34;&gt;OSPF&lt;/h4&gt;
+&lt;p&gt;OSPF协议的三要点:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;向本自治系统中所有路由器发送信息，这里使用的方法是洪泛法&lt;/li&gt;
+&lt;li&gt;发送的信息就是与本路由器相邻的所有路由器的链路状态，但这只是路由器所知道的部分信息&lt;/li&gt;
+&lt;li&gt;“链路状态”就是说明本路由器都和哪些路由器相邻以及该链路的“度量”(metric)。只有当链路状态发生变化时，路由器才用洪泛法向所有路由器发送此信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;bgp&#34;&gt;BGP&lt;/h4&gt;
+&lt;p&gt;边界网关协议（BGP）是在不同自治系统的路由器之间交换路由信息的协议&lt;br&gt;
+边界网关协议只能是力求寻找一条能够到达目的网络且比较好的路由（不能转圈)，而并非要寻找一条最佳路由&lt;/p&gt;
+&lt;h4 id=&#34;总结&#34;&gt;总结&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;特性&lt;/th&gt;
+&lt;th&gt;RIP&lt;/th&gt;
+&lt;th&gt;OSPF&lt;/th&gt;
+&lt;th&gt;BGP&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;类型&lt;/td&gt;
+&lt;td&gt;内部&lt;/td&gt;
+&lt;td&gt;内部&lt;/td&gt;
+&lt;td&gt;外部&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;路由算法&lt;/td&gt;
+&lt;td&gt;距离-向量&lt;/td&gt;
+&lt;td&gt;链路状态&lt;/td&gt;
+&lt;td&gt;路径-向量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;传递协议&lt;/td&gt;
+&lt;td&gt;UDP&lt;/td&gt;
+&lt;td&gt;IP&lt;/td&gt;
+&lt;td&gt;TCP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;路径选择&lt;/td&gt;
+&lt;td&gt;跳数最少&lt;/td&gt;
+&lt;td&gt;代价最低&lt;/td&gt;
+&lt;td&gt;较好，非最佳&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;交换结点&lt;/td&gt;
+&lt;td&gt;和本结点相邻的路由器&lt;/td&gt;
+&lt;td&gt;网络中所有的路由器&lt;/td&gt;
+&lt;td&gt;和本结点相邻的路由器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;交换内容&lt;/td&gt;
+&lt;td&gt;当前本路由器知道的全部信息，即自己的路由表&lt;/td&gt;
+&lt;td&gt;与本路由器相邻的所有路由器的链路状态&lt;/td&gt;
+&lt;td&gt;首次：整个路由表；非首次：有变化的部分&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;网络层设备&#34;&gt;网络层设备&lt;/h3&gt;
+&lt;h4 id=&#34;路由器的组成与功能&#34;&gt;路由器的组成与功能&lt;/h4&gt;
+&lt;p&gt;路由器工作在网络层，实质上是一种多个输入端口和多个输出端口的专用计算机，其任务是连接不同的网络转发分组&lt;/p&gt;
+&lt;p&gt;路由选择：确定数据报走那一条路径，即路由器根据不同的算法生成动态的路由表&lt;/p&gt;
+&lt;p&gt;分组转发：路由器根据转发表将用户的IP数据从合适的端口报转发出去&lt;/p&gt;
+
+
+
+&lt;div class=&#34;notice notice-info&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;为什么要划分子网？子网掩码的作用是什么？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;由于因特网的每台主机都要分配一个唯一的P地址，所以分配的P地址很多，这将使路由器的路由表变得很大，进而影响了路由器在进行路由选择时的工作效率。解决这个问题的方法就是将一个大的网络划分为几个较小的网络,每个小的网络称为一个子网。&lt;/li&gt;
+&lt;li&gt;当一个分组到达一个路由器时，路由器应该能够判断出P地址的网络号。子网掩码用来判断IP地址的哪一部分是网络号与子网号，哪一部分是主机号。为了完成这种分离，路由器将对IP地址和子网掩码进行“与”运算。&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;传输层&#34;&gt;传输层&lt;/h2&gt;
+&lt;h3 id=&#34;传输层提供的服务&#34;&gt;传输层提供的服务&lt;/h3&gt;
+&lt;h4 id=&#34;传输层的功能&#34;&gt;传输层的功能&lt;/h4&gt;
+&lt;p&gt;传输层为两台主机提供了应用进程之间的通信，又称为端到端通信&lt;br&gt;
+传输层的功能如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;提供应用进程间的逻辑通信(网络层提供主机之间的逻辑通信)&lt;/li&gt;
+&lt;li&gt;差错检测&lt;/li&gt;
+&lt;li&gt;提供无连接或面向连接的服务&lt;/li&gt;
+&lt;li&gt;复用和分用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;协议&lt;/th&gt;
+&lt;th&gt;TCP (Transmission Control Protocol)&lt;/th&gt;
+&lt;th&gt;IP (Internet Protocol)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;层级&lt;/td&gt;
+&lt;td&gt;传输层 (Transport Layer)&lt;/td&gt;
+&lt;td&gt;网络层 (Network Layer)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;功能&lt;/td&gt;
+&lt;td&gt;提供可靠的、面向连接的数据传输服务&lt;/td&gt;
+&lt;td&gt;提供不可靠的、无连接的数据传输服务&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;数据单位&lt;/td&gt;
+&lt;td&gt;段 (Segment)&lt;/td&gt;
+&lt;td&gt;数据报 (Datagram)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;控制机制&lt;/td&gt;
+&lt;td&gt;流量控制、拥塞控制、错误检测和纠正&lt;/td&gt;
+&lt;td&gt;无（由上层协议处理错误和控制）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;地址类型&lt;/td&gt;
+&lt;td&gt;端口号 (Port Number)&lt;/td&gt;
+&lt;td&gt;IP地址 (IP Address)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;适用场景&lt;/td&gt;
+&lt;td&gt;需要可靠传输的应用，如网页浏览、文件传输&lt;/td&gt;
+&lt;td&gt;所有通过网络层发送的数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;传输层寻址与端口&#34;&gt;传输层寻址与端口&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;端口的基本概念&lt;br&gt;
+端口就是用来标识应用层的进程&lt;br&gt;
+软件端口与硬件端口的区别:硬件端口是不同硬件设备进行交互的接口(如交换机和路由器的端口),而软件端口是应用层的各种协议进程与传输实体进行层间交互的一种地址&lt;/li&gt;
+&lt;li&gt;端口号&lt;br&gt;
+由于同一时刻一台主机上会有大量的网络应用进程在运行，所以需要有大量的端口号来标识不同的进程&lt;/li&gt;
+&lt;li&gt;套接字&lt;br&gt;
+套接字 = (主机IP地址，端口号)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;无连接服务与面向连接服务&#34;&gt;无连接服务与面向连接服务&lt;/h4&gt;
+&lt;p&gt;传输层提供了两种类型的服务:无连接服务和面向连接服务，相应的实现分别是用户数据报协议（UDP）和传输控制协议（TCP)。当采用TCP时，传输层向上提供的是一条全双工的可靠的逻辑信道;当采用UDP时，传输层向上提供的是一条不可靠的逻辑信道。&lt;/p&gt;
+&lt;p&gt;UDP的主要特点&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;传送数据前无须建立连接，数据到达后也无须确认&lt;/li&gt;
+&lt;li&gt;不可靠交付&lt;/li&gt;
+&lt;li&gt;报文头部短，传输开销小，时延较短&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;TCP的主要特点&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;面向连接，不提供广播或多播服务&lt;/li&gt;
+&lt;li&gt;可靠交付&lt;/li&gt;
+&lt;li&gt;报文段头部长，传输开销大&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;tcp&#34;&gt;TCP&lt;/h3&gt;
+&lt;h4 id=&#34;tcp连接管理&#34;&gt;TCP连接管理&lt;/h4&gt;
+&lt;p&gt;TCP传输连接的建立采用“三次握手”的方法&lt;/p&gt;
+&lt;p&gt;第一步:客户机A的TCP向服务器B发出连接请求报文段，其首部中的同步位SYN=1(TCP 规定，SYN报文段不能携带数据，但要消耗一个序号)，并选择序号 seq=x，表明传送数据时的第一个数据字节的序号是x。&lt;/p&gt;
+&lt;p&gt;第二步:服务器收到了数据报，并从SYN位为1知道这是一个建立连接的请求。如果同意，则发回确认。B在确认报文段中应使SYN=1，ACK=1，其确认号ack=x+1，自己选择的序号seq=y。注意，此时该报文段也不能携带数据(助记:因为有SYN=1，所以不能带数据)。&lt;/p&gt;
+&lt;p&gt;第三步:A收到此报文段后向B给出确认，其ACK=1，确认号ack=y+1。A的TCP通知上层应用进程，连接已经建立。B的TCP收到主机A的确认后，也通知其上层应用进程，此时TCP连接已经建立，ACK报文可以携带数据（没有SYN 字段)，如果不携带数据则不消耗序号。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/tcp3.png&#34; alt=&#34;tcp&#34;&gt;&lt;/p&gt;
+&lt;p&gt;释放传输连接&lt;br&gt;
+第一步:数据传输结束后，通信双方都可释放连接。现在A的应用进程先向其TCP发出连接释放报文段，并停止再发送数据，主动关闭TCP连接。A将连接释放报文段首部的FIN置1，其序号 seq=u，等待B的确认。这里要注意，因为TCP是双工的，也就是说，可以想象一对TCP连接上有两条数据通路。当发送FIN报文时，发送FIN的一端就不能发送数据，也就是关闭了其中一条数据通路，但是对方还是可以发送数据的。&lt;/p&gt;
+&lt;p&gt;第二步:如图5-9所示，B发出确认，确认号ack=u+1，而这个报文段自己的序号seq=v。TCP服务器进程通知高层应用进程。从A到B这个方向的连接就释放了，TCP连接处于半关闭状态。B若发送数据，则A仍要接收。&lt;/p&gt;
+&lt;p&gt;第三步:若B已经没有要向A发送的数据，其应用进程就通知TCP释放连接。&lt;/p&gt;
+&lt;p&gt;第四步:A收到连接释放报文段后，必须发出确认。在确认报文段中，ACK=1，确认号ack=w+1，自己的序号seq=u+1。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/tcp4.png&#34; alt=&#34;tcp&#34;&gt;&lt;/p&gt;
+
+
+
+&lt;div class=&#34;notice notice-warning&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 576 512&#34;&gt;&lt;path d=&#34;M570 440c18 32-5 72-42 72H48c-37 0-60-40-42-72L246 24c19-32 65-32 84 0l240 416zm-282-86a46 46 0 100 92 46 46 0 000-92zm-44-165l8 136c0 6 5 11 12 11h48c7 0 12-5 12-11l8-136c0-7-5-13-12-13h-64c-7 0-12 6-12 13z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;建立连接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;SYN=1, seq=x&lt;/li&gt;
+&lt;li&gt;SYN=1,ACK=1,seq=y,ack=x+1&lt;/li&gt;
+&lt;li&gt;ACK=1,seq=x+1,ack=y+1&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;释放连接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;FIN=1,seq=u&lt;/li&gt;
+&lt;li&gt;ACK=1,seq=v,ack=u+1&lt;/li&gt;
+&lt;li&gt;FIN=1,ACK=1,seq=w,ack=u+1&lt;/li&gt;
+&lt;li&gt;ACK=1,seq=u+1,ack=w+1&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+&lt;h4 id=&#34;tcp可靠传输&#34;&gt;TCP可靠传输&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;TCP数据编号与确认&lt;br&gt;
+TCP是面向字节的。TCP将所要传送的报文看成是字节组成的数据流，并使每一个字节对应于一个序号。在连接建立时，双方要商定初始序号。TCP每次发送的报文段的首部中的序号字段数值表示该报文段中的数据部分的第一个字节的序号。&lt;br&gt;
+TCP 的确认是对接收到的数据的最高序号表示确认。接收端返回的确认号是已收到的数据的最高序号加1。因此，确认号表示接收端期望下次收到的数据中的第一个数据字节的序号。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TCP的重传机制
+TCP每发送一个报文段，就对这个报文段设置一次计时器。只要计时器设置的重传时间到了规定时间还没有收到确认，那么就要重传该报文段。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;RTT=(1-α)×(旧的 RTT)+α×(新的往返时延样本)&lt;/p&gt;
+&lt;h4 id=&#34;tcp拥塞控制的基本概念&#34;&gt;TCP拥塞控制的基本概念&lt;/h4&gt;
+&lt;p&gt;拥塞控制与流量控制的性质对比:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;拥塞控制所要做的只有一个目的，就是使得网络能够承受现有的网络负荷。&lt;/li&gt;
+&lt;li&gt;拥塞控制是一个全局性的过程，涉及所有的主机、所有的路由器以及与降低网络传输性能有关的所有因素。&lt;/li&gt;
+&lt;li&gt;流量控制往往指在给定的发送端和接收端之间的点对点通信量的控制。&lt;/li&gt;
+&lt;li&gt;流量控制所要做的就是抑制发送端发送数据的速率，以便使接收端来得及接收。&lt;/li&gt;
+&lt;li&gt;拥塞控制是很难设计的，因为它是一个动态的（而不是静态的）问题。&lt;/li&gt;
+&lt;li&gt;当前网络正朝着高速化的方向发展，这很容易出现缓存不够大而造成分组的丢失。但分组的丢失是网络发生拥塞的征兆而不是原因。&lt;/li&gt;
+&lt;li&gt;在许多情况下，正是拥塞控制本身成为引起网络性能恶化甚至发生死锁的原因，这点应特别引起重视。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;拥塞控制又分为闭环控制和开环控制&lt;/p&gt;
+&lt;h4 id=&#34;拥塞控制的4种算法&#34;&gt;拥塞控制的4种算法&lt;/h4&gt;
+&lt;p&gt;发送端的主机在确定发送报文段的速率时，既要根据接收端的接收能力，又要从全局考虑不要使网络发生拥塞。因此，TCP要求发送端维护以下两个窗口。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;接收端窗口rwnd:接收端根据其目前接收缓存大小所许诺的最新的窗口值，反映了接收端的容量。由接收端将其放在TCP报文的首部的窗口字段通知发送端，如图5-14所示。&lt;/li&gt;
+&lt;li&gt;拥塞窗口cwnd:发送端根据自己估计的网络拥塞程度而设置的窗口值，反映了网络的当前容量。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;发送端发送窗口的上限值应当取接收端窗口rwnd和拥塞窗口cwnd这两个变量中较小的一个，即应按以下公式确定:&lt;br&gt;
+发送窗口的上限值=Min [rwnd，cwnd]&lt;/p&gt;
+&lt;p&gt;慢开始算法的原理&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在主机刚刚开始发送报文段时可先设置拥塞窗口 cwnd=1，即设置为一个最大报文段长度MSS的数值&lt;/li&gt;
+&lt;li&gt;在每收到一个对新的报文段的确认后，将拥塞窗口加1，即增加一个MSS的数值&lt;/li&gt;
+&lt;li&gt;用这样的方法逐步增大发送端的拥塞窗口 cwnd，可以使分组注入到网络的速率更加合理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;拥塞避免算法的原理&lt;br&gt;
+为防止拥塞窗口 cwnd的增长引起网络阻塞，还需要一个状态变量，即慢开始门限ssthresh，其用法如下:&lt;br&gt;
+当cwnd&amp;lt;ssthresh时，使用慢开始算法&lt;br&gt;
+当cwnd&amp;gt;ssthresh时，停止使用慢开始算法，改用拥塞避免算法&lt;br&gt;
+当cwnd=ssthresh 时，既可以使用慢开始算法，也可以使用拥塞避免算法&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/yongse.png&#34; alt=&#34;tcp&#34;&gt;&lt;/p&gt;
+&lt;p&gt;快重传算法&lt;/p&gt;
+&lt;p&gt;快恢复算法
+&lt;img src=&#34;https://xuoneyuan.github.io/images/chongchuan.png&#34; alt=&#34;tcp&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;应用层&#34;&gt;应用层&lt;/h2&gt;
+&lt;h3 id=&#34;网络应用模型&#34;&gt;网络应用模型&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;客户/服务器模型(C/S模型)&lt;/li&gt;
+&lt;li&gt;P2P模型&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;dns系统&#34;&gt;DNS系统&lt;/h3&gt;
+&lt;h4 id=&#34;dns系统的概念&#34;&gt;DNS系统的概念&lt;/h4&gt;
+&lt;p&gt;从概念上可以将DNS分为3个部分:层次域名空间、域名服务器、解析器&lt;/p&gt;
+&lt;h4 id=&#34;层次域名空间&#34;&gt;层次域名空间&lt;/h4&gt;
+&lt;p&gt;级别最低的域名写在最左边，而级别最高的顶级域名写在最右边&lt;/p&gt;
+&lt;h4 id=&#34;域名服务器&#34;&gt;域名服务器&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;根域名服务器&lt;/li&gt;
+&lt;li&gt;顶级域名服务器&lt;/li&gt;
+&lt;li&gt;权限域名服务器&lt;/li&gt;
+&lt;li&gt;本地域名服务器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;ftp&#34;&gt;FTP&lt;/h3&gt;
+&lt;p&gt;FTP客户机和服务器间传递 FTP命令时，使用的连接是建立在TCP之上的控制连接&lt;/p&gt;
+&lt;h3 id=&#34;www&#34;&gt;WWW&lt;/h3&gt;
+&lt;h4 id=&#34;www的概念和组成结构&#34;&gt;WWW的概念和组成结构&lt;/h4&gt;
+&lt;p&gt;一个大规模的、联机式的信息储藏所&lt;br&gt;
+wwW使用统一资源定位符（URL）来标志wwW上的各种文档。URL 的一般格式为&lt;br&gt;
+&amp;lt;协议&amp;gt;://&amp;lt;主机&amp;gt;:&amp;lt;端口号&amp;gt;/&amp;lt;路径&amp;gt;&lt;/p&gt;
+&lt;h4 id=&#34;http&#34;&gt;HTTP&lt;/h4&gt;
+&lt;p&gt;超文本传送协议（HTTP）是在客户程序（如浏览器）与www服务器程序之间进行交互所使用的协议。HTTP是面向事务的应用层协议，它使用TCP连接进行可靠传输，服务器默认监听在80端口。&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" term="计算机基础知识" label="计算机基础知识" />
+                            
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" term="计算机" label="计算机" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/tags/408/" term="408" label="408" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
+        <entry>
             <title type="text">GTA VI IS REALLY ON THE WAY!!!</title>
             <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/posts/10/" />
             <id>https://xuoneyuan.github.io/posts/10/</id>
-            <updated>2023-12-06T16:44:56&#43;08:00</updated>
+            <updated>2023-12-28T21:04:52&#43;08:00</updated>
             <published>2023-12-06T16:19:08&#43;08:00</published>
             <author>
                     <name>falcone</name>
@@ -54,7 +1217,7 @@
     &lt;/div&gt;
 &lt;p&gt;早在R星删除ins上所有之前的推文时，就已经暗示大的要来了&lt;/p&gt;
 &lt;p&gt;果不其然，翻译翻译什么叫惊喜！
-&lt;img src=&#34;https://xuoneyuan.github.io/images/gta6.png&#34; alt=&#34;rockstar.png&#34; title=&#34;b站什么时候跟油管学学支持4k分辨率&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://xuoneyuan.github.io/images/gta6.png&#34; alt=&#34;rockstar.png&#34; title=&#34;b站什么时候无大会员支持4k分辨率&#34;&gt;&lt;/p&gt;
 &lt;p&gt;截至目前(2023-12-6,16:30PM)，youtube上该视频的播放量已超1亿次，我就问问还有谁！
 &lt;img src=&#34;https://xuoneyuan.github.io/images/rock1.png&#34; alt=&#34;rockstar.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;点赞超过900万，评论更是高达73万条!
