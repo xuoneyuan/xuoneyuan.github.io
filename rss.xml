@@ -23,10 +23,105 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Sat, 30 Dec 2023 23:25:21 &#43;0800</lastBuildDate>
+        <lastBuildDate>Sun, 21 Jan 2024 21:16:17 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://xuoneyuan.github.io/rss.xml" />
         
+        
+            <item>
+                <title>数据结构</title>
+                <link>https://xuoneyuan.github.io/posts/14/</link>
+                <guid isPermaLink="true">https://xuoneyuan.github.io/posts/14/</guid>
+                <pubDate>Sun, 21 Jan 2024 19:47:55 &#43;0800</pubDate>
+                
+                    <author>xuoneyuan@gmail.com (falcone)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description>&lt;h2 id=&#34;线性表&#34;&gt;线性表&lt;/h2&gt;
+&lt;h3 id=&#34;线性表的基本概念与实现&#34;&gt;线性表的基本概念与实现&lt;/h3&gt;
+&lt;h4 id=&#34;线性表的定义&#34;&gt;线性表的定义&lt;/h4&gt;
+&lt;p&gt;线性表是具有相同特性数据元素的一个有限序列&lt;/p&gt;
+&lt;h4 id=&#34;线性表的存储结构&#34;&gt;线性表的存储结构&lt;/h4&gt;
+&lt;p&gt;线性表的存储结构有顺序存储结构和链式存储结构两种。前者称为顺序表，后者称为链表&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;顺序表&lt;br&gt;
+顺序表就是把线性表中的所有元素按照其逻辑顺序，依次存储到从指定的存储位置开始的一块连续的存储空间中。线性表中第一个元素的存储位置就是指定的存储位置，第i+1个元素的存储位置紧接在第i个元素的存储位置的后面&lt;/li&gt;
+&lt;li&gt;链表&lt;br&gt;
+在链表存储中，每个结点不仅包含所存元素的信息，还包含元素之间逻辑关系的信息，如单链表中前驱结点包含了后继结点的地址信息，这样就可以通过前驱结点中的地址信息找到后继结点的位置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;链表有以下5种形式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;单链表&lt;br&gt;
+在每个结点中除了包含数据域外，还包含一个指针域，用以指向其后继结点。
+&lt;img src=&#34;https://xuoneyuan.github.io/images/lb1.png&#34; alt=&#34;1&#34;&gt;
+①带头结点的单链表中，头指针head指向头结点，头结点的值域不含任何信息，从头结点的后继结点开始存储数据信息。头指针head始终不等于NULL，当head-&amp;gt;next 等于NULL时，链表为空。&lt;br&gt;
+②不带头结点的单链表中的头指针head直接指向开始结点，即图中的结点A1，当head等于NULL时，链表为空。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;总之，两者最明显的区别是，带头结点的单链表中有一个结点不存储信息（仅存储一些描述链表属性的信息，如表长)，只是作为标志，而不带头结点的单链表的所有结点都存储信息。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;双链表
+双链表就是在单链表结点上增添了一个指针域，指向当前结点的前驱。这样就可以方便地由其后继来找到其前驱，从而实现输出从终端结点到开始结点的数据序列。
+&lt;img src=&#34;https://xuoneyuan.github.io/images/lb2.png&#34; alt=&#34;1&#34;&gt;
+同样，双链表也分为带头结点的双链表和不带头结点的双链表，情况类似于单链表。带头结点的双链表，当head-&amp;gt;next为NULL时，链表为空;不带头结点的双链表，当head为NULL时，链表为空。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;循环单链表&lt;br&gt;
+将单链表的最后一个指针域(空指针）指向链表中的第一个结点即可
+&lt;img src=&#34;https://xuoneyuan.github.io/images/lb3.png&#34; alt=&#34;1&#34;&gt;
+带头结点的循环单链表，当head等于head-&amp;gt;next时，链表为空；不带头结点的循环单链表，当head等于NULL时，链表为空。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;循环双链表&lt;br&gt;
+将终端结点的next指针指向链表中的第一个结点，将链表中第一个结点的 prior指针指向终端结点。&lt;br&gt;
+当head等于NULL时，不带头结点的循环双链表为空。带头结点的循环双链表中是没有空指针的，其空状态下，head-&amp;gt;next和 head-&amp;gt;prior必然都等于head。所以判断其是否为空，只需要检查head-&amp;gt;next和 head-&amp;gt;prior两个指针中的任意一个是否等于head指针即可。因此，以下四句代码中的任意-句为真，都可以判断循环双链表为空。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;head-&amp;gt;next == head;
+head-&amp;gt;prior == head;
+head-&amp;gt;next == head &amp;amp;&amp;amp; head-&amp;gt;prior == head;
+head-&amp;gt;next == head || head-&amp;gt;prior == head;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/lb4.png&#34; alt=&#34;1&#34;&gt;
+5) 静态链表&lt;br&gt;
+静态链表借助一维数组来表示
+&lt;img src=&#34;https://xuoneyuan.github.io/images/lb5.png&#34; alt=&#34;1&#34;&gt;
+左图是静态链表，右图是其对应的一般链表。一般链表结点空间来自于整个内存，静态链表则来自于一个结构体数组。数组中的每一个结点含有两个分量:一个是数据元素分量 data;另一个是指针分量,指示了当前结点的直接后继结点在数组中的位置(这和一般链表中next指针的地位是同等的)。&lt;/p&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://xuoneyuan.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">计算机基础知识</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://xuoneyuan.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://xuoneyuan.github.io/tags/408/">408</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>falconeの音乐时光——告五人篇</title>
