@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">falcone&#39;s sweet home</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2024-01-21T21:16:17&#43;08:00</updated>
+    <updated>2024-01-31T20:19:33&#43;08:00</updated>
     <id>https://xuoneyuan.github.io/</id>
     <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://xuoneyuan.github.io/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">数据结构</title>
             <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/posts/14/" />
             <id>https://xuoneyuan.github.io/posts/14/</id>
-            <updated>2024-01-21T21:16:09&#43;08:00</updated>
+            <updated>2024-01-31T20:19:13&#43;08:00</updated>
             <published>2024-01-21T19:47:55&#43;08:00</published>
             <author>
                     <name>falcone</name>
@@ -78,6 +78,987 @@ head-&amp;gt;next == head || head-&amp;gt;prior == head;
 静态链表借助一维数组来表示
 &lt;img src=&#34;https://xuoneyuan.github.io/images/lb5.png&#34; alt=&#34;1&#34;&gt;
 左图是静态链表，右图是其对应的一般链表。一般链表结点空间来自于整个内存，静态链表则来自于一个结构体数组。数组中的每一个结点含有两个分量:一个是数据元素分量 data;另一个是指针分量,指示了当前结点的直接后继结点在数组中的位置(这和一般链表中next指针的地位是同等的)。&lt;/p&gt;
+
+
+
+&lt;div class=&#34;notice notice-note&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M504 256a248 248 0 11-496 0 248 248 0 01496 0zm-248 50a46 46 0 100 92 46 46 0 000-92zm-44-165l8 136c0 6 5 11 12 11h48c7 0 12-5 12-11l8-136c0-7-5-13-12-13h-64c-7 0-12 6-12 13z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;顺序表和链表的比较&lt;/p&gt;
+&lt;p&gt;(1) 基于空间的比较&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;存储分配的方式:顺序表的存储空间是一次性分配的，链表的存储空间是多次分配的。&lt;/li&gt;
+&lt;li&gt;存储密度（存储密度=结点值域所占的存储量/结点结构所占的存储总章-顺序表的存储密度=1，链表的存储密度&amp;lt;1（因为结点中有指针域)。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;(2) 基于时间的比较&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;存取方式:
+顺序表可以随机存取，也可以顺序存取（对于顺序表，一般只答随机存取即可);链表只能顺序存取（所谓顺序存取，以读取为例，要读取某个元素必须遍历其之前的所有元素才能找到并读取它)&lt;/li&gt;
+&lt;li&gt;插入/删除时移动元素的个数:顺序表平均需要移动近一半元素;链表不需要移动元素，只需要修改指针。&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;线性表的结构体定义和基本操作&#34;&gt;线性表的结构体定义和基本操作&lt;/h3&gt;
+&lt;h4 id=&#34;线性表的结构体定义&#34;&gt;线性表的结构体定义&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;顺序表的结构体定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;typedef struct
+{
+    intdata [maxsize];//存放顺序表元素的数组(默认是int型,可根据题目要求将int换成其他类型)
+    int length;//存放顺序表的长度
+
+}Sqlist;//顺序表类型的定义
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;用的最多的是这种定义&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int A[maxSize];
+int n;
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;单链表结点定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;typedef struct LNode
+{
+    int data;//data中存放结点数据域(默认是int型)
+    struct LNode *next;//指向后继结点的指针
+}LNode;//定义单链表结点类型
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/lb6.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;双链表结点定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;typedef struct DLNode
+{
+    int data;//data中存放结点数据域(默认是 int型)
+    struct DLNode *prior;//指向前驱结点的指针
+    struct DLNode *next;//指向后继结点的指针
+}DLNode;//定义双链表结点类型
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/lb7.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
+
+
+
+&lt;div class=&#34;notice notice-tip&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M504 256a248 248 0 11-496 0 248 248 0 01496 0zM227 387l184-184c7-6 7-16 0-22l-22-23c-7-6-17-6-23 0L216 308l-70-70c-6-6-16-6-23 0l-22 23c-7 6-7 16 0 22l104 104c6 7 16 7 22 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;说明:结点是内存中一片由用户分配的存储空间，只有一个地址来表示它的存在，没有显式的名称，因此我们会在分配链表结点空间时定义一个指针，来存储这片空间的地址（这个过程通俗地讲叫指针指向结点)，并且常用这个指针的名称来作为结点的名称。&lt;/p&gt;&lt;/div&gt;
+
+&lt;h4 id=&#34;顺序表的操作&#34;&gt;顺序表的操作&lt;/h4&gt;
+&lt;p&gt;【例1】己知一个顺序表L，其中的元素递增有序排列，设计一个算法，插入一个元素x(x为 int型）后保持该顺序表仍然递增有序排列(假设插入操作总能成功)&lt;/p&gt;
+&lt;p&gt;分析:&lt;br&gt;
+由题干可知，解决本题需完成两个操作:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;找出可以让顺序表保持有序的插入位置。&lt;/li&gt;
+&lt;li&gt;将步骤1)中找出的位置上以及其后的元素往后移动一个位置，然后将x放至腾出的位置上。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;操作一:因为顺序表L中的元素是递增排列的，所以可以从小到大逐个扫描表中元素，当找到第一个比x大的元素时,将插在这个元素之前即可。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int findElem (Sqlist L, int x)
+{
+    int i;
+    for(i=0;i&amp;lt;L.length;++i)
+    {
+        if(x&amp;lt;L.data[i]&amp;gt;) //对顺序表中的元素从小到大逐个进行判断,看x是否小于当前所扫描到的元素,如果小于则返回当前位置i
+        {
+            return i;
+        }
+    }
+    return i;//如果顺序表中不存在比×大的元素,则应将x插入表尾元素之后,返回i来标记这种情况(因i&amp;lt;L.length这一句不成立而退出for循环后,i正好指示了表尾元素之后的位置,同样也是正确的插入位置)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;操作二:找到插入位置之后,将插入位置及其以后的元素向后移动一个元素的位置即可。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void insertElem (Sqlist &amp;amp;L,int x)
+{
+    int p,i;
+    p=findElem(L,x);
+    for(i=L.length-1;i&amp;gt;=p;--i)
+    {
+        L.data[i+1]=L.data[i];//从右往左,逐个将元素右移一个位置
+    }
+    L.data[p]=x;//将×放在插入位置p上
+    ++ (L.length);//表内元素多了一个,因此表长自增1
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;【例2】删除顺序表L中下标为p (0≤p≤length-1)的元素，成功返回1，否则返回0，并将被删除元素的值赋给e&lt;/p&gt;
+&lt;p&gt;分析：&lt;br&gt;
+要删除表中下标为p的元素，只需将其后边的元素逐个往前移动一个位置，将p位置上的元素覆盖掉，就达到了删除的目的。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int deleteElem (Sqlist &amp;amp;L, int p, int &amp;amp;e)
+{
+    int i;
+    if(p&amp;lt;0||p&amp;gt;L.length-1)
+    {
+        return 0;
+    }
+    e=L.data[p];//将被删除元素赋值给e
+    for(i=p;i&amp;lt;L.length-1;++i)//从p位置开始,将其后边的元素逐个前移一个位置
+    {
+        L.data[i]=L.data[i+1];
+    }
+    -- (L.length);
+    return 1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;单链表的操作&#34;&gt;单链表的操作&lt;/h4&gt;
+&lt;p&gt;【例3】A和B是两个单链表（带表头结点)，其中元素递增有序。设计一个算法，将A和B归并成一个按元素值非递减有序的链表C，C由A和B中的结点组成&lt;/p&gt;
+&lt;p&gt;分析：
+已知A、B中的元素递增有序，要使归并后的C中元素依然有序，可以从A、B中挑出最小的元素插入C的尾部，这样当A、B中的所有元素都插入C中时，C一定是递增有序的。由于A、B是递增的，因此A中的最小元素是其开始结点中的元素，B也一样。只需从A、B的开始结点中选出一个较小的来插入C的尾部即可。这里还需注意，A与B中的元素有可能一个已经全部被插入到C中，另一个还没有插完，如A中所有元素已经全部插入到C中，而B还没有插完，这说明B中的所有元素都大于C中的元素，因此只要将B链接到C的尾部即可。如果A没有插完，则用类似的方法来解决。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void merge (LNode *A, LNode *B, LNode *&amp;amp;C)
+{
+    LNode *p = A-&amp;gt;next;
+    LNode *q = B-&amp;gt;next;
+    LNode *r;
+    C=A;
+    C-&amp;gt;next=NULL;
+    free(B);
+    r=C;
+    while(p!=NULL&amp;amp;&amp;amp;q!=NULL)
+    {
+        if(p-&amp;gt;data&amp;lt;=q-&amp;gt;data)
+        {
+            r-&amp;gt;next=p;
+            p=p-&amp;gt;next;
+            r=r-&amp;gt;next;
+        }
+        else
+        {
+            r-&amp;gt;next=q;
+            q=q-&amp;gt;next;
+            r=r-&amp;gt;next;
+        }
+    }
+    r-&amp;gt;next=NULL;
+    if(p!=NULL) r-&amp;gt;next=p;
+    if(q!=NULL) r-&amp;gt;next=q;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;尾插法&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void createlistR (LNode *&amp;amp;C, int a[], int n)
+{
+    LNode *s, *r;
+    int i;
+    C=(LNode *)malloc(sizeof(LNode));
+    C-&amp;gt;next=NULL;
+    r=C;
+    for(i=0;i&amp;lt;n;++i)
+    {
+        s=(LNode *)malloc(sizeof(LNode));
+        s-&amp;gt;data=a[i];
+        r-&amp;gt;next=s;
+        r=r-&amp;gt;next;
+    }
+    r-&amp;gt;next=NULL;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;头插法&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void createlistF (LNode *&amp;amp;C, int a[], int n)
+{
+    LNode *s;
+    int i;
+    C=(LNode *)malloc(sizeof(LNode));
+    C-&amp;gt;next=NULL;
+    for(i=0;i&amp;lt;n;++i)
+    {
+        s=(LNode *)malloc(sizeof(LNode));
+        s-&amp;gt;data=a[i];
+        s-&amp;gt;next=C-&amp;gt;next;
+        C-&amp;gt;next=s;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;【例4】查找链表C(带头结点)中是否存在一个值为x的结点，若存在，则删除该结点并返回1,否则返回0&lt;/p&gt;
+&lt;p&gt;分析：&lt;br&gt;
+对于本题需要解决两个问题:一个是要找到值为×的结点，另一个是将找到的结点删除。第一个问题引出了本章要讲的单链表中最后-一个重要操作一―链表中结点的查找。为了实现查找，定义一个结点指针变量p，让它沿着链表一直走到表尾，每遇到一个新结点就检测其值是否为x，是则证明找到，不是则继续检测下一个结点。当找到值为x的结点后删除该结点。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int findAndDelete (LNode *C, int x)
+{
+    LNode *p, *q;
+    p=C;
+    while(p-&amp;gt;next!=NULL)
+    {
+        if(p-&amp;gt;next-&amp;gt;data==x)
+        {
+            break;
+        }
+        p=p-&amp;gt;next;
+    }
+    if(p-&amp;gt;next=NULL)
+    {
+        return 0;
+    }
+    else 
+    {
+        q=p-&amp;gt;next;
+        p-&amp;gt;next=p-&amp;gt;next-&amp;gt;next;
+        free(q);
+        return 1;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;双链表的操作&#34;&gt;双链表的操作&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;采用尾插法建立双链表&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void createDlistR(DLNode *&amp;amp;L, int a[], int n)
+{
+    DLNode *s,*r;
+    int i;
+    L=(DLNode*)malloc(sizeof(DLNode));
+    L-&amp;gt;prior=NULL;
+    L-&amp;gt;next=NULL;
+    r=L;
+    for(i=0;i&amp;lt;n;++i)
+    {
+        s=(DLNode*)malloc(sizeof(DLNode));
+        s-&amp;gt;data=a[i];
+
+        r-&amp;gt;next=s;
+        s-&amp;gt;prior=r;
+        r=s;
+    }
+    r-&amp;gt;next=NULL;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;查找结点的算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DLNode *findNode(DLNode *C, int x)
+{
+    DLNode *p=C-&amp;gt;next;
+    while(p!=NULL)
+    {
+        if(p-&amp;gt;data==x)
+        {
+            break;
+        }
+        p=p-&amp;gt;next;
+    }
+    return p;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;插入结点的算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;s-&amp;gt;next=p-&amp;gt;next;
+s-&amp;gt;prior=p;
+p-&amp;gt;next=s;
+s-&amp;gt;next-&amp;gt;prior=s;
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;删除结点的算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;q=p-&amp;gt;next;
+p-&amp;gt;next=q-&amp;gt;next;
+q-&amp;gt;next-&amp;gt;prior=p;
+free(q);
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;逆置问题&#34;&gt;逆置问题&lt;/h4&gt;
+&lt;p&gt;【例5】&lt;br&gt;
+(1) 将一长度为n的数组的前端k(k&amp;lt;n)个元素逆序后移动到数组后端，要求原数组中数据不丢失，其余元素的位置无关紧要。&lt;br&gt;
+(2) 将一长度为n的数组的前端k(k&amp;lt;n)个元素保持原序移动到数组后端，要求原数组中数据不丢失，其余元素的位置无关紧要。&lt;br&gt;
+(3) 将数组中的元素（X&lt;sub&gt;0&lt;/sub&gt;，X&lt;sub&gt;1&lt;/sub&gt;，…，X&lt;sub&gt;n-1&lt;/sub&gt;)，经过移动后变为(X&lt;sub&gt;p&lt;/sub&gt;，X&lt;sub&gt;p+1&lt;/sub&gt;，…，X&lt;sub&gt;n-1&lt;/sub&gt;,X&lt;sub&gt;0&lt;/sub&gt;，X&lt;sub&gt;1&lt;/sub&gt;，…,X&lt;sub&gt;p-i&lt;/sub&gt;)，即循环左移p(0&amp;lt;p&amp;lt;n)个位置。&lt;/p&gt;
+&lt;p&gt;分析：
+(1) 只需要逆置整个数组，即可满足前端k个元素逆序后放到数组的后端&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void reverse(int a[], int left, int right, int k)
+{
+    int temp;
+    for (int i=left,j=right;i&amp;lt;left+k &amp;amp;&amp;amp; i&amp;lt;j;++i,--j)
+    {
+        temp=a[i];
+        a[i]=a[j];
+        a[j]=temp;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;(2) 只需要将前端k个元素逆置，然后将整个数组逆置，即可满足前端k个元素保持原序放到数组的后端&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void moveToEnd (int a[], int n, int k)
+{
+    reverse(a,0,k-1,k);
+    reverse(a,0,n-1,k);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;(3) 只需要将0~p-1位置的元素逆置，再将p~n-1位置的元素逆置，然后将整个数组逆置即可&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void moveP (int a[], int n, int p)
+{
+    reverse(a,0,p-1,p);
+    reverse(a,p,n-1,n-p);
+    reverse(a,0,n-1,n); 
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;栈和队列&#34;&gt;栈和队列&lt;/h2&gt;
+&lt;h3 id=&#34;栈和队列的基本概念&#34;&gt;栈和队列的基本概念&lt;/h3&gt;
+&lt;h4 id=&#34;栈的基本概念&#34;&gt;栈的基本概念&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;栈的定义&lt;br&gt;
+栈是一种只能在一端进行插入或删除操作的线性表。其中允许进行插入或删除操作的一端称为栈顶(Top)。表的另一端称为栈底，栈底是固定不变的。栈的插入和删除操作一般称为入栈和出栈。&lt;/li&gt;
+&lt;li&gt;栈的特点&lt;br&gt;
+由栈的定义可以看出，栈的主要特点是先进后出（FILO)。&lt;/li&gt;
+&lt;li&gt;栈的存储结构&lt;br&gt;
+可用顺序表和链表来存储栈，依照存储结构分为两种:顺序栈和链式栈。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;队列的基本概念&#34;&gt;队列的基本概念&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;队列的定义&lt;br&gt;
+队列简称队，它也是一种操作受限的线性表，其限制为仅允许在表的一端进行插入，在表的另一端进行删除。可进行插入的一端称为队尾(Rear)，可进行删除的一端称为队头（Front)。向队列中插入新的元素称为进队，新元素进队后就成为新的队尾元素;从队列中删除元素称为出队，元素出队后，其后继元素就成为新的队头元素。&lt;/li&gt;
+&lt;li&gt;队列的特点&lt;br&gt;
+队列的特点概括起来就是先进先出（FIFO)。&lt;/li&gt;
+&lt;li&gt;队列的存储结构&lt;br&gt;
+可用顺序表和链表来存储队列，队列按存储结构可分为顺序队和链队两种。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;栈和队列的存储结构算法与应用&#34;&gt;栈和队列的存储结构、算法与应用&lt;/h3&gt;
+&lt;h4 id=&#34;结构体定义&#34;&gt;结构体定义&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;顺序栈定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;typedef struct
+{
+    int data[maxSize];
+    int top;
+}SqStack;
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;链栈结点定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;typedef struct LNode
+{
+    int data;
+    struct LNode *next;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;顺序队列定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;typedef struct
+{
+    int data[maxSize];
+    int front;
+    int rear;
+}SqQueue;
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;链队定义
+(1) 队结点类型定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;typedef struct QNode
+{
+    int data;
+    struct QNode *next;
+}QNode;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;(2) 链队类型定义&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;typedef struct
+{
+    QNode *front;
+    QNode *rear;
+}LiQueue;
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;顺序栈&#34;&gt;顺序栈&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;顺序栈的要素
+(1)状态&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;栈空状态&lt;br&gt;
+st.top==-1&lt;/li&gt;
+&lt;li&gt;栈满状态&lt;br&gt;
+st.top==maxSize-1&lt;/li&gt;
+&lt;li&gt;非法状态&lt;br&gt;
+上溢和下溢
+(2)操作&lt;/li&gt;
+&lt;li&gt;进栈操作：++(st.top);st.data[st.top]=x;&lt;/li&gt;
+&lt;li&gt;出栈操作：x=st.data[st.top]; --(st.top);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;初始化栈的代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void initStack(SqStack &amp;amp;st)
+{
+    st.top==-1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;判断栈空代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int isEmpty(SqStack st)
+{
+    if(st.top==-1)
+    {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;进栈代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int push(SqStack &amp;amp;st, int x)
+{
+    if(st.top==maxSize-1)
+        return 0;
+    ++(st.top);
+    st.data[st.top]=x;
+        return 1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;出栈代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int pop(SqStack &amp;amp;st, int &amp;amp;x)
+{
+    if(st.top==-1)
+        return 0;
+    x=st.data[st.top];
+    --(st.top);
+        return 1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;链栈&#34;&gt;链栈&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;链栈的要素
+(1)状态&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;栈空状态&lt;br&gt;
+lst-&amp;gt;next==NULL
+(2)操作&lt;/li&gt;
+&lt;li&gt;进栈操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;p-&amp;gt;next=lst-&amp;gt;next;
+lst-&amp;gt;next=p;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;出栈操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;p=lst-&amp;gt;next;
+x=p-&amp;gt;data;
+lst-&amp;gt;next=p-&amp;gt;next;
+free(p);
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;链栈的初始化代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void initStack(LNode *&amp;amp;lst)
+{
+    lst=(LNode*)malloc(sizeof(LNode));
+    lst-&amp;gt;next=NULL;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;判断栈空代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int isEmpty(LNode *lst)
+{
+    if(lst-&amp;gt;next==NULL)
+    {
+        return 1;
+    }
+    else 
+        return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;进栈代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void push(LNode *lst, int x)
+{
+    LNode *p;
+    p=(LNode*)malloc(sizeof(LNode));
+    p-&amp;gt;next=NULL;
+
+    p-&amp;gt;data=x;
+    p-&amp;gt;next=lst-&amp;gt;next;
+    lst-&amp;gt;next=p;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;出栈代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int pop(LNode *lst, int &amp;amp;x)
+{
+    LNode *p;
+    if(lst-&amp;gt;next==NULL)
+        return 0;
+    p=lst-&amp;gt;next;
+    x=p-&amp;gt;data;
+    lst-&amp;gt;next=p-&amp;gt;next;
+    free(p);
+    return 1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;栈的应用&#34;&gt;栈的应用&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;顺序栈的应用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;【例1】C语言里算术表达式中的括号只有小括号。编写算法，判断一个表达式中的括号是否正确配对，表达式已经存入字符数组exp[]中，表达式中的字符个数为n。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int match(char exp[], int n)
+{
+    char stack[maxSize];
+    int top=-1;
+    int i;
+    for(i=0;i&amp;lt;n;++i)
+    {
+        if(exp[i]==&amp;#39;(&amp;#39;){
+            stack[++top]=&amp;#39;(&amp;#39;;
+        }
+        if(exp[i]==&amp;#39;)&amp;#39;)
+        {
+            if(top==-1){
+                return 0;
+            }
+            else {
+                --top;
+            }
+        }
+    }
+        if(top==-1){
+            return 1;
+        }
+        else {
+            return 0;
+        }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;【例2】编写一个函数，求后缀式的数值，其中后缀式存于一个字符数组 exp中，exp中最后一个字符为“10”，作为结束符，并且假设后缀式中的数字都只有一位。&lt;/p&gt;
+&lt;p&gt;执行过程:当遇到数值时入栈，当遇到运算符时，连续两次出栈，将两个出栈元素结合运算符进行运算，将结果作为新遇到的数值入栈。如此往复，直到扫描到终止符“10”。此时栈底元素值即为表达式的值。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int op(int a,char Op,int b)
+{
+    if(Op==&amp;#39;+&amp;#39;) return a+b;
+    if(Op==&amp;#39;-&amp;#39;) return a-b;
+    if(Op==&amp;#39;*&amp;#39;) return a*b;
+    if(Op==&amp;#39;/&amp;#39;)
+    {
+        if(b==0)
+        {
+            cout&amp;lt;&amp;lt;&amp;#34;ERROR&amp;#34;&amp;lt;&amp;lt;endl;
+            return 0;
+        }
+    }
+}
+int com(char exp[])
+{
+    int i,a,b,c;
+    int stack[maxSize];
+    int top=-1;
+    char Op;
+    for(i=0;exp[i]!=&amp;#39;\0&amp;#39;;++i)
+    {
+        if(exp[i]&amp;gt;=&amp;#39;0&amp;#39;&amp;amp;&amp;amp;exp[i]&amp;lt;=&amp;#39;9&amp;#39;)
+
+            stack[++top]=exp[i]-&amp;#39;0&amp;#39;;
+        else
+        {
+            Op=exp[i];
+            b=stack[top--];
+            a=stack[top--];
+            c=op(a,op,b);
+            stack[++top]=c;
+        }
+    }
+    return stack[top];
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;链栈的应用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;【例3-3】用不带头结点的单链表存储链栈，设计初始化栈、判断栈是否为空、进栈和出栈等相应的算法。&lt;/p&gt;
+&lt;p&gt;分析：&lt;br&gt;
+不带头结点的单链表lst为空的条件是lst==NULL，进栈和出栈操作都是在表头进行的&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void initStackl(LNode *&amp;amp;lst)
+{
+    lst=NULL;
+}
+int isEmptyl(LNode *lst)
+{
+    if(lst==NULL)
+        return 1;
+    else 
+        return 0;
+}
+void pushl(LNode *&amp;amp;lst, int x)
+{
+    LNode *p;
+    p=(LNode *)malloc(sizeof(LNode));
+    p-&amp;gt;next=NULL;
+    p-&amp;gt;data=x;
+    p-&amp;gt;next=lst;
+    lst=p;
+}
+int popl(LNode *&amp;amp;lst,int &amp;amp;x)
+{
+    LNode *p;
+    if(lst==NULL)
+        return 0;
+    p=lst;
+    x=p-&amp;gt;data;
+    lst=p-&amp;gt;next;
+    free(p);
+    return 1;   
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;顺序队&#34;&gt;顺序队&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;循环队列&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在顺序队中,通常让队尾指针rear 指向刚进队的元素位置,让队首指针front 指向刚出队的元素位置。因此，元素进队时，rear要向后移动;元素出队时，front 也要向后移动。这样经过一系列的出队和进队操作以后,两个指针最终会到达数组末端maxSize-1处。虽然队中已经没有元素，但仍然无法让元素进队，这就是所谓的“假溢出”。要解决这个问题，可以把数组弄成一个环,让 rear和 front沿着环走，这样就永远不会出现两者来到数组尽头无法继续往下走的情况，这样就产生了循环队列。循环队列是改进的顺序队列。&lt;/p&gt;
+&lt;p&gt;front=(front+1)%maxSize&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;循环队列的要素&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;(1)两个状态&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;队空状态：qu.rear==qu.front&lt;/li&gt;
+&lt;li&gt;队满状态：(qu.rear+1)%maxSize==qu.front
+(2)两个操作&lt;/li&gt;
+&lt;li&gt;元素x进队操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;qu.rear=(qu.rear+1)%maxSize;
+qu.data[qu.rear]=x;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;元素x出队操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;qu.front=(qu.front+1)%maxSize;
+x=qu.data[qu.front];
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;初始化队列算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void initQueue (SqQueue &amp;amp;qu)
+{
+    qu.front=qu.rear=0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;判断队空算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int isEmpty(SqQueue qu)
+{
+    if(qu.front==qu.rear)
+        return 1;
+    else 
+        return 0;
+}   
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;进队算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int enQueue(SqQueue &amp;amp;qu, int x)
+{
+    if((qu.rear+1)%maxSize==qu.front)
+        return 0;
+    qu.rear=(qu.rear+1)%maxSize;
+    qu.data[qu.rear]=x;
+    return 1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;出队算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int deQueue(SqQueue &amp;amp;qu, int x)
+{
+    if(qu.front==qu.rear)
+        return 0;
+    qu.front=(qu.front+1)%maxSize;
+    x=qu.data[qu.front];
+    return 1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;链队&#34;&gt;链队&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;链队的要素&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;队空状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;lqu-&amp;gt;rear==NULL 
+lqu-&amp;gt;front==NULL
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;元素进队操作&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;lqu-&amp;gt;rear-&amp;gt;next=p;
+lqu-&amp;gt;rear=p;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;元素出队操作&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;p=lqu-&amp;gt;front;
+lqu-&amp;gt;front=p-&amp;gt;next;
+x=p-&amp;gt;data;
+free(p);
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;初始化链队算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void initQueue (LiQueue *&amp;amp;lqu)
+{
+    lqu=(LiQueue*)malloc(sizeof(LiQueue));
+    lqu-&amp;gt;front=lqu-&amp;gt;rear=NULL;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;判断队空算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int isQueueEmpty(LiQueue *lqu)
+{
+    if(lqu-&amp;gt;rear==NULLl11qu-&amp;gt;front==NULL)
+        return 1;
+    else 
+        return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;进队算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void enQueue(LiQueue *lqu, int x)
+{
+    QNode *p;
+    P=(QNode*)malloc(sizeof(QNode));
+    p-&amp;gt;data=x;
+    p-&amp;gt;next=NULL;
+    if(lqu-&amp;gt;rear==NULL)
+        lqu-&amp;gt;front=lqu-&amp;gt;rear=p;
+    else
+    {
+        lqu-&amp;gt;rear-&amp;gt;next=p;
+        lqu-&amp;gt;rear=p;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;出队算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int deQueue(LiQueue *lqu,int &amp;amp;x)
+{
+    QNode *p;
+    if(lqu-&amp;gt;rear==NULL)
+        return 0;
+    else
+        p=lqu-&amp;gt;front;
+    if(lqu-&amp;gt;front==lqu-&amp;gt;rear)
+        lqu-&amp;gt;front=lqu-&amp;gt;rear=NULL;
+    else
+        lqu-&amp;gt;front=lqu-&amp;gt;front-&amp;gt;next;
+    x=p-&amp;gt;data;
+    free (p);
+    return 1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;串&#34;&gt;串&lt;/h2&gt;
+&lt;h3 id=&#34;串数据类型的定义&#34;&gt;串数据类型的定义&lt;/h3&gt;
+&lt;h4 id=&#34;串的定义&#34;&gt;串的定义&lt;/h4&gt;
+&lt;p&gt;串是由零个或者多个字符组成的有限序列。串中字符的个数称为串的长度，含有零个元素的串叫空串&lt;/p&gt;
+&lt;h4 id=&#34;串的存储结构&#34;&gt;串的存储结构&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;定长顺序存储表示&lt;/li&gt;
+&lt;li&gt;变长分配存储表示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;串的基本操作&#34;&gt;串的基本操作&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;赋值操作&lt;/li&gt;
+&lt;li&gt;取串长度操作&lt;/li&gt;
+&lt;li&gt;串比较操作&lt;/li&gt;
+&lt;li&gt;串连接操作&lt;/li&gt;
+&lt;li&gt;求字串操作&lt;/li&gt;
+&lt;li&gt;串清空操作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;串的模式匹配算法&#34;&gt;串的模式匹配算法&lt;/h3&gt;
+&lt;h4 id=&#34;简单模式匹配算法&#34;&gt;简单模式匹配算法&lt;/h4&gt;
+&lt;p&gt;对一个串中某子串的定位操作称为串的模式匹配，其中待定位的子串称为模式串。算法的基本思想:从主串的第一个位置起和模式串的第一个字符开始比较，如果相等，则继续逐一比较后续字符;否则从主串的第二个字符开始，再重新用上一步的方法与模式串中的字符做比较，以此类推，直到比较完模式串中的所有字符。若匹配成功，则返回模式串在主串中的位置;若匹配不成功，则返回一个可区别于主串所有位置的标记，如“0”。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int index(Str str,Str substr)
+{
+    int i=1,j=1,k=i;
+    while(i&amp;lt;=str.length &amp;amp;&amp;amp; j&amp;lt;=substr.length)
+    {
+        if(str.ch[i]==substr.ch[j])
+        {
+            ++i;
+            ++j;
+        }
+        else 
+        {
+            j=1;
+            i=++k;
+        }
+    }
+    if(j&amp;gt;substr.length)
+        return k;
+    else return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;kmp算法&#34;&gt;KMP算法&lt;/h4&gt;
+&lt;h4 id=&#34;kmp算法的改进&#34;&gt;KMP算法的改进&lt;/h4&gt;
+&lt;h2 id=&#34;树与二叉树&#34;&gt;树与二叉树&lt;/h2&gt;
+&lt;h3 id=&#34;树的基本概念&#34;&gt;树的基本概念&lt;/h3&gt;
+&lt;h4 id=&#34;树的定义&#34;&gt;树的定义&lt;/h4&gt;
+&lt;p&gt;树是一种非线性的数据结构。&lt;/p&gt;
+&lt;h4 id=&#34;树的基本用语&#34;&gt;树的基本用语&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/shu1.png&#34; alt=&#34;1&#34;&gt;
+结点:A、B、C等都是结点，结点不仅包含数据元素，而且包含指向子树的分支。例如，A结点不仅包含数据元素A，而且包含3个指向子树的指针。&lt;br&gt;
+结点的度:结点拥有的子树个数或者分支的个数。例如，A结点有3棵子树，所以A结点的度为3。树的度:树中各结点度的最大值。如例子中结点度最大为3(A、D结点)，最小为0(F、G、I、J、K、L、M结点)，所以树的度为3。&lt;br&gt;
+叶子结点:又叫作终端结点，指度为0的结点，如F、G、1、J、K、L、M结点都是叶子结点。非终端结点:又叫作分支结点，指度不为0的结点，如A、B、C、D、E、H结点都是非终端结点。除了根结点之外的非终端结点，也叫作内部结点，如B、C、D、E、H结点都是内部结点。&lt;br&gt;
+孩子:结点的子树的根，如A结点的孩子为B、C、D。&lt;br&gt;
+双亲:与孩子的定义对应，如B、C、D结点的双亲都是A。&lt;br&gt;
+兄弟:同一个双亲的孩子之间互为兄弟。如B、C、D互为兄弟，因为它们都是A结点的孩子。祖先:从根到某结点的路径上的所有结点，都是这个结点的祖先。如K的祖先是A、B、E，因为从A到K的路径为A一B-E─K。&lt;br&gt;
+子孙:以某结点为根的子树中的所有结点，都是该结点的子孙。如D的子孙为H、I、J、M.层次:从根开始，根为第一层，根的孩子为第二层，根的孩子的孩子为第三层，以此类推。树的高度(或者深度):树中结点的最大层次。如例子中的树共有4层，所以高度为4。结点的深度和高度:&lt;br&gt;
+1）结点的深度是从根结点到该结点路径上的结点个数。&lt;br&gt;
+2）从某结点往下走可能到达多个叶子结点，对应了多条通往这些叶子结点的路径，其中最长的那条路径上结点的个数即为该结点在树中的高度,如结点D的高度为3,就是从D到M的路径上的结点个数。&lt;br&gt;
+3）根结点的高度为树的高度，如结点A，其高度为4，是从A到K（L、M）这条路径上结点的个数，也是整棵树的高度。&lt;br&gt;
+堂兄弟:双亲在同一层的结点互为堂兄弟。如G和H互为堂兄弟，因为G的双亲是C，H的双亲是D，C和D在同一层上。注意和兄弟的概念的区分。&lt;br&gt;
+有序树:树中结点的子树从左到右是有次序的，不能交换，这样的树叫作有序树。无序树:树中结点的子树没有顺序，可以任意交换，这样的树叫作无序树。&lt;br&gt;
+丰满树:丰满树即理想平衡树，要求除最底层外，其他层都是满的。&lt;br&gt;
+森林:若干棵互不相交的树的集合。例子中如果把根A去掉，剩下的3棵子树互不相交，它们组成一个森林。&lt;/p&gt;
+&lt;h4 id=&#34;树的存储结构&#34;&gt;树的存储结构&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;顺序存储结构
+&lt;img src=&#34;https://xuoneyuan.github.io/images/shu2.png&#34; alt=&#34;1&#34;&gt;&lt;/li&gt;
+&lt;li&gt;链式存储结构&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;二叉树&#34;&gt;二叉树&lt;/h3&gt;
+&lt;h4 id=&#34;二叉树的定义&#34;&gt;二叉树的定义&lt;/h4&gt;
+&lt;p&gt;在理解了树的定义之后，二叉树的定义也就很好理解了。将一般的树加上如下两个限制条件就得到了二叉树。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;每个结点最多只有两棵子树，即二叉树中结点的度只能为0、1、2。&lt;/li&gt;
+&lt;li&gt;子树有左右顺序之分，不能颠倒。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;根据二叉树的定义可知，二叉树共有5种基本形态。
+&lt;img src=&#34;https://xuoneyuan.github.io/images/shu3.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在一棵二叉树中，如果所有的分支结点都有左孩子和右孩子结点，并且叶子结点都集中在二叉树的最下一层，则这样的二叉树称为满二叉树。&lt;/p&gt;
+&lt;p&gt;如果对一棵深度为k、有n个结点的二叉树进行编号后，各结点的编号与深度为k的满二叉树中相同位置上的结点的编号均相同，那么这棵二叉树就是一棵完全二叉树。&lt;/p&gt;
+&lt;h4 id=&#34;二叉树的主要性质&#34;&gt;二叉树的主要性质&lt;/h4&gt;
+&lt;p&gt;性质1:非空二叉树上叶子结点数等于双分支结点数加1。&lt;/p&gt;
+&lt;p&gt;证明:设二叉树上叶子结点数为n&lt;sub&gt;0&lt;/sub&gt;，单分支结点数为n&lt;sub&gt;1&lt;/sub&gt;，双分支结点数为n&lt;sub&gt;2&lt;/sub&gt;，则总结点数为n&lt;sub&gt;0&lt;/sub&gt;+n&lt;sub&gt;1&lt;/sub&gt;+n&lt;sub&gt;2&lt;/sub&gt;。在一棵二叉树中，所有结点的分支数等于单分支结点数加上双分支结点数的两倍，即总的分支数为n&lt;sub&gt;1&lt;/sub&gt;+2n&lt;sub&gt;2&lt;/sub&gt;。&lt;/p&gt;
+&lt;p&gt;由于二叉树中除根结点之外，每个结点都有唯一的一个分支指向它，因此二叉树中有总分支数=总结点数-1（显然这一条结论对于任何树都是适用的，而不仅仅是针对二叉树)。&lt;/p&gt;
+&lt;p&gt;由此可得: n&lt;sub&gt;0&lt;/sub&gt;+n&lt;sub&gt;1&lt;/sub&gt;+n&lt;sub&gt;2&lt;/sub&gt;-1=n&lt;sub&gt;1&lt;/sub&gt;+2n&lt;sub&gt;2&lt;/sub&gt;&lt;br&gt;
+化简得:n&lt;sub&gt;0&lt;/sub&gt;=n&lt;sub&gt;2&lt;/sub&gt;+1&lt;/p&gt;
+
+
+
+&lt;div class=&#34;notice notice-tip&#34; &gt;
+    &lt;div class=&#34;notice-title&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; class=&#34;icon notice-icon&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M504 256a248 248 0 11-496 0 248 248 0 01496 0zM227 387l184-184c7-6 7-16 0-22l-22-23c-7-6-17-6-23 0L216 308l-70-70c-6-6-16-6-23 0l-22 23c-7 6-7 16 0 22l104 104c6 7 16 7 22 0z&#34;/&gt;&lt;/svg&gt;&lt;/div&gt;&lt;p&gt;Q:二叉树中总的结点数为n，则树中空指针的个数是多少?&lt;br&gt;
+A:可以将所有的空指针看作叶子结点，则树中原有的所有结点都成了双分支结点。因此可得空指针的个数为树中所有结点个数加1，即 n+1个。&lt;/p&gt;
+&lt;p&gt;总结点数=n&lt;sub&gt;0&lt;/sub&gt;+n&lt;sub&gt;1&lt;/sub&gt;+n&lt;sub&gt;2&lt;/sub&gt;+...+n&lt;sub&gt;m&lt;/sub&gt;&lt;br&gt;
+总分支数=1×n&lt;sub&gt;1&lt;/sub&gt;+2×n&lt;sub&gt;2&lt;/sub&gt;+...+m×n&lt;sub&gt;m&lt;/sub&gt;(度为m的结点引出m条分支)&lt;br&gt;
+总分支数=总结点数-1&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;性质2:二叉树的第i层上最多有2&lt;sup&gt;i-1&lt;/sup&gt;(i≥1)个结点。&lt;/p&gt;
+&lt;p&gt;性质3:高度（或深度）为k的二叉树最多有2&lt;sup&gt;k&lt;/sup&gt;-1(k≥1)个结点。&lt;/p&gt;
+&lt;h4 id=&#34;二叉树的存储结构&#34;&gt;二叉树的存储结构&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;顺序存储结构&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;顺序存储结构即用一个数组来存储一棵二叉树，这种存储方式最适合于完全二叉树，用于存储一般二叉树会浪费大量的存储空间。将完全二叉树中的结点值按编号依次存入一个一维数组中，即完成了一棵二叉树的顺序存储。
+&lt;img src=&#34;https://xuoneyuan.github.io/images/shu4.png&#34; alt=&#34;1&#34;&gt;
+2. 链式存储结构&lt;/p&gt;
+&lt;p&gt;其中，data表示数据域，用于存储对应的数据元素；lchild和 rchild分别表示左指针域和右指针域,分别用于存储左孩子结点和右孩子结点的位置。
+&lt;img src=&#34;https://xuoneyuan.github.io/images/shu5.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;二叉树的遍历算法&#34;&gt;二叉树的遍历算法&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;先序遍历&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void preorder (BTNode *p)
+{
+    if(p!=NULL)
+    {
+        visit(p);
+        preorder(p-&amp;gt;lchild);
+        preorder(p-&amp;gt;rchild);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;中序遍历&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void inorder (BTNode *p)
+{
+    if(p!=NULL)
+    {
+        inorder(p-&amp;gt;lchild);
+        visit(p);
+        inorder(p-&amp;gt;rchild);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;后序遍历&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void postorder (BTNode *p)
+{
+    if(p!=NULL)
+    {
+        postorder(p-&amp;gt;lchild);
+        postorder(p-&amp;gt;rchild);
+        visit(p);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;二叉树遍历算法的改进&#34;&gt;二叉树遍历算法的改进&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;二叉树深度优先遍历算法的非递归实现&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;//先序遍历非递归算法
+void preorderNonrecursion(BTNode *bt)
+{
+    if(bt!=NULL)
+    {
+        BTNode *Stack[maxSize];
+        int top=-1;
+        BTNode *p;
+        Stack[++top]=bt;
+        while(top!=-1)
+        {
+            p=Stack[top--];
+            visit(p);
+            if(p-&amp;gt;rchild!=NULL)
+                Stack[++top]=p-&amp;gt;rchild;
+            if(p-&amp;gt;lchild!=NULL)
+                Stack[++top]=p-&amp;gt;lchild;
+        }
+    }
+}
+//中序遍历非递归算法
+void inorderNonrecursion(BTNode *bt)
+{
+    if(bt!=NULL)
+    {
+        BTNode *Stack[maxSize];
+        int top=-1;
+        BTNode *p;
+        p=bt;
+        while(top!=-1||p!=NULL)
+        {
+            while(p!=NULL)
+            {
+                Stack[++top]=p;
+                p=p-&amp;gt;lchild;
+            }
+            if(top!=-1)
+            {
+                p=Stack[top--];
+                visit(p);
+                p=p-&amp;gt;rchild;
+            }
+        }
+    }
+}
+//后序遍历非递归算法
+void postorderNonrecursion(BTNode *bt)
+{
+    if(bt!=NULL)
+    {
+        BTNode *Stack1[maxSize];
+        int top1=-1;
+        BTNode *Stack2[maxSize];
+        int top2=-1;
+        BTNode *p=NULL;
+        Stack[++top1]=bt;
+        while(top1!=-1)
+        {
+            p=Stack[top1--];
+            Stack[++top2]=p;
+            if(p-&amp;gt;lchild!=NULL)
+               Stack1[++top1]=p-&amp;gt;lchild;
+            if(p-&amp;gt;rchild!=NULL)
+               Stack1[++top1]=p-&amp;gt;rchild;
+        }
+        while(top2!=-1)
+        {
+            p=Stack2[top2--];
+            visit(p);
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;线索二叉树&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;线索二叉树可以分为前序线索二叉树、中序线索二叉树和后序线索二叉树。对一棵二叉树中所有结点的空指针域按照某种遍历方式加线索的过程叫作线索化,被线索化了的二叉树称为线索二叉树。
+&lt;img src=&#34;https://xuoneyuan.github.io/images/shu6.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void InThread(TBTNode *p, TBTNode *&amp;amp;pre)
+{
+    if(p!=NULL)
+    {
+        InThread(p-&amp;gt;lchild,pre);
+        if(p-&amp;gt;lchild==NULL)
+        {
+            p-&amp;gt;lchild=pre;
+            p-&amp;gt;ltag=1;
+        }
+        if(pre!=NULL&amp;amp;&amp;amp;pre-&amp;gt;rchild==NULL)
+        {
+            pre-&amp;gt;rchild=p;
+            pre-&amp;gt;rtag=1;
+        }
+        pre=p;
+        p=p-&amp;gt;rchild;
+        InThread(p,pre);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;树与二叉树的应用&#34;&gt;树与二叉树的应用&lt;/h3&gt;
+&lt;h4 id=&#34;赫夫曼树和赫夫曼编码&#34;&gt;赫夫曼树和赫夫曼编码&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;与赫夫曼树相关的一些概念&lt;br&gt;
+赫夫曼树又叫作最优二叉树，它的特点是带权路径最短。首先需要说明几个关于路径的概念。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;路径:路径是指从树中一个结点到另一个结点的分支所构成的路线。&lt;/li&gt;
+&lt;li&gt;路径长度:路径长度是指路径上的分支数目。&lt;/li&gt;
+&lt;li&gt;树的路径长度:树的路径长度是指从根到每个结点的路径长度之和。&lt;/li&gt;
+&lt;li&gt;带权路径长度:结点具有权值，从该结点到根之间的路径长度乘以结点的权值，就是该结点的带又路径长度。&lt;/li&gt;
+&lt;li&gt;树的带权路径长度(WPL):树的带权路径长度是指树中斤有叶子结点的带权路径长度之和。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;赫夫曼树的构造方法&lt;br&gt;
+给定n个权值，用这n个权值来构造赫夫曼树的算法描述如下:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;将这n个权值分别看作只有根结点的n棵二叉树，这些二叉树构成的集合记为F。&lt;/li&gt;
+&lt;li&gt;从F中选出两棵根结点的权值最小的树（假设为a、b)作为左、右子树，构造一棵新的二叉树(假设为c)，新的二叉树的根结点的权值为左、右子树根结点权值之和。&lt;/li&gt;
+&lt;li&gt;从F中删除a、b，加入新构造的树c。&lt;/li&gt;
+&lt;li&gt;重复进行2)、3）两步，直到F中只剩下一棵树为止，这棵树就是赫夫曼树。
+&lt;img src=&#34;https://xuoneyuan.github.io/images/shu7.png&#34; alt=&#34;1&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;图&#34;&gt;图&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;图&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;图由结点的有穷集合V和边的集合E组成。为了与树形结构进行区别，在图结构中常常将结点称为顶点，边是顶点的有序偶对。若两个顶点之间存在一条边，则表示这两个顶点具有相邻关系。&lt;/p&gt;
 </content>
             
             
