@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Wed, 31 Jan 2024 20:19:33 &#43;0800</lastBuildDate>
+        <lastBuildDate>Fri, 16 Feb 2024 11:41:45 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://xuoneyuan.github.io/rss.xml" />
         
@@ -1064,10 +1064,559 @@ void postorderNonrecursion(BTNode *bt)
 &lt;img src=&#34;https://xuoneyuan.github.io/images/shu7.png&#34; alt=&#34;1&#34;&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;图&#34;&gt;图&lt;/h2&gt;
+&lt;h3 id=&#34;图的基本概念&#34;&gt;图的基本概念&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;图&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;图由结点的有穷集合V和边的集合E组成。为了与树形结构进行区别，在图结构中常常将结点称为顶点，边是顶点的有序偶对。若两个顶点之间存在一条边，则表示这两个顶点具有相邻关系。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;有向图和无向图&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;有向图，即每条边都有方向;无向图，即每条边都没有方向。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;弧&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在有向图中，通常将边称为弧，含箭头的一端称为弧头，另一端称为弧尾，记作&amp;lt;vi,vj&amp;gt;，它表示从顶点vi到顶点vj有一条边。&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;顶点的度、入度和出度&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在无向图中，边记为(vi,vj)，它等价于在有向图中存在&amp;lt;vi,vj&amp;gt;和&amp;lt;vi,vj&amp;gt;两条边。与顶点v相关的边的条数称为顶点v的度。指向顶点v的边的条数称为顶点v的入度，由顶点v发出的边的条数称为顶点v的出度。&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;有向完全图和无向完全图&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;若有向图中有n个顶点，则最多有n(n-1)条边（图中任意两个顶点都有两条边相连)，将具有n(n-1)条边的有向图称为有向完全图。若无向图中有n个顶点，则最多有n(n-1)/2条边（任意两个顶点之间都有一条边)，将具有n(n-1)/2条边的无向图称为无向完全图。&lt;/p&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;路径和路径长度&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在一个图中，路径为相邻顶点序偶所构成的序列。路径长度是指路径上边的数目。&lt;/p&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;简单路径&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;序列中顶点不重复出现的路径称为简单路径。&lt;/p&gt;
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;回路&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;若一条路径中第一个顶点和最后一个顶点相同,则这条路径是一条回路。&lt;/p&gt;
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;连通、连通图和连通分量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在无向图中，如果从顶点vi到顶点vj有路径，则称vi和vj连通。如果图中任意两个顶点之间都连通，则称该图为连通图;否则，图中的极大连通子图称为连通分量。&lt;/p&gt;
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;强连通图和强连通分量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在有向图中，若从vi到vj有路径，则称从vi到vj是连通的。如果对于每一对顶点vi和vj，从vi到vj和从vj到vi都有路径，则称该图为强连通图:否则，将其中的极大强连通子图称为强连通分量。&lt;/p&gt;
+&lt;ol start=&#34;11&#34;&gt;
+&lt;li&gt;权和网&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;图中每条边都可以附有一个对应的数，这种与边相关的数称为权。权可以表示从一个顶点到另一个顶点的距离或者花费的代价。边上带有权的图称为带权图，也称为网。&lt;/p&gt;
+&lt;h3 id=&#34;图的存储结构&#34;&gt;图的存储结构&lt;/h3&gt;
+&lt;h4 id=&#34;邻接矩阵&#34;&gt;邻接矩阵&lt;/h4&gt;
+&lt;p&gt;邻接矩阵是表示顶点之间相邻关系的矩阵。设G=(V，E)是具有n个顶点的图，顶点序号依次为0，1，…，n-1，则G的邻接矩阵是具有如下定义的n阶方阵A:&lt;br&gt;
+A[i][j]=1表示顶点i与顶点j邻接，即i与j之间存在边或者弧。&lt;br&gt;
+A[i][j]=0表示顶点i与顶点j不邻接（0≤i， j≤n-1)。&lt;br&gt;
+邻接矩阵是图的顺序存储结构，由邻接矩阵的行数或列数可知图中的顶点数。对于无向图，邻接矩阵是对称的，矩阵中“1”的个数为图中总边数的两倍，矩阵中第i行或第i列的元素之和即为顶点i的度。对于有向图，矩阵中“1”的个数为图的边数，矩阵中第i行的元素之和即为顶点i的出度，第j列元素之和即为顶点j的入度。&lt;/p&gt;
+&lt;h4 id=&#34;邻接表&#34;&gt;邻接表&lt;/h4&gt;
+&lt;p&gt;邻接表是图的一种链式存储结构。所谓邻接表就是对图中的每个顶点﹔建立一个单链表，每个单链表的第一个结点存放有关顶点的信息，把这一结点看作链表的表头，其余结点存放有关边的信息。因此，邻接表由单链表的表头形成的顶点表和单链表其余结点形成的边表两部分组成。一般顶点表存放顶点信息和指向第一个边结点的指针，边表结点存放与当前顶点相邻接顶点的序号和指向下一个边结点的指针。&lt;/p&gt;
+&lt;h3 id=&#34;图的遍历算法操作&#34;&gt;图的遍历算法操作&lt;/h3&gt;
+&lt;h4 id=&#34;深度优先搜素遍历&#34;&gt;深度优先搜素遍历&lt;/h4&gt;
+&lt;p&gt;图的深度优先搜索遍历（DFS）类似于二叉树的先序遍历。它的基本思想是:首先访问出发点v,并将其标记为已访问过;然后选取与v邻接的未被访问的任意一个顶点 w，并访问它;再选取与w邻接的未被访问的任一顶点并访问，以此重复进行。当一个顶点所有的邻接顶点都被访问过时，则依次退回到最近被访问过的顶点，若该顶点还有其他邻接顶点未被访问，则从这些未被访问的顶点中取一个并重复上述访问过程，直至图中所有顶点都被访问过为止。&lt;/p&gt;
+&lt;p&gt;以邻接表为存储结构的图的深度优先搜索遍历算法如下:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int visit[maxSize];
+void DFS(AGraph *G, int v)
+{
+    ArcNode *p;
+    visit[v]=1;
+    Visit(v);
+    p=G-&amp;gt;adjust[v].firstarc;
+    while(p!=NULL)
+    {
+        if(visit[p-&amp;gt;adjvex]==0)
+        {
+            DFS(G,p-&amp;gt;adjvex);
+        }        
+        p=p-&amp;gt;nextarc;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;广度优先搜索遍历&#34;&gt;广度优先搜索遍历&lt;/h4&gt;
+&lt;p&gt;图的广度优先搜索遍历（BFS）类似于树的层次遍历。它的基本思想是:首先访问起始顶点v，然后选取与v邻接的全部顶点w&lt;sub&gt;1&lt;/sub&gt;，…，w&lt;sub&gt;n&lt;/sub&gt;,进行访问，再依次访问与w&lt;sub&gt;1&lt;/sub&gt;,…,w&lt;sub&gt;n&lt;/sub&gt;,邻接的全部顶点（已经访问过的除外)，以此类推，直到所有顶点都被访问过为止。&lt;/p&gt;
+&lt;p&gt;广度优先搜索遍历图时，需要用到一个队列(二叉树的层次遍历也要用到队列)，算法执行过程可简单概括如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;任取图中一个顶点访问，入队，并将这个顶点标记为已访问。&lt;/li&gt;
+&lt;li&gt;当队列不空时循环执行:出队，依次检查出队顶点的所有邻接顶点，访问没有被访问过的邻接顶点并将其入队。&lt;/li&gt;
+&lt;li&gt;当队列为空时跳出循环，广度优先搜索即完成。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以邻接表为存储结构的广度优先搜索遍历算法如下:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void BFS(AGraph *G, int v, int visit[maxSize])
+{
+    ArcNode *p;
+    int que[maxSize], front=0, rear=0;
+    int j;
+    Visit(v);
+    visit[v]=1;
+    rear=(rear+1)%maxSize;
+    que[rear]=v;
+    while(front!=rear)
+    {
+        front=(front+1)%maxSize;
+        j=que[front];
+        p=G-&amp;gt;adjlist[j].firstarc;
+        while(p!=NULL)
+        {
+            if(visit[p-&amp;gt;adjvex==0])
+            {
+                Visit(p-&amp;gt;adjvex);
+                visit[p-&amp;gt;adjvex]=1;
+                rear=(rear+1)%maxSize;
+                que[rear]=p-&amp;gt;adjvex;
+            }
+            p=p-&amp;gt;nextarc;
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;例题&#34;&gt;例题&lt;/h4&gt;
+&lt;p&gt;【例1】设计一个算法，求不带权无向连通图G中距离顶点v最远的一个顶点（所谓最远就是到达v的路径长度最长)。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int BFS(AGraph *G, int v)
+{
+    ArcNode *p;
+    int que[maxSize],front=0,rear=0;
+    int visit[maxSize];
+    int i,j;
+    for(i=0;i&amp;lt;G-&amp;gt;n;++i)
+       visit[i]=0;
+    rear=(rear+1)%maxSize;
+    que[rear]=v;
+    visit[v]=1;
+    while(front!=rear)
+    {
+        front=(front+1)%maxSize;
+        j=que[front];
+        p=G-&amp;gt;adjlist[j].firstarc;
+        while(p!=NULL)
+        {
+            if(visit[p-&amp;gt;adjvex]==0)
+            {
+                visit[p-&amp;gt;adjvex]=1;
+                rear=(rear+1)%maxSize;
+                que[rear]=p-&amp;gt;adjvex;
+            }
+            p=p-&amp;gt;nextarc;
+        }
+    }
+    return j;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;【例2】设计一个算法，判断无向图G是否是一棵树。若是树，返回1，否则返回0。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void DFS2(AGraph *G,int v,int &amp;amp;vn,int &amp;amp;en)
+{
+    ArcNode *p;
+    visit[v]=1;
+    ++vn;
+    p=G-&amp;gt;adjlist[v].firstarc;
+    while(p!=NULL)
+    {
+        ++en;
+        if(visit[p-&amp;gt;adjvex]==0)
+        {
+            DFS2(G,p-&amp;gt;acijvex, vn, en);
+        }
+        p=p-&amp;gt;nextare;
+    }
+}
+int GisTree (AGraph*G)
+{
+    int vn=0, en=0,i;
+    for(i=0;i&amp;lt;G-&amp;gt;n;++i)
+        visit[i]-0;
+    DFS2(G, 1, vn,en);
+    if(vn==G-&amp;gt;n&amp;amp;&amp;amp;(G-&amp;gt;n-1)==en/2)
+        return 1;
+    else 
+        return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;【例3】图采用邻接表存储，设计一个算法，判别顶点i和顶点j(i!=j）之间是否有路径。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int DFSTrave(AGraph *G,int i, int j)
+{
+    int k;
+    for(k=0;k&amp;lt;G-&amp;gt;n; ++k)
+        visit[k]-0;
+    DFS(G,i);
+    if(visit[j]--1)
+        return 1;
+    else
+        return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;最小生成树&#34;&gt;最小生成树&lt;/h3&gt;
+&lt;h4 id=&#34;普利姆算法和克鲁斯卡尔算法&#34;&gt;普利姆算法和克鲁斯卡尔算法&lt;/h4&gt;
+&lt;h5 id=&#34;普利姆算法&#34;&gt;普利姆算法&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;算法思想&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;从图中任意取出一个顶点，把它当成一棵树，然后从与这棵树相接的边中选取一条最短（权值最小)的边，并将这条边及其所连接的顶点也并入这棵树中，此时得到一棵有两个顶点的树。然后从与这棵树相接的边中选取一条最短的边，并将这条边及其所连顶点并入当前树中，得到一棵有3个顶点的树。以此类推，直到图中所有顶点都被并入树中为止，此时得到的生成树就是最小生成树。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;普利姆算法执行过程
+从树中某一个顶点v0开始，构造生成树的算法执行过程如下:&lt;br&gt;
+1）将v0到其他顶点的所有边当作候选边。&lt;br&gt;
+2）重复以下步骤n-1次，使得其他n-1个顶点被并入到生成树中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;从候选边中挑选出权值最小的边输出，并将与该边另一端相接的顶点v并入生成树中;&lt;/li&gt;
+&lt;li&gt;考查所有剩余顶点v,如果(v,vi)的权值比 lowcost[vj]小，则用(v,vi)的权值更新lowcost[vi]。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void Prim (MGraph g, int v0, int &amp;amp;sum)
+{
+    int lowcost[maxsize], vset[maxsize],v;
+    int i,j,k,min;
+    v=v0;
+    for(i=0;i&amp;lt;g.n;++i)
+    {
+        lowcost[i]=g.edges[v0][i];
+        vset[i]=0;
+    }
+    vset[v0]=1;
+    sum=0;
+    for(i=0;i&amp;lt;g.n-1;++i)
+    {
+        min=INF;
+        for(j=0;j&amp;lt;g.n;++j)
+        {
+            if(vset[j]==0&amp;amp;&amp;amp;lowcost[j]&amp;lt;min)
+            {
+                min=lowcost[j];
+                k=j;
+            }
+        vset[k]=1;
+        v=k;
+        sum+=min;
+        for(j=0;j&amp;lt;g.n;++j)
+        {
+            if(vset[j]==0&amp;amp;&amp;amp;g.edges[v][j]&amp;lt;lowcost[j])
+               lowcost[j]=g.edges[v][j];
+        }
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&#34;克鲁斯卡尔算法&#34;&gt;克鲁斯卡尔算法&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;算法思想&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;每次找出候选边中权值最小的边，就将该边并入生成树中。重复此过程直到所有边都被检测完为止。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;克鲁斯卡尔算法执行过程&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;1）将图中边按照权值从小到大排序，然后从最小边开始扫描各边，并检测当前边是否为候选边，即是否该边的并入会构成回路，如不构成回路，则将该边并入当前生成树中，直到所有边都被检测完为止。&lt;/p&gt;
+&lt;p&gt;2）并查集。判断是否产生回路要用到并查集。并查集中保存了一棵或者几棵树，这些树有这样的特点:通过树中一个结点，可以找到其双亲结点，进而找到根结点（其实就是之前讲过的树的双亲存储结构)。这种特性有两个好处:一是可以快速地将两个含有很多元素的集合并为一个。两个集合就是并查集中的两棵树，只需找到其中一棵树的根，然后将其作为另一棵树中任何一个结点的孩子结点即可。二是可以方便地判断两个元素是否属于同一个集合。通过这两个元素所在的结点找到它们的根结点，如果它们有相同的根，则说明它们属于同一个集合，否则属于不同集合。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;typedef struct
+{
+    int a,b;
+    int w;
+}Road;
+Road road[maxSize];
+int v[maxSize];
+int getRoot(int a)
+{
+    while(a!=v[a])
+        a=v[a];
+    return a;
+}
+void Kruskal(MGraph g,int &amp;amp;sum,Road road[])
+{
+    int i;
+    int N,E,a,b;
+    N=g.n;
+    E=g.e;
+    sum=0;
+    for(i=0;i&amp;lt;N;++i)
+    {
+        v[i]=i;
+    }
+    sort(road,E);
+    for(i=0;i&amp;lt;E;++i)
+    {
+        a=getRoot(road[i].a);
+        b=getRoot(road[i].b);
+        if(a!=b)
+        {
+            v[a]=b;
+            sum+=road[i].w;
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;最短路径&#34;&gt;最短路径&lt;/h3&gt;
+&lt;h4 id=&#34;迪杰斯特拉算法&#34;&gt;迪杰斯特拉算法&lt;/h4&gt;
+&lt;h4 id=&#34;弗洛伊德算法&#34;&gt;弗洛伊德算法&lt;/h4&gt;
+&lt;h3 id=&#34;拓扑排序&#34;&gt;拓扑排序&lt;/h3&gt;
+&lt;h4 id=&#34;aov网&#34;&gt;AOV网&lt;/h4&gt;
+&lt;p&gt;活动在顶点上的网(Activity On Vertex network,AOV网)是一种可以形象地反映出整个工程中各个活动之间的先后关系的有向图。&lt;/p&gt;
+&lt;h4 id=&#34;拓扑排序核心算法&#34;&gt;拓扑排序核心算法&lt;/h4&gt;
+&lt;p&gt;对一个有向无环图G进行拓扑排序，是将G中所有顶点排成一个线性序列，使得图中任意一对顶点u和v，若存在由u到v的路径，则在拓扑排序序列中一定是u出现在v的前面。&lt;/p&gt;
+&lt;p&gt;在一个有向图中找到一个拓扑排序序列的过程如下:&lt;br&gt;
+1）从有向图中选择一个没有前驱（入度为0）的顶点输出。&lt;br&gt;
+2）删除1）中的顶点，并且删除从该顶点发出的全部边。&lt;br&gt;
+3）重复上述两步，直到剩余的图中不存在没有前驱的顶点为止。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int TopSort(AGraph *G)
+{
+    int i,j,n=0;
+    int stack[maxSize],top=-1;
+    ArcNode *p;
+    for(i=0;i&amp;lt;G-&amp;gt;n;++i)
+    {
+        if(G-&amp;gt;adjlist[i].count==0)
+           stack[++top]=i;
+    }
+    while(top!=-1)
+    {
+        i=stack[top--];
+        ++n;
+        p=G-&amp;gt;adjlist[i].firstarc;
+        while(p!=NULL)
+        {
+            j=p-&amp;gt;adjvex;
+            --(G-&amp;gt;adjlist[j].count);
+            if(G-&amp;gt;adjlist[j].count==0)
+               stack[++top]=j;
+            p=p-&amp;gt;nextarc;
+        }
+    }
+    if(n==G-&amp;gt;n)
+        return 1;
+    else 
+        return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;关键路径&#34;&gt;关键路径&lt;/h3&gt;
+&lt;h4 id=&#34;aoe网&#34;&gt;AOE网&lt;/h4&gt;
+&lt;p&gt;对于活动在边上的网（Activity On Edge network，AOE网）可以和AOV网对比着来记忆。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;两者的相同点:都是有向无环图。&lt;/li&gt;
+&lt;li&gt;两者的不同点:AOE网的边表示活动，边有权值，边代表活动持续时间;顶点表示事件，事件是图中新活动开始或者旧活动结束的标志。AOV网的顶点表示活动，边无权值，边代表活动之间的先后关系。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;关键路径核心算法&#34;&gt;关键路径核心算法&lt;/h4&gt;
+&lt;h2 id=&#34;排序&#34;&gt;排序&lt;/h2&gt;
+&lt;h3 id=&#34;排序的基本概念&#34;&gt;排序的基本概念&lt;/h3&gt;
+&lt;h4 id=&#34;排序算法的分类&#34;&gt;排序算法的分类&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;插入类的排序&lt;/li&gt;
+&lt;li&gt;交换类的排序&lt;/li&gt;
+&lt;li&gt;选择类的排序&lt;/li&gt;
+&lt;li&gt;归并类的排序&lt;/li&gt;
+&lt;li&gt;基数类的排序&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;插入类排序&#34;&gt;插入类排序&lt;/h3&gt;
+&lt;h4 id=&#34;直接插入排序&#34;&gt;直接插入排序&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;算法思想&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;每趟将一个待排序的关键字按照其值的大小播入到已经排好的部分有序序列的适当位置上，直到所有待排关键字都被插入到有序序列中为止。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void InsertSort(int R[],int n)
+{
+    int i,j;
+    int temp;
+    for(i=1;i&amp;lt;n;++i)
+    {
+        temp=R[i];
+        j=i-1;
+        while(j&amp;gt;=0&amp;amp;&amp;amp;temp&amp;lt;R[j])
+        {
+            R[j+1]=R[j];
+            --j;
+        }
+        R[j+1]=temp;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;折半插入排序&#34;&gt;折半插入排序&lt;/h4&gt;
+&lt;p&gt;折半插入排序的基本思想和直接插入排序类似，区别是查找插入位置的方法不同，折半插入排序是采用折半查找法来查找插入位置的。&lt;/p&gt;
+&lt;p&gt;折半查找法的一个基本条件是序列已经有序，而从直接插入排序的流程中可以看出，每次都是在一个已经有序的序列中插入一个新的关键字，因此可以用折半查找法在这个有序序列中查找插入位置。&lt;/p&gt;
+&lt;h4 id=&#34;希尔排序&#34;&gt;希尔排序&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;算法介绍&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;希尔排序又叫作缩小增量排序，其本质还是插入排序，只不过是将待排序列按某种规则分成几个子序列，分别对这几个子序列进行直接插入排序。这个规则的体现就是增量的选取，如果增量为 1，就是直接插入排序。例如，先以增量5来分割序列，即将下标为0、5、10、15…的关键字分成一组，将下标为1、6、11、16…的关键字分成另一组等，然后分别对这些组进行直接插入排序，这就是一趟希尔排序。将上面排好序的整个序列，再以增量2分割，即将下标为0、2、4、6、8…的关键字分成一组，将下标为1、3、5、7、9…的关键字分成另一组等，然后分别对这些组进行直接插入排序，这又完成了一趟希尔排序。最后以增量1分割整个序列，其实就是对整个序列进行一趟直接插入排序，从而完成整个希尔排序。&lt;/p&gt;
+&lt;p&gt;注意到增量5、2、1是逐渐缩小的，这就是缩小增量排序的由来。前面讲过，直接插入排序适合于序列基本有序的情况，希尔排序的每趟排序都会使整个序列变得更加有序，等整个序列基本有序了，再来一趟直接插入排序，这样会使排序效率更高，这就是希尔排序的思想。&lt;/p&gt;
+&lt;h3 id=&#34;交换类排序&#34;&gt;交换类排序&lt;/h3&gt;
+&lt;h4 id=&#34;起泡排序&#34;&gt;起泡排序&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;算法介绍&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;起泡排序又称冒泡排序。它是通过一系列的“交换”动作完成的。首先第一个关键字和第二个关键字比较，如果第一个大，则二者交换，否则不交换;然后第二个关键字和第三个关键字比较，如果第二个大，则二者交换，否则不交换……。一直按这种方式进行下去，最终最大的那个关键字被交换到了最后，一趟起泡排序完成。经过多趟这样的排序，最终使整个序列有序。在这个过程中，大的关键字像石头一样“沉底”，小的关键字像气泡一样逐渐向上“浮动”，起泡排序的名字由此而来。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void BubbleSort(int R[],int n)
+{
+    int i,j,flag;
+    int temp;
+    for(i=n-1;i&amp;gt;=1;--i)
+    {
+        flag=0;
+        for(j=1;j&amp;lt;=i;++j)
+        {
+            if(R[j-1]&amp;gt;R[j])
+            {
+                temp=R[j];
+                R[j]=R[j-1];
+                R[j-1]=temp;
+                flag=1;
+            }
+            if(flag==0)
+                return;
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;快速排序&#34;&gt;快速排序&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;算法介绍&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;快速排序也是“交换”类的排序，它通过多次划分操作来实现排序。以升序为例，其执行流程可以概括为:每一趟选择当前所有子序列中的一个关键字（通常是第一个）作为枢轴，将子序列中比枢轴小的移到枢轴前面，比枢轴大的移到枢轴后面;当本趟所有子序列都被枢轴以上述规则划分完毕后会得到新的一组更短的子序列，它们成为下一趟划分的初始序列集。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void QuickSort(int R[], int low, int high)
+{
+    int temp;
+    int i=low,j=high;
+    if(low&amp;lt;high)
+    {
+        temp=R[low];
+        while(i&amp;lt;j)
+        {
+            while(j&amp;gt;i&amp;amp;&amp;amp;R[j]&amp;gt;=temp)
+            {
+                --j;
+            }
+            if(i&amp;lt;j)
+            {
+                R[i]=R[j];
+                ++i;
+            }
+            while(i&amp;lt;j&amp;amp;&amp;amp;R[i]&amp;lt;temp)
+            {
+                ++i;
+            }
+            if(i&amp;lt;j)
+            {
+                R[j]=R[i];
+                --j;
+            }
+        }
+        R[i]=temp;
+        QuickSort(R,low,i-1);
+        QuickSort(R,i+1,high);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;选择类排序&#34;&gt;选择类排序&lt;/h3&gt;
+&lt;h4 id=&#34;简单选择排序&#34;&gt;简单选择排序&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;算法介绍&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;选择类排序的主要动作是“选择”，简单选择排序采用最简单的选择方式，从头至尾顺序扫描序列,找出最小的一个关键字，和第一个关键字交换，接着从剩下的关键字中继续这种选择和交换，最终使序列有序。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;void SelectSort(int R[],int n)
+{
+    int i,j,k;
+    int temp;
+    for(i=0;i&amp;lt;n;++i)
+    {
+        k=i;
+        for(j=i+1;j&amp;lt;n;++j)
+        {
+            if(R[k]&amp;lt;R[j])
+            {
+                k=j;
+            }
+        }
+        temp=R[i];
+        R[i]=R[k];
+        R[k]=temp;
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;堆排序&#34;&gt;堆排序&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;算法介绍&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;堆是一种数据结构，可以把堆看成一棵完全二叉树，这棵完全二叉树满足:任何一个非叶结点的值都不大于(或不小于）其左、右孩子结点的值。若父亲大孩子小，则这样的堆叫作大顶堆;若父亲小孩子大，则这样的堆叫作小顶堆。&lt;/p&gt;
+&lt;p&gt;根据堆的定义知道，代表堆的这棵完全二叉树的根结点的值是最大（或最小）的，因此将一个无序序列调整为一个堆，就可以找出这个序列的最大(或最小）值，然后将找出的这个值交换到序列的最后(或最前)，这样，有序序列关键字增加1个，无序序列中关键字减少1个，对新的无序序列重复这样的操作，就实现了排序。这就是堆排序的思想。&lt;/p&gt;
+&lt;p&gt;堆排序中最关键的操作是将序列调整为堆。整个排序的过程就是通过不断调整，使得不符合堆定义的完全二叉树变为符合堆定义的完全二叉树。&lt;/p&gt;
+&lt;h3 id=&#34;二路归并排序&#34;&gt;二路归并排序&lt;/h3&gt;
+&lt;h3 id=&#34;基数排序&#34;&gt;基数排序&lt;/h3&gt;
+&lt;h3 id=&#34;外部排序&#34;&gt;外部排序&lt;/h3&gt;
+&lt;h2 id=&#34;查找&#34;&gt;查找&lt;/h2&gt;
+&lt;h3 id=&#34;查找的基本概念顺序查找法折半查找法&#34;&gt;查找的基本概念、顺序查找法、折半查找法&lt;/h3&gt;
+&lt;h4 id=&#34;查找的基本概念&#34;&gt;查找的基本概念&lt;/h4&gt;
+&lt;p&gt;查找的定义:给定一个值k，在含有n个记录的表中找出关键字等于k的记录。若找到，则查找成功，返回该记录的信息或者该记录在表中的位置;否则查找失败，返回相关的指示信息。&lt;/p&gt;
+&lt;h4 id=&#34;顺序查找法&#34;&gt;顺序查找法&lt;/h4&gt;
+&lt;p&gt;顺序查找法是一种最简单的查找方法。它的基本思路是:从表的一端开始，顺序扫描线性表，依次将扫描到的关键字和给定值k进行比较，若当前扫描的关键字与k相等，则查找成功;若扫描结束后，仍未发现关键字等于k的记录，则查找失败。由以上可知，顺序查找法对于顺序表和链表都是适用的。对于顺序表，可以通过数组下标递增来顺序扫描数组中的各个元素;对于链表，则可通过表结点指针(假设为p）反复执行p=p-&amp;gt;next;来扫描表中各个元素。&lt;/p&gt;
+&lt;h4 id=&#34;折半查找法&#34;&gt;折半查找法&lt;/h4&gt;
+&lt;p&gt;折半查找的基本思路:设R[low，…., high]是当前的查找区间，首先确定该区间的中间位置mid=(low+high)/2;，然后将待查的k值与R[mid]比较，若相等，则查找成功，并返回该位置，否则需确定新的查找区间。若R[mid]&amp;gt;k，则由表的有序性可知R[mid，….,high]均大于k，因此若表中存在关键字等于k的记录，则该记录必定是在 mid左边的子表R[low，…,mid-1]中，故新的查找区间是左子表R[low，.…, mid-1]。类似地，若R[mid]&amp;lt;k，则要查找的k必在mid的右子表K[mid+1，…，high]中，即新的查找区间是右子表R[mid+1，.… , high]。递归地处理新区间，直到子区间的长度小于1时查找过程结束。&lt;/p&gt;
+&lt;h4 id=&#34;分块查找&#34;&gt;分块查找&lt;/h4&gt;
+&lt;p&gt;分块查找又称为索引顺序查找，其数据结构可以简单地描述为:分块查找把线性表分成若干块，每一块中的元素存储顺序是任意的，但是块与块之间必须按照关键字大小有序排列，即前一块中的最大关键字要小于后一块中的最小关键字。对顺序表进行分块查找需要额外建立一个索引表，表中的每一项对应线性表中的一块，每个索引项都由键值分量和链值分量组成，键值分量存放对应块的最大关键字，链值分量存放指向本块第一个元素和最后一个元素的指针（这里的指针可以是存放线性表数组中的元素下标或者地址，或是任何可以帮助找到这个元素的信息)，显然索引表中的所有索引项都是按照其关键字的递增顺序排列的。&lt;/p&gt;
+&lt;h3 id=&#34;树形查找&#34;&gt;树形查找&lt;/h3&gt;
+&lt;h4 id=&#34;二叉排序树&#34;&gt;二叉排序树&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;二叉树的定义与存储结构&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;（1）二叉排序树BST的定义&lt;br&gt;
+1）若它的左子树不空，则左子树上所有关键字的值均不大于（不小于）根关键字的值。&lt;br&gt;
+2）若它的右子树不空，则右子树上所有关键字的值均不小于（不大于）根关键字的值。&lt;br&gt;
+3）左右子树又各是一棵二叉排序树。&lt;/p&gt;
+&lt;p&gt;（2）二叉排序树的存储结构
+二叉排序树通常采用二叉链表进行存储，其结点类型定义与一般的二叉树类似。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;typedef struct BTNode
+{
+    int key;
+    struct BTNode *lchild;
+    struct BTNode *rchild;
+}BTNode;
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;二叉排序树的基本算法&lt;br&gt;
+（1） 查找关键字的算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;BTNode* BSTSearch(BTNode* bt,int key)
+{
+    if(bt==NULL)
+        return NULL;
+    else 
+    {
+        if(bt-&amp;gt;key==key)
+            return bt;
+        else if(key&amp;lt;bt-&amp;gt;key)
+            return BSTSearch(bt-&amp;gt;lchild,key);
+        else 
+            return BSTSearch(bt-&amp;gt;rchild,key);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;（2） 插入关键字的算法&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int BSTInsert(BTNode *&amp;amp;bt, int key)
+{
+    if(bt==NULL)
+    {
+        bt=(BTNode*)malloc(sizeof(BTNode));
+        bt-&amp;gt;lchild=bt-&amp;gt;rchild=NULL;
+        bt-&amp;gt;key=key;
+        return 1;
+    }
+    else 
+    {
+        if(key==bt-&amp;gt;key)
+            return 0;
+            else if (key&amp;lt;bt-&amp;gt;key)
+                return BSTInsert(bt-&amp;gt;lchild,key);
+            else
+                return BSTInsert(bt-&amp;gt;rchild,key);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;平衡二叉树&#34;&gt;平衡二叉树&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;平衡二叉树的概念&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;平衡二叉树又称为AVL树，是一种特殊的二叉排序树。其左右子树都是平衡二叉树，且左右子树高度之差的绝对值不超过1。一句话表述为:以树中所有结点为根的树的左右子树高度之差的绝对值不超过1。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;平衡二叉树的建立&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;建立平衡二叉树的过程和建立二叉排序树的过程基本一样，都是将关键字逐个插入空树中的过程。所不同的是，在建立平衡二叉树的过程中，每插入一个新的关键字都要进行检查，看新关键字的插入是否会使得原平衡二叉树失去平衡，即树中出现平衡因子绝对值大于1的结点。如果失去平衡则需要进行平衡调整。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;平衡调整&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;假定向平衡二叉树中插入一个新结点后破坏了平衡二叉树的平衡性，则首先要找出插入新结点后失去平衡的最小子树，然后再调整这棵子树，使之成为平衡子树。值得注意的是，当失去平衡的最小子树被调整为平衡子树后，无须调整原有其他所有的不平衡子树，整个二叉排序树就会成为一棵平衡二叉树。所谓失去平衡的最小子树是指距离插入结点最近，且以平衡因子绝对值大于1的结点作为根的子树，又称为最小不平衡子树。&lt;/p&gt;
+&lt;h3 id=&#34;b-树的基本概念及其基本操作b树的基本概念&#34;&gt;B-树的基本概念及其基本操作、B+树的基本概念&lt;/h3&gt;
+&lt;h4 id=&#34;b-树的基本概念&#34;&gt;B-树的基本概念&lt;/h4&gt;
+&lt;h4 id=&#34;b-树的基本操作&#34;&gt;B-树的基本操作&lt;/h4&gt;
+&lt;h4 id=&#34;b树的基本概念&#34;&gt;B+树的基本概念&lt;/h4&gt;
+&lt;h3 id=&#34;散列表&#34;&gt;散列表&lt;/h3&gt;
+&lt;h4 id=&#34;散列表的概念&#34;&gt;散列表的概念&lt;/h4&gt;
+&lt;p&gt;根据给定的关键字来计算关键字在表中的地址&lt;/p&gt;
+&lt;h4 id=&#34;散列表的建立方法以及冲突解决方法&#34;&gt;散列表的建立方法以及冲突解决方法&lt;/h4&gt;
 </description>
                 
                 
