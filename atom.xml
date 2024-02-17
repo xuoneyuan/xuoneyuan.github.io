@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">falcone&#39;s sweet home</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2024-02-16T11:41:45&#43;08:00</updated>
+    <updated>2024-02-17T13:25:47&#43;08:00</updated>
     <id>https://xuoneyuan.github.io/</id>
     <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://xuoneyuan.github.io/atom.xml" />
@@ -16,6 +16,107 @@
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.120.3">Hugo</generator>
+        <entry>
+            <title type="text">快来欣赏程序员的浪漫！——情人节特辑</title>
+            <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/posts/15/" />
+            <id>https://xuoneyuan.github.io/posts/15/</id>
+            <updated>2024-02-17T13:24:42&#43;08:00</updated>
+            <published>2024-02-17T11:09:30&#43;08:00</published>
+            <author>
+                    <name>falcone</name>
+                    <uri>https://xuoneyuan.github.io/</uri>
+                    <email>xuoneyuan@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">大众对于程序员这个群体的印象似乎就是刻板、认真、不善言辞，事实也是如此，但这并不代表……</summary>
+            
+                <content type="html">&lt;p&gt;大众对于程序员这个群体的印象似乎就是刻板、认真、不善言辞，事实也是如此，但这并不代表程序员们不懂得什么叫爱情，下面就是本人收集的部分专属于程序员或者说计算机从业者的浪漫~&lt;/p&gt;
+&lt;h3 id=&#34;part-1&#34;&gt;PART 1&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/630876166&#34;&gt;男朋友这几天发来的代码，看不太懂，求解读?&lt;/a&gt;
+&lt;img src=&#34;https://xuoneyuan.github.io/images/npy1.png&#34; alt=&#34;1&#34;&gt;
+&lt;img src=&#34;https://xuoneyuan.github.io/images/npy2.png&#34; alt=&#34;1&#34;&gt;
+&lt;img src=&#34;https://xuoneyuan.github.io/images/npy3.png&#34; alt=&#34;1&#34;&gt;
+&lt;img src=&#34;https://xuoneyuan.github.io/images/npy4.png&#34; alt=&#34;1&#34;&gt;
+这个是知乎上的一个提问，由于本人c++水平不够高，下面的代码解释都是知乎回答或者GPT4的理解&lt;/p&gt;
+&lt;h4 id=&#34;gpt回答&#34;&gt;GPT回答&lt;/h4&gt;
+&lt;h5 id=&#34;第一段代码&#34;&gt;第一段代码&lt;/h5&gt;
+&lt;p&gt;在这段代码中，有三个类：People、Jxl和Xp。Jxl继承自People，Xp也继承自People。在Xp类中，定义了两个方法：构造函数和析构函数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;构造函数 Xp():&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使当前线程休眠24年（这显然是一个比喻，实际代码中这样做没有意义，因为它会阻塞程序那么长时间）。&lt;/li&gt;
+&lt;li&gt;创建一个Jx1类型的对象，并将其赋给m_love，这是一个std::unique_ptr&lt;People&gt;类型的智能指针，初始化为nullptr。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;析构函数 ~Xp():&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;调用m_love智能指针的release()方法，释放它所拥有的对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这段代码可能在比喻地讨论一个人（Xp类）在等待（sleep_for）了很长时间（比如24年）之后，找到了他们所爱的人（m_love是Jxl的一个实例），但最终又放手了（在析构函数中release）。&lt;/p&gt;
+&lt;h5 id=&#34;第二段代码&#34;&gt;第二段代码&lt;/h5&gt;
+&lt;p&gt;这段代码定义了一个Jxl类和一个Xp类。它还定义了一个概念（concept），这是C++20中引入的一个特性，用于约束模板参数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;概念 with:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用std::is_same来检查模板参数T是否与Jxl类型相同。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;类 Xp:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用了requires子句来约束模板参数T，必须满足with&lt;Jxl&gt;概念。这意味着Xp类模板只能用Jx1类型作为模板参数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这段代码可能在比喻地表示，只有特定类型的对象（这里是Jxl）才能与Xp类&amp;quot;合作&amp;quot;或&amp;quot;匹配&amp;quot;。&lt;/p&gt;
+&lt;h5 id=&#34;第三段代码&#34;&gt;第三段代码&lt;/h5&gt;
+&lt;p&gt;在这段代码中，定义了两个类：Jxl和Xp。在Xp类中，有一个名为directions的模板成员函数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;函数 directions:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;返回一个std::optional&lt;T&gt;。这是C++17的一个特性，它可能包含一个值或没有值。&lt;/li&gt;
+&lt;li&gt;函数内部检查模板参数T是否与Jxl相同。如果是，就构造一个Jxl对象并返回它。如果不是，就返回std::nullopt，表明没有值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这段代码可能在比喻地说，只有当满足特定条件时（这里是类型匹配Jxl），Xp类才能提供某种&amp;quot;方向&amp;quot;或&amp;quot;指示&amp;quot;（directions函数）。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/npyg1.png&#34; alt=&#34;1&#34;&gt;
+&lt;img src=&#34;https://xuoneyuan.github.io/images/npyg2.png&#34; alt=&#34;1&#34; title=&#34;果然21世纪是人工智能的世纪&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;知乎回答&#34;&gt;知乎回答&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/npy5.png&#34; alt=&#34;1&#34;&gt;
+也有专业老哥对这段代码进行了指正
+&lt;img src=&#34;https://xuoneyuan.github.io/images/npy6.png&#34; alt=&#34;1&#34;&gt;
+总体而言我对这段代码的评价是
+&lt;img src=&#34;https://xuoneyuan.github.io/images/npy7.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;part-2&#34;&gt;PART 2&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://src.sjtu.edu.cn/post/270577/&#34;&gt;福建农业职业技术学院0day&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;某一天我的说说和朋友圈被这个消息刷屏了，群里也有非常多老哥在讨论这个，那几天在安全圈非常火
+&lt;img src=&#34;https://xuoneyuan.github.io/images/src1.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;评论区回答&#34;&gt;评论区回答&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/src2.png&#34; alt=&#34;1&#34;&gt;
+&lt;img src=&#34;https://xuoneyuan.github.io/images/src3.png&#34; alt=&#34;1&#34;&gt;
+下面这位师傅我要着重介绍一下，梅苑师傅是我电的硕士生，我报了校友身份直接让我免费进他的知识星球了（虽然现在我不学安全了但是偶尔还会去看看），据我所知学长现在还在国科大北京某研究所实习
+&lt;img src=&#34;https://xuoneyuan.github.io/images/src4.png&#34; alt=&#34;1&#34; title=&#34;梅苑师傅也是性情中人啊&#34;&gt;&lt;/p&gt;
+&lt;p&gt;好了，情人节特辑先更新到这里，后续我发现了精彩内容会继续更新的~~&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/categories/%E6%9D%82%E6%96%87/" term="杂文" label="杂文" />
+                            
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/tags/%E8%8A%82%E6%97%A5%E5%BA%86%E5%85%B8/" term="节日庆典" label="节日庆典" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">数据结构</title>
             <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/posts/14/" />
