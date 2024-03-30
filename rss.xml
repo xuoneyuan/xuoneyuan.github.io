@@ -23,10 +23,175 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Sat, 17 Feb 2024 13:25:47 &#43;0800</lastBuildDate>
+        <lastBuildDate>Sat, 30 Mar 2024 11:06:55 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://xuoneyuan.github.io/rss.xml" />
         
+        
+            <item>
+                <title>ThreadLocal</title>
+                <link>https://xuoneyuan.github.io/posts/16/</link>
+                <guid isPermaLink="true">https://xuoneyuan.github.io/posts/16/</guid>
+                <pubDate>Fri, 29 Mar 2024 16:55:01 &#43;0800</pubDate>
+                
+                    <author>xuoneyuan@gmail.com (falcone)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description>&lt;h3 id=&#34;什么是threadlocal&#34;&gt;什么是ThreadLocal？&lt;/h3&gt;
+&lt;p&gt;ThreadLocal叫做线程变量，意思是ThreadLocal中填充的变量属于当前线程，该变量对其他线程而言是隔离的，也就是说该变量是当前线程独有的变量。
+&lt;img src=&#34;https://xuoneyuan.github.io/images/tl1.png&#34; alt=&#34;1&#34;&gt;
+ThreadLocal为变量在每个线程中都创建了一个副本，那么每个线程可以访问自己内部的副本变量。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;因为每个 Thread 内有自己的实例副本，且该副本只能由当前 Thread 使用。这是也是 ThreadLocal 命名的由来。&lt;/li&gt;
+&lt;li&gt;既然每个 Thread 有自己的实例副本，且其它 Thread 不可访问，那就不存在多线程间共享的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ThreadLocal 提供了线程本地的实例。它其实是一种线程的隔离机制，保障了多线程环境下对于共享变量访问的安全性。&lt;/p&gt;
+&lt;h3 id=&#34;threadlocal与synchronized的区别&#34;&gt;ThreadLocal与Synchronized的区别&lt;/h3&gt;
+&lt;p&gt;ThreadLocal和Synchonized都用于解决多线程并发访问。
+&lt;img src=&#34;https://xuoneyuan.github.io/images/tl2.png&#34; alt=&#34;1&#34;&gt;
+ThreadLocal与synchronized有本质的区别：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Synchronized用于线程间的数据共享，而ThreadLocal则用于线程间的数据隔离。&lt;/li&gt;
+&lt;li&gt;Synchronized是利用锁的机制，使变量或代码块在某一时该只能被一个线程访问。而ThreadLocal为每一个线程都提供了变量的副本
+，使得每个线程在某一时间访问到的并不是同一个对象，这样就隔离了多个线程对数据的数据共享。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;theadlocal使用场景&#34;&gt;TheadLocal使用场景&lt;/h3&gt;
+&lt;p&gt;场景一：代替参数的显式传递&lt;/p&gt;
+&lt;p&gt;当我们在写API接口的时候，通常Controller层会接受来自前端的入参，当这个接口功能比较复杂的时候，可能我们调用的Service层内部还调用了 很多其他的很多方法，通常情况下，我们会在每个调用的方法上加上需要传递的参数。&lt;/p&gt;
+&lt;p&gt;但是如果我们将参数存入ThreadLocal中，那么就不用显式的传递参数了，而是只需要ThreadLocal中获取即可。&lt;/p&gt;
+&lt;p&gt;场景二：全局存储用户信息&lt;/p&gt;
+&lt;p&gt;在现在的系统设计中，前后端分离已基本成为常态，分离之后如何获取用户信息就成了一件麻烦事，通常在用户登录后， 用户信息会保存在Session或者Token中。这个时候，我们如果使用常规的手段去获取用户信息会很费劲，拿Session来说，我们要在接口参数中加上HttpServletRequest对象，然后调用 getSession方法，且每一个需要用户信息的接口都要加上这个参数，才能获取Session，这样实现就很麻烦了。&lt;/p&gt;
+&lt;p&gt;在实际的系统设计中，我们肯定不会采用上面所说的这种方式，而是使用ThreadLocal，我们会选择在拦截器的业务中， 获取到保存的用户信息，然后存入ThreadLocal，那么当前线程在任何地方如果需要拿到用户信息都可以使用ThreadLocal的get()方法 (异步程序中ThreadLocal是不可靠的)&lt;/p&gt;
+&lt;p&gt;场景三：解决线程安全问题&lt;/p&gt;
+&lt;p&gt;在Spring的Web项目中，我们通常会将业务分为Controller层，Service层，Dao层， 我们都知道@Autowired注解默认使用单例模式，那么不同请求线程进来之后，由于Dao层使用单例，那么负责数据库连接的Connection也只有一个， 如果每个请求线程都去连接数据库，那么就会造成线程不安全的问题，Spring是如何解决这个问题的呢？&lt;/p&gt;
+&lt;p&gt;在Spring项目中Dao层中装配的Connection肯定是线程安全的，其解决方案就是采用ThreadLocal方法，当每个请求线程使用Connection的时候， 都会从ThreadLocal获取一次，如果为null，说明没有进行过数据库连接，连接后存入ThreadLocal中，如此一来，每一个请求线程都保存有一份 自己的Connection。于是便解决了线程安全问题&lt;/p&gt;
+&lt;h3 id=&#34;threadlocal原理&#34;&gt;ThreadLocal原理&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/tl3.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;图中有两个线程Thread1以及Thread2。&lt;/li&gt;
+&lt;li&gt;Thread类中有一个叫做threadLocals的成员变量，它是ThreadLocal.ThreadLocalMap类型的。&lt;/li&gt;
+&lt;li&gt;ThreadLocalMap内部维护了Entry数组，每个Entry代表一个完整的对象，key是ThreadLocal本身，value是ThreadLocal的泛型对象值。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;set&#34;&gt;set&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; public void set(T value) {
+        //1、获取当前线程
+        Thread t = Thread.currentThread();
+        //2、获取线程中的属性 threadLocalMap ,如果threadLocalMap 不为空，
+        //则直接更新要保存的变量值，否则创建threadLocalMap，并赋值
+        ThreadLocalMap map = getMap(t);
+        if (map != null)
+            map.set(this, value);
+        else
+            // 初始化thradLocalMap 并赋值
+            createMap(t, value);
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;ThreadLocal set赋值的时候首先会获取当前线程thread,并获取thread线程中的ThreadLocalMap属性。如果map属性不为空，则直接更新value值，如果map为空，则实例化threadLocalMap,并将value值初始化。&lt;/p&gt;
+&lt;h4 id=&#34;threadlocalmap&#34;&gt;ThreadLocalMap&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;  static class ThreadLocalMap {
+ 
+        /**
+         * The entries in this hash map extend WeakReference, using
+         * its main ref field as the key (which is always a
+         * ThreadLocal object).  Note that null keys (i.e. entry.get()
+         * == null) mean that the key is no longer referenced, so the
+         * entry can be expunged from table.  Such entries are referred to
+         * as &amp;#34;stale entries&amp;#34; in the code that follows.
+         */
+        static class Entry extends WeakReference&amp;lt;ThreadLocal&amp;lt;?&amp;gt;&amp;gt; {
+            /** The value associated with this ThreadLocal. */
+            Object value;
+ 
+            Entry(ThreadLocal&amp;lt;?&amp;gt; k, Object v) {
+                super(k);
+                value = v;
+            }
+        }   
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;ThreadLocalMap是ThreadLocal的内部静态类，而它的构成主要是用Entry来保存数据 ，而且还是继承的弱引用。在Entry内部使用ThreadLocal作为key，使用我们设置的value作为value。&lt;/p&gt;
+&lt;h4 id=&#34;get&#34;&gt;get&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    public T get() {
+        //1、获取当前线程
+        Thread t = Thread.currentThread();
+        //2、获取当前线程的ThreadLocalMap
+        ThreadLocalMap map = getMap(t);
+        //3、如果map数据不为空，
+        if (map != null) {
+            //3.1、获取threalLocalMap中存储的值
+            ThreadLocalMap.Entry e = map.getEntry(this);
+            if (e != null) {
+                @SuppressWarnings(&amp;#34;unchecked&amp;#34;)
+                T result = (T)e.value;
+                return result;
+            }
+        }
+        //如果是数据为null，则初始化，初始化的结果，TheralLocalMap中存放key值为threadLocal，值为null
+        return setInitialValue();
+    }
+ 
+ 
+private T setInitialValue() {
+        T value = initialValue();
+        Thread t = Thread.currentThread();
+        ThreadLocalMap map = getMap(t);
+        if (map != null)
+            map.set(this, value);
+        else
+            createMap(t, value);
+        return value;
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;通过 ThreadLocalMap 获取当前线程的存储的 Value 值&lt;/p&gt;
+&lt;p&gt;设置 ThreadLocal 的初始化值，未 set(T value) 初次获取 Thread 对应的 Value 值时会调用，即被 setInitialValue 方法调用。需要重写该方法。&lt;/p&gt;
+&lt;h4 id=&#34;remove&#34;&gt;remove&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; public void remove() {
+         ThreadLocalMap m = getMap(Thread.currentThread());
+         if (m != null)
+             m.remove(this);
+     }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;remove方法，直接将ThrealLocal 对应的值从当前相差Thread中的ThreadLocalMap中删除。&lt;/p&gt;
+&lt;h4 id=&#34;总结&#34;&gt;总结&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Thread线程类有一个类型为ThreadLocal.ThreadLocalMap的变量threadLocals，即每个线程都有一个属于自己的ThreadLocalMap。&lt;/li&gt;
+&lt;li&gt;ThreadLocalMap方法内部维护者Entry数组，其中key是ThreadLocal本身，而value则为其泛型值。&lt;/li&gt;
+&lt;li&gt;并发场景下，每个线程都会存储当前变量副本到自己的ThreadLocalMap中，后续这个线程对于共享变量的操作，都是从TheadLocalMap里进行变更，不会影响全局共享变量的值。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;内存泄漏&#34;&gt;内存泄漏&lt;/h3&gt;
+&lt;h4 id=&#34;原因&#34;&gt;原因&lt;/h4&gt;
+&lt;p&gt;目前程序运行大多采用的是线程池模式，线程存在时间很长，如果不断往其中加入线程私有对象而得不到回收，会导致OOM。所以为了减少程序员手动回收，同时兼顾避免OOM，设计了一套弱引用自动回收机制。&lt;/p&gt;
+&lt;p&gt;由于threadLocal对象是弱引用，如果外部没有强引用指向的话，它就会被GC回收，那么这个时候导致Entry的key就为NULL，如果此时value外部也没有强引用指向的话，那么这个value就永远无法访问了，按道理也该被回收。但是由于entry还在强引用value，那么此时value就无法被回收，此时内存泄漏就出现了。本质原因是因为value成为了一个永远无法被访问也无法被回收的对象。
+&lt;img src=&#34;https://xuoneyuan.github.io/images/tl4.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;避免方法&#34;&gt;避免方法&lt;/h4&gt;
+&lt;p&gt;每次使用完毕之后记得调用一下remove()方法清除数据。
+ThreadLocal变量尽量定义成static final类型，避免频繁创建ThreadLocal实例。这样可以保证程序中一直存在ThreadLocal强引用，也能保证任何时候都能通过ThreadLocal的弱引用访问Entry的value值，从而进行清除。&lt;/p&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://xuoneyuan.github.io/categories/java/">JAVA</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://xuoneyuan.github.io/tags/java/">JAVA</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>快来欣赏程序员的浪漫！——情人节特辑</title>
