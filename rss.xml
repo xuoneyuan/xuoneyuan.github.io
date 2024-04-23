@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Fri, 12 Apr 2024 17:47:30 &#43;0800</lastBuildDate>
+        <lastBuildDate>Tue, 23 Apr 2024 23:34:26 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://xuoneyuan.github.io/rss.xml" />
         
@@ -2023,120 +2023,6 @@ void Kruskal(MGraph g,int &amp;amp;sum,Road road[])
             </item>
         
             <item>
-                <title>falconeの音乐时光——告五人篇</title>
-                <link>https://xuoneyuan.github.io/posts/13/</link>
-                <guid isPermaLink="true">https://xuoneyuan.github.io/posts/13/</guid>
-                <pubDate>Sat, 30 Dec 2023 23:08:18 &#43;0800</pubDate>
-                
-                    <author>xuoneyuan@gmail.com (falcone)</author>
-                
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
-                
-                    <description>&lt;p&gt;其实告五人很多歌都很好听的，有些冷门歌曲有时间听还是不错的&lt;/p&gt;
-&lt;p&gt;几首很火的歌就没啥推荐了，比如《唯一》、《给你一瓶魔法药水》、《爱人错过》都是些烂大街的歌曲了
-&lt;img src=&#34;https://xuoneyuan.github.io/images/xdyj.jpg&#34; alt=&#34;xidian&#34; title=&#34;Merry Christmas, Xidian University!&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;告五人&#34;&gt;告五人&lt;/h3&gt;
-&lt;h4 id=&#34;带我去找夜生活&#34;&gt;《带我去找夜生活》&lt;/h4&gt;
-
-
-
-
-&lt;div&gt;&lt;iframe id=&#34;biliplayer&#34; src=&#34;https://xuoneyuan.github.io//player.bilibili.com/player.html?bvid=BV1yX4y1P7Kd&amp;page=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34; loading=&#34;lazy&#34; &gt; &lt;/iframe&gt;&lt;/div&gt;
-
-&lt;style&gt;
-    
-    #biliplayer {
-      width: 100%;
-      height: 550px;
-    }
-    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-      #biliplayer {
-        width: 100%;
-        height: 250px;
-      }
-    }
-    &lt;/style&gt;
-    
-&lt;h4 id=&#34;温蒂公主的侍卫&#34;&gt;《温蒂公主的侍卫》&lt;/h4&gt;
-
-
-
-
-&lt;div&gt;&lt;iframe id=&#34;biliplayer&#34; src=&#34;https://xuoneyuan.github.io//player.bilibili.com/player.html?bvid=BV1WG411g7C5&amp;page=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34; loading=&#34;lazy&#34; &gt; &lt;/iframe&gt;&lt;/div&gt;
-
-&lt;style&gt;
-    
-    #biliplayer {
-      width: 100%;
-      height: 550px;
-    }
-    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-      #biliplayer {
-        width: 100%;
-        height: 250px;
-      }
-    }
-    &lt;/style&gt;
-    
-&lt;h4 id=&#34;法兰西多士&#34;&gt;《法兰西多士》&lt;/h4&gt;
-
-
-
-
-&lt;div&gt;&lt;iframe id=&#34;biliplayer&#34; src=&#34;https://xuoneyuan.github.io//player.bilibili.com/player.html?bvid=BV17r4y1M7pR&amp;page=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34; loading=&#34;lazy&#34; &gt; &lt;/iframe&gt;&lt;/div&gt;
-
-&lt;style&gt;
-    
-    #biliplayer {
-      width: 100%;
-      height: 550px;
-    }
-    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-      #biliplayer {
-        width: 100%;
-        height: 250px;
-      }
-    }
-    &lt;/style&gt;
-    
-&lt;p&gt;其实告五人还有很多歌曲也很好听，包括但不仅限于《好不容易》、《说我爱你的一百种方式》、《爱在夏天》、《披星戴月的想你》、《我想要占据你》、《红》、《与海无关》、《丑人多作怪》、《在这座城市遗失了你》、《从没去过巴塞隆纳》、《在未来的你跟我说声嗨》、《又到天黑》、《一念之间》、《不具名的花》、《我以为你不会出现》等等&lt;/p&gt;
-</description>
-                
-                
-                
-                
-                
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://xuoneyuan.github.io/categories/%E9%9F%B3%E4%B9%90/">音乐</category>
-                                
-                            
-                        
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://xuoneyuan.github.io/tags/%E9%9F%B3%E4%B9%90/">音乐</category>
-                                
-                            
-                                
-                                
-                                
-                                    <category domain="https://xuoneyuan.github.io/tags/bilibili/">bilibili</category>
-                                
-                            
-                        
-                    
-                
-            </item>
-        
-            <item>
                 <title>计算机网络</title>
                 <link>https://xuoneyuan.github.io/posts/11/</link>
                 <guid isPermaLink="true">https://xuoneyuan.github.io/posts/11/</guid>
@@ -3180,83 +3066,6 @@ wwW使用统一资源定位符（URL）来标志wwW上的各种文档。URL 的�
             </item>
         
             <item>
-                <title>GTA VI IS REALLY ON THE WAY!!!</title>
-                <link>https://xuoneyuan.github.io/posts/10/</link>
-                <guid isPermaLink="true">https://xuoneyuan.github.io/posts/10/</guid>
-                <pubDate>Wed, 06 Dec 2023 16:19:08 &#43;0800</pubDate>
-                
-                    <author>xuoneyuan@gmail.com (falcone)</author>
-                
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
-                
-                    <description>&lt;h3 id=&#34;can-you-believe-it&#34;&gt;CAN YOU BELIEVE IT?&lt;/h3&gt;
-&lt;p&gt;就在2023-12-5，北京时间早上7点07分，&lt;a href=&#34;https://www.youtube.com/watch?v=QdBZY2fkU-0&#34;&gt;GTA VI第一部预告片&lt;/a&gt;正式放送！&lt;/p&gt;
-&lt;style&gt;
-    .meta-media {
-      position: relative;
-      margin-bottom: 30px;
-      display: flex;
-      width: 100%;
-      height: 0;
-      padding-bottom: 75%;
-    }
-    .video {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-    }
-    &lt;/style&gt;
-    &lt;div class=&#34;meta-media&#34;&gt;
-    &lt;iframe src=&#34;https://www.youtube.com/embed/QdBZY2fkU-0&#34; frameborder=&#34;no&#34; scrolling=&#34;yes&#34; allowfullscreen=&#34;allowfullscreen&#34; high_quality=&#34;1&#34; framespacing=&#34;1&#34; class=&#34;video&#34; &gt;
-    &lt;/iframe&gt;
-    &lt;/div&gt;
-&lt;p&gt;早在R星删除ins上所有之前的推文时，就已经暗示大的要来了&lt;/p&gt;
-&lt;p&gt;果不其然，翻译翻译什么叫惊喜！
-&lt;img src=&#34;https://xuoneyuan.github.io/images/gta6.png&#34; alt=&#34;rockstar.png&#34; title=&#34;b站什么时候无大会员支持4k分辨率&#34;&gt;&lt;/p&gt;
-&lt;p&gt;截至目前(2023-12-6,16:30PM)，youtube上该视频的播放量已超1亿次，我就问问还有谁！
-&lt;img src=&#34;https://xuoneyuan.github.io/images/rock1.png&#34; alt=&#34;rockstar.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;点赞超过900万，评论更是高达73万条!
-&lt;img src=&#34;https://xuoneyuan.github.io/images/rock2.png&#34; alt=&#34;rockstar.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;还用多说什么吗？2025什么时候能来！ps5已经在准备的路上了！&lt;/p&gt;
-</description>
-                
-                
-                
-                
-                
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://xuoneyuan.github.io/categories/%E6%B8%B8%E6%88%8F/">游戏</category>
-                                
-                            
-                        
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://xuoneyuan.github.io/tags/gta/">GTA</category>
-                                
-                            
-                                
-                                
-                                
-                                    <category domain="https://xuoneyuan.github.io/tags/games/">games</category>
-                                
-                            
-                        
-                    
-                
-            </item>
-        
-            <item>
                 <title>单词拆分</title>
                 <link>https://xuoneyuan.github.io/posts/9/</link>
                 <guid isPermaLink="true">https://xuoneyuan.github.io/posts/9/</guid>
@@ -3559,7 +3368,7 @@ wwW使用统一资源定位符（URL）来标志wwW上的各种文档。URL 的�
             </item>
         
             <item>
-                <title>falconeの音乐时光——许嵩篇</title>
+                <title>欲买桂花同载酒</title>
                 <link>https://xuoneyuan.github.io/posts/8/</link>
                 <guid isPermaLink="true">https://xuoneyuan.github.io/posts/8/</guid>
                 <pubDate>Wed, 29 Nov 2023 17:12:10 &#43;0800</pubDate>
