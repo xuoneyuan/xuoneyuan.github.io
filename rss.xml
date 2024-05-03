@@ -23,10 +23,75 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Tue, 23 Apr 2024 23:34:26 &#43;0800</lastBuildDate>
+        <lastBuildDate>Fri, 03 May 2024 17:48:00 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://xuoneyuan.github.io/rss.xml" />
         
+        
+            <item>
+                <title>ElasticSearch</title>
+                <link>https://xuoneyuan.github.io/posts/19/</link>
+                <guid isPermaLink="true">https://xuoneyuan.github.io/posts/19/</guid>
+                <pubDate>Tue, 23 Apr 2024 23:40:42 &#43;0800</pubDate>
+                
+                    <author>xuoneyuan@gmail.com (falcone)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description>&lt;details&gt;
+&lt;summary&gt;倒排索引&lt;/summary&gt;
+&lt;p&gt;倒排索引也叫反向索引，我们通常理解的索引是通过key寻找value，与之相反，倒排索引是通过value寻找key，故而被称作反向索引。&lt;/p&gt;
+&lt;p&gt;为了创建索引，ES引擎通过分词器将每个文档的内容拆成单独的词（称之为词条，或term），再将这些词条创建成不含重复词条的排序列表，然后列出每个词条出现在哪个文档。&lt;/p&gt;
+&lt;p&gt;这种结构由文档中所有不重复的词的列表构成，对于其中每个词都有至少一个文档与与之关联。这种由属性值来确定记录的位置的结构就是倒排索引，带有倒排索引的文件被称为倒排文件。&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;底层 lucene&lt;/summary&gt;
+简单来说，lucene 就是一个 jar 包，里面包含了封装好的各种建立倒排索引的算法代码。我们用 Java 开发的时候，引入 lucene jar，然后基于 lucene 的 api 去开发就可以了。
+&lt;p&gt;通过 lucene，我们可以将已有的数据建立索引，lucene 会在本地磁盘上面，给我们组织索引的数据结构。&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;ES基本概念&lt;/summary&gt;
+Index：索引，相当于关系数据库中的database概念，是一类数据的集合，是一个逻辑概念。
+&lt;p&gt;Type：类型，相当于数据库中的table概念，在6.0版本之前，一个Index中可以有多个type，7.0版本后彻底废弃多type，每个索引只能有一个type，即“ _doc”。&lt;/p&gt;
+&lt;p&gt;Document：文档，存储在ES中的主要实体叫文档，可以理解为关系型数据库中表的一行数据记录。每个文档由多个字段（field）组成。区别于关系型数据库的是，ES是一个非结构化的数据库，每个文档可以有不同的字段，并且有一个唯一标识。&lt;/p&gt;
+&lt;p&gt;Field：字段，存在于文档中，字段是包含数据的键值对，可以理解为Mysql一行数据的其中一列。&lt;/p&gt;
+&lt;p&gt;Mapping：映射，是对索引库中的索引字段及其数据类型进行定义，类似于关系型数据库中的表结构。ES默认动态创建索引和索引类型的Mapping。&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;ES集群概念&lt;/summary&gt;
+cluster：集群，一个ES集群由多个节点（node）组成， 每个集群都有一个共同的集群名称最为标识。
+&lt;p&gt;node：节点，一个ES实例即为一个节点，一台机器可以有多个节点。&lt;/p&gt;
+&lt;p&gt;shard：分片，如果某个索引包含大量数据，以至于一台机器无法存储，ES可以将一个索引中的数据切分为多个shard，分布在多台服务器上存储。这样，ES就可以横向扩展，存储更多数据，让搜索和分析等操作分布到多台服务器上去执行，提升吞吐量和性能。每个shard都是一个最小工作单元，承载部分数据，具有一个lucene实例和完整的建立索引、处理请求的能力。&lt;/p&gt;
+&lt;p&gt;replica：副本，就是shard的冗余备份，它可以防止数据丢失以及shard异常时负责容错和负载均衡。&lt;/p&gt;
+&lt;/details&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://xuoneyuan.github.io/categories/java/">JAVA</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://xuoneyuan.github.io/tags/elasticsearch/">ElasticSearch</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>从阿里云到RocketMQ</title>
@@ -3379,7 +3444,7 @@ wwW使用统一资源定位符（URL）来标志wwW上的各种文档。URL 的�
                 
                     <description>&lt;p&gt;今天推荐一位大家耳熟能详的歌手，许嵩&lt;/p&gt;
 &lt;p&gt;非主流年代的音乐三巨头之一，也是我认为三人中最有才气的一位&lt;/p&gt;
-&lt;p&gt;视频来自于B站宝藏up主——音乐收藏馆和JLRS-LeoFM&lt;/p&gt;
+&lt;p&gt;视频来自于B站宝藏up主——音乐收藏馆&lt;/p&gt;
 &lt;h3 id=&#34;许嵩&#34;&gt;许嵩&lt;/h3&gt;
 &lt;h4 id=&#34;庐州月&#34;&gt;《庐州月》&lt;/h4&gt;
 
@@ -3480,58 +3545,6 @@ wwW使用统一资源定位符（URL）来标志wwW上的各种文档。URL 的�
 &lt;p&gt;渡口边最后一面洒下了句点 与你若只如初见 何须感伤离别&lt;/p&gt;
 &lt;/blockquote&gt; 
 
-&lt;h4 id=&#34;多余的解释&#34;&gt;《多余的解释》&lt;/h4&gt;
-
-
-
-
-&lt;div&gt;&lt;iframe id=&#34;biliplayer&#34; src=&#34;https://xuoneyuan.github.io//player.bilibili.com/player.html?bvid=BV1wN411n7Jv&amp;page=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34; loading=&#34;lazy&#34; &gt; &lt;/iframe&gt;&lt;/div&gt;
-
-&lt;style&gt;
-    
-    #biliplayer {
-      width: 100%;
-      height: 550px;
-    }
-    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-      #biliplayer {
-        width: 100%;
-        height: 250px;
-      }
-    }
-    &lt;/style&gt;
-    
-
-
-&lt;blockquote class=&#34;quote&#34;&gt;
-        &lt;p&gt;她只是我的妹妹 妹妹说紫色很有韵味&lt;/p&gt;&lt;/blockquote&gt; 
-
-&lt;h4 id=&#34;有何不可&#34;&gt;《有何不可》&lt;/h4&gt;
-
-
-
-
-&lt;div&gt;&lt;iframe id=&#34;biliplayer&#34; src=&#34;https://xuoneyuan.github.io//player.bilibili.com/player.html?bvid=BV1WF411o7i9&amp;page=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34; loading=&#34;lazy&#34; &gt; &lt;/iframe&gt;&lt;/div&gt;
-
-&lt;style&gt;
-    
-    #biliplayer {
-      width: 100%;
-      height: 550px;
-    }
-    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-      #biliplayer {
-        width: 100%;
-        height: 250px;
-      }
-    }
-    &lt;/style&gt;
-    
-
-
-&lt;blockquote class=&#34;quote&#34;&gt;
-        &lt;p&gt;大家好 我是VAE 这是我即将发表的首张独创专辑《自定义》里面的一首 推~ 荐曲目 词曲编曲都是我自己 希望这首歌曲 能在这个寒冷的冬天 带给大家一种 温暖的感 觉~&lt;/p&gt;&lt;/blockquote&gt; 
-
 </description>
                 
                 
@@ -3619,83 +3632,6 @@ wwW使用统一资源定位符（URL）来标志wwW上的各种文档。URL 的�
                                 
                                 
                                     <category domain="https://xuoneyuan.github.io/tags/%E7%94%9F%E6%B4%BB/">生活</category>
-                                
-                            
-                        
-                    
-                
-            </item>
-        
-            <item>
-                <title>关于个人头像版本更新的公告</title>
-                <link>https://xuoneyuan.github.io/posts/6/</link>
-                <guid isPermaLink="true">https://xuoneyuan.github.io/posts/6/</guid>
-                <pubDate>Thu, 16 Nov 2023 13:52:03 &#43;0800</pubDate>
-                
-                    <author>xuoneyuan@gmail.com (falcone)</author>
-                
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
-                
-                    <description>&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;https://xuoneyuan.github.io//music.163.com/outchain/player?type=2&amp;id=433107530&amp;auto=0&amp;height=66&#34;&gt;&lt;/iframe&gt;
-&lt;p&gt;在开始前我忍不住想吐槽一下网易云，现在的网易云中文歌少就算了，vip歌曲越来越多我也忍了，可是我即便是开了黑胶，依然解决不了外部引用的问题。下载一首vip歌曲，只能在网易云上听，想要在博客引用一首歌，它检测到vip曲库就会禁止播放。实在没办法啊，原本我想用spotify来替代网易云，奈何我低估了国外的资本家赚钱的能力，倒腾了半天又折回网易云来了。&lt;/p&gt;
-&lt;h4 id=&#34;background&#34;&gt;Background&lt;/h4&gt;
-&lt;p&gt;让我们把时间线拨回到2023年9月28日，星期四，国庆放假前一天。很不幸，本人在这天的课有足足两节之多。为了打发时间，无聊的我决定打开三星画板开始画画&lt;/p&gt;
-&lt;h4 id=&#34;version&#34;&gt;Version&lt;/h4&gt;
-&lt;h5 id=&#34;ver-10&#34;&gt;ver 1.0&lt;/h5&gt;
-&lt;p&gt;基本上确定了大致框架，放远了看大致像个人&lt;/p&gt;
-&lt;h5 id=&#34;ver-11&#34;&gt;ver 1.1&lt;/h5&gt;
-&lt;p&gt;填充了色彩；增添了人物衣袖和领结细节；更新了署名字体&lt;/p&gt;
-&lt;h5 id=&#34;ver-12&#34;&gt;ver 1.2&lt;/h5&gt;
-&lt;p&gt;增设了背景结构，添加了叹气符号；丰富了人物头发细节；使人物头发上的爱心发夹更加清晰&lt;/p&gt;
-&lt;h5 id=&#34;ver-13&#34;&gt;ver 1.3&lt;/h5&gt;
-&lt;p&gt;重新画了眼镜、手、领结；增加了蓝色外套和白色衬衫细节；增加了麻花辫细节&lt;/p&gt;
-&lt;h5 id=&#34;ver-14&#34;&gt;ver 1.4&lt;/h5&gt;
-&lt;p&gt;填充色彩；修改了眼睛的部分细节，使眼睛看上去更加真实&lt;/p&gt;
-&lt;h5 id=&#34;ver-20&#34;&gt;ver 2.0&lt;/h5&gt;
-&lt;p&gt;采用更细的画笔重新构建了人物大部分细节；增大了腮红面积；增设了外套和衬衫的边界；增加了眼镜细节；对眼睛进行了较大幅度修改&lt;/p&gt;
-&lt;h5 id=&#34;ver-21&#34;&gt;ver 2.1&lt;/h5&gt;
-&lt;p&gt;改变了署名字体&lt;/p&gt;
-&lt;h5 id=&#34;ver-22&#34;&gt;ver 2.2&lt;/h5&gt;
-&lt;p&gt;对麻花辫进行了修改；改变了嘴巴的画法&lt;/p&gt;
-&lt;h5 id=&#34;ver-23&#34;&gt;ver 2.3&lt;/h5&gt;
-&lt;p&gt;将署名改成 BY: XX格式；填充色彩&lt;/p&gt;
-&lt;h5 id=&#34;ver-24&#34;&gt;ver 2.4&lt;/h5&gt;
-&lt;p&gt;修改背景细节&lt;/p&gt;
-&lt;h5 id=&#34;ver-25&#34;&gt;ver 2.5&lt;/h5&gt;
-&lt;p&gt;修改了眼镜和眼睛的细节，使镜框变得不封闭；对头发进行了部分修改，修改了衣服细节&lt;/p&gt;
-&lt;h5 id=&#34;ver-26&#34;&gt;ver 2.6&lt;/h5&gt;
-&lt;p&gt;修改了衬衫和领结的细节；修改了背景细节&lt;/p&gt;
-&lt;h5 id=&#34;ver-27&#34;&gt;ver 2.7&lt;/h5&gt;
-&lt;p&gt;修改了手的细节；修改了眼睛的细节，使眼睛让上去更加有神；修改了头发的细节；修改了领结细节，使领结变得更加对称&lt;/p&gt;
-</description>
-                
-                
-                
-                
-                
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://xuoneyuan.github.io/categories/%E6%9D%82%E6%96%87/">杂文</category>
-                                
-                            
-                        
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://xuoneyuan.github.io/tags/%E6%9D%BF%E7%BB%98/">板绘</category>
-                                
-                            
-                                
-                                
-                                
-                                    <category domain="https://xuoneyuan.github.io/tags/%E7%BD%91%E6%98%93%E4%BA%91/">网易云</category>
                                 
                             
                         
