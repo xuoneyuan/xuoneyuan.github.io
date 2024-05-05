@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Sun, 05 May 2024 20:49:42 &#43;0800</lastBuildDate>
+        <lastBuildDate>Sun, 05 May 2024 23:31:09 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://xuoneyuan.github.io/rss.xml" />
         
@@ -38,7 +38,844 @@
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
                 
-                    <description>&lt;details&gt;
+                    <description>&lt;h2 id=&#34;初识redis&#34;&gt;初识Redis&lt;/h2&gt;
+&lt;p&gt;Redis是一种键值型的NoSQL数据库，这里有两个关键字&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;键值型&lt;/li&gt;
+&lt;li&gt;NoSQL
+其中键值型是指Redis中存储的数据都是以Key-Value键值对的形式存储，而Value的形式多种多样，可以使字符串、数值甚至Json&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而NoSQL则是相对于传统关系型数据库而言，有很大差异的一种数据库&lt;/p&gt;
+&lt;h3 id=&#34;认识nosql&#34;&gt;认识NoSQL&lt;/h3&gt;
+&lt;p&gt;NoSql可以翻译做Not Only Sql（不仅仅是SQL），或者是No Sql（非Sql的）数据库。是相对于传统关系型数据库而言，有很大差异的一种特殊的数据库，因此也称之为非关系型数据库。&lt;/p&gt;
+&lt;h4 id=&#34;结构化与非结构化&#34;&gt;结构化与非结构化&lt;/h4&gt;
+&lt;p&gt;传统关系型数据库是结构化数据，每张表在创建的时候都有严格的约束信息，如字段名、字段数据类型、字段约束等，插入的数据必须遵循这些约束&lt;/p&gt;
+&lt;p&gt;而NoSQL则对数据库格式没有约束，可以是键值型，也可以是文档型，甚至是图格式&lt;/p&gt;
+&lt;h4 id=&#34;关联与非关联&#34;&gt;关联与非关联&lt;/h4&gt;
+&lt;p&gt;传统数据库的表与表之间往往存在关联，例如外键约束&lt;/p&gt;
+&lt;p&gt;而非关系型数据库不存在关联关系，要维护关系要么靠代码中的业务逻辑，要么靠数据之间的耦合&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+  id: 1,
+  name: &amp;#34;张三&amp;#34;,
+  orders: [
+    {
+       id: 1,
+       item: {
+	 id: 10, title: &amp;#34;荣耀6&amp;#34;, price: 4999
+       }
+    },
+    {
+       id: 2,
+       item: {
+	 id: 20, title: &amp;#34;小米11&amp;#34;, price: 3999
+       }
+    }
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;例如此处要维护张三与两个手机订单的关系，不得不冗余的将这两个商品保存在张三的订单文档中，不够优雅，所以建议使用业务逻辑来维护关联关系&lt;/p&gt;
+&lt;h4 id=&#34;查询方式&#34;&gt;查询方式&lt;/h4&gt;
+&lt;p&gt;传统关系型数据库会基于Sql语句做查询，语法有统一的标准&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SELECT id, age FROM tb_user WHERE id = 1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;而不同的非关系型数据库查询语法差异极大&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Redis:  get user:1
+MongoDB: db.user.find({_id: 1})
+elasticsearch:  GET http://localhost:9200/users/1
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;事务&#34;&gt;事务&lt;/h4&gt;
+&lt;p&gt;传统关系型数据库能满足事务的ACID原则(原子性、一致性、独立性及持久性)&lt;/p&gt;
+&lt;p&gt;而非关系型数据库汪汪不支持事务，或者不能要个保证ACID的特性，只能实现计本的一致性&lt;/p&gt;
+&lt;h4 id=&#34;总结&#34;&gt;总结&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;特性&lt;/th&gt;
+&lt;th&gt;SQL&lt;/th&gt;
+&lt;th&gt;NoSQL&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;数据结构&lt;/td&gt;
+&lt;td&gt;结构化 (Structured)&lt;/td&gt;
+&lt;td&gt;非结构化 (Unstructured)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;数据关联&lt;/td&gt;
+&lt;td&gt;关联的 (Relational)&lt;/td&gt;
+&lt;td&gt;无关联的 (Non-relational)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;查询方式&lt;/td&gt;
+&lt;td&gt;SQL 查询&lt;/td&gt;
+&lt;td&gt;非 SQL (Non-SQL)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;事务特性&lt;/td&gt;
+&lt;td&gt;ACID&lt;/td&gt;
+&lt;td&gt;BASE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;存储方式&lt;/td&gt;
+&lt;td&gt;磁盘 (Disk-based)&lt;/td&gt;
+&lt;td&gt;内存 (Memory-based)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;扩展性&lt;/td&gt;
+&lt;td&gt;垂直扩展 (Vertical scalability)&lt;/td&gt;
+&lt;td&gt;水平扩展 (Horizontal scalability)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;使用场景&lt;/td&gt;
+&lt;td&gt;1) 数据结构固定&lt;/td&gt;
+&lt;td&gt;1) 数据结构不固定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;2) 对一致性、安全性要求高&lt;/td&gt;
+&lt;td&gt;2) 相关业务对数据安全性、一致性要求较高&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;3) 对性能要求高&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;存储方式
+&lt;ul&gt;
+&lt;li&gt;关系型数据库基于磁盘进行存储，会有大量的磁盘IO，对性能有一定影响&lt;/li&gt;
+&lt;li&gt;非关系型数据库，他们的操作更多的是依赖于内存来操作，内存的读写速度会非常快，性能自然会好一些&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;扩展性
+&lt;ul&gt;
+&lt;li&gt;关系型数据库集群模式一般是主从，主从数据一致，起到数据备份的作用，称为垂直扩展。&lt;/li&gt;
+&lt;li&gt;非关系型数据库可以将数据拆分，存储在不同机器上，可以保存海量数据，解决内存大小有限的问题。称为水平扩展。&lt;/li&gt;
+&lt;li&gt;关系型数据库因为表之间存在关联关系，如果做水平扩展会给数据查询带来很多麻烦&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;认识redis&#34;&gt;认识Redis&lt;/h3&gt;
+&lt;p&gt;Redis诞生于2009年，全称是Remote Dictionary Server远程词典服务器，是一个基于内存的键值型NoSQL数据库。&lt;/p&gt;
+&lt;p&gt;特征：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;键值(Key-Value)型，Value支持多种不同的数据结构，功能丰富&lt;/li&gt;
+&lt;li&gt;单线程，每个命令具有原子性&lt;/li&gt;
+&lt;li&gt;低延迟，速度快(基于内存、IO多路复用、良好的编码)&lt;/li&gt;
+&lt;li&gt;支持数据持久化&lt;/li&gt;
+&lt;li&gt;支持主从集群、分片集群&lt;/li&gt;
+&lt;li&gt;支持多语言客户端&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;redis常用命令&#34;&gt;Redis常用命令&lt;/h2&gt;
+&lt;p&gt;Redis是典型的key-value数据库，key一般是字符串，而value包含很多不同的数据类型&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/redis2.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;redis通用命令&#34;&gt;Redis通用命令&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;KEYS pattern&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;查找所有符合给定模式 (pattern) 的 key&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;EXISTS key&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;检查给定 key 是否存在&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;TYPE key&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;返回 key 所储存的值的类型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;TTL key&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;返回给定 key 的剩余生存时间 (TTL, time to live)，以秒为单位&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;DEL key&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;该命令用于在 key 存在时删除 key&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;KEYS：查看符合模板的所有key
+&lt;ul&gt;
+&lt;li&gt;不建议在生产环境设备上使用，因为Redis是单线程的，执行查询的时候会阻塞其他命令，当数据量很大的时候，使用KEYS进行模糊查询，效率很差&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;DEL：删除一个指定的key
+&lt;ul&gt;
+&lt;li&gt;也可以删除多个key，DEL name age，会将name和age都删掉&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;EXISTS：判断key是否存在
+&lt;ul&gt;
+&lt;li&gt;EXISTS name，如果存在返回1，不存在返回0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;EXPIRE：给一个key设置有效期，有效期到期时该key会被自动删除
+&lt;ul&gt;
+&lt;li&gt;EXPIRE name 20，给name设置20秒有效期，到期自动删除&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;TTL：查看一个key的剩余有效期(Time-To-Live)
+&lt;ul&gt;
+&lt;li&gt;TTL name，查看name的剩余有效期，如果未设置有效期，则返回-1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;string类型&#34;&gt;String类型&lt;/h3&gt;
+&lt;p&gt;String类型，也就是字符串类型，是Redis中最简单的存储类型&lt;/p&gt;
+&lt;p&gt;其value是字符串，不过根据字符串的格式不同，又可以分为3类&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;string：普通字符串&lt;/li&gt;
+&lt;li&gt;int：整数类型，可以做自增、自减操作&lt;/li&gt;
+&lt;li&gt;float：浮点类型，可以做自增、自减操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;不管是哪种格式，底层都是字节数组形式存储，只不过是编码方式不同，字符串类型的最大空间不能超过512M&lt;/p&gt;
+&lt;h4 id=&#34;string的常用命令&#34;&gt;String的常用命令&lt;/h4&gt;
+&lt;p&gt;String的常用命令有&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SET&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;添加或者修改一个已经存在的 String 类型的键值对&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;根据 key 获取 String 类型的 value&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;MSET&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;批量添加多个 String 类型的键值对&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;MGET&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;根据多个 key 获取多个 String 类型的 value&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;INCR&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;让一个整型的 key 自增 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;INCRBY&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;让一个整型的 key 自增并指定步长值，例如：&lt;code&gt;INCRBY num 2&lt;/code&gt; 让 &lt;code&gt;num&lt;/code&gt; 值自增 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;INCRBYFLOAT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;让一个浮点类型的数字自增并指定步长值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SETNX&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;添加一个 String 类型的键值对，前提是这个 key 不存在，否则不执行，可以理解为真正的新增&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SETEX&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;添加一个 String 类型的键值对，并指定有效期&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;key结构&#34;&gt;Key结构&lt;/h4&gt;
+&lt;p&gt;Redis没有类似MySQL中Table的概念，那么我们该如何区分不同类型的Key呢？&lt;/p&gt;
+&lt;p&gt;例如：需要存储用户、商品信息到Redis，有一个用户的id是1，有一个商品的id恰好也是1，如果此时使用id作为key，那么就回冲突，该怎么办？&lt;/p&gt;
+&lt;p&gt;我们可以通过给key添加前缀加以区分，不过这个前缀不是随便加的，有一定的规范&lt;/p&gt;
+&lt;p&gt;Redis的key允许有多个单词形成层级结构，多个单词之间用:隔开，格式如下&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;项目名:业务名:类型:id
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个格式也并非是固定的，可以根据自己的需求来删除/添加词条，这样我们就可以把不同数据类型的数据区分开了，从而避免了key的冲突问题&lt;/p&gt;
+&lt;p&gt;例如我们的项目名叫reggie，有user和dish两种不同类型的数据，我们可以这样定义key&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;user相关的key：reggie:user:1&lt;/li&gt;
+&lt;li&gt;dish相关的key：reggie:dish:1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果value是一个Java对象，例如一个User对象，则可以将对象序列化为JSON字符串后存储&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;KEY&lt;/th&gt;
+&lt;th&gt;VALUE&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;reggie:user:1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{“id”:1, “name”: “Jack”, “age”: 21}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;reggie:dish:1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{“id”:1, “name”: “鲟鱼火锅”, “price”: 4999}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;并且在Redis的桌面客户端中，也会以相同前缀作为层次结构，让数据看起来层次分明，关系清晰&lt;/p&gt;
+&lt;h3 id=&#34;hash类型&#34;&gt;Hash类型&lt;/h3&gt;
+&lt;p&gt;Hash类型，也叫散列，其中value是一个无序字典，类似于Java中的HashMap结构&lt;/p&gt;
+&lt;p&gt;String结构是将对象序列化为JSON字符串后存储，当我们要修改对象的某个属性值的时候很不方便&lt;/p&gt;
+&lt;p&gt;Hash结构可以将对象中的每个字段独立存储，可以针对单个字段做CRUD&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;KEY&lt;/th&gt;
+      &lt;th colspan=&#34;2&#34;&gt;VALUE&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;field&lt;/th&gt;
+      &lt;th&gt;value&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td rowspan=&#34;2&#34;&gt;reggie:user:1&lt;/td&gt;
+      &lt;td&gt;name&lt;/td&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;age&lt;/td&gt;
+      &lt;td&gt;21&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td rowspan=&#34;2&#34;&gt;reggie:user:2&lt;/td&gt;
+      &lt;td&gt;name&lt;/td&gt;
+      &lt;td&gt;Rose&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;age&lt;/td&gt;
+      &lt;td&gt;18&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+Hash的常用命令有
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;HSET key field value&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;添加或者修改 hash 类型 key 的 field 的值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;HGET key field&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;获取一个 hash 类型 key 的 field 的值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;HMSET&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;批量添加多个 hash 类型 key 的 field 的值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;HMGET&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;批量获取多个 hash 类型 key 的 field 的值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;HGETALL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;获取一个 hash 类型的 key 中的所有的 field 和 value&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;HKEYS&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;获取一个 hash 类型的 key 中的所有的 field&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;HINCRBY&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;让一个 hash 类型 key 的字段值自增并指定步长&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;HSETNX&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;添加一个 hash 类型的 key 的 field 值，前提是这个 field 不存在，否则不执行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;list类型&#34;&gt;List类型&lt;/h3&gt;
+&lt;p&gt;Redis中的List类型与Java中的LinkedList类似，可以看做是一个双向链表结构。既可以支持正向检索和也可以支持反向检索。&lt;/p&gt;
+&lt;p&gt;特征也与LinkedList类似：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;有序&lt;/li&gt;
+&lt;li&gt;元素可以重复&lt;/li&gt;
+&lt;li&gt;插入和删除快&lt;/li&gt;
+&lt;li&gt;查询速度一般&lt;/li&gt;
+&lt;li&gt;常用来存储一个有序数据，例如：朋友圈点赞列表，评论列表等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;List的常见命令有：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;LPUSH key element ...&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;向列表左侧插入一个或多个元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;LPOP key&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;移除并返回列表左侧的第一个元素，没有则返回 nil&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;RPUSH key element ...&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;向列表右侧插入一个或多个元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;RPOP key&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;移除并返回列表右侧的第一个元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;LRANGE key start end&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;返回一段索引范围内的所有元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;BLPOP&lt;/code&gt; 和 &lt;code&gt;BRPOP&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;与 &lt;code&gt;LPOP&lt;/code&gt; 和 &lt;code&gt;RPOP&lt;/code&gt; 类似，只不过在没有元素时等待指定时间，而不是直接返回 nil&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;set类型&#34;&gt;Set类型&lt;/h3&gt;
+&lt;p&gt;Redis的Set结构与Java中的HashSet类似，可以看做是一个value为null的HashMap。因为也是一个hash表，因此具备与HashSet类似的特征：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无序&lt;/li&gt;
+&lt;li&gt;元素不可重复&lt;/li&gt;
+&lt;li&gt;查找快&lt;/li&gt;
+&lt;li&gt;支持交集、并集、差集等功能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Set的常见命令有：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SADD key member ...&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;向 set 中添加一个或多个元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SREM key member ...&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;移除 set 中的指定元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SCARD key&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;返回 set 中元素的个数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SISMEMBER key member&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;判断一个元素是否存在于 set 中&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SMEMBERS key&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;获取 set 中的所有元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SINTER key1 key2 ...&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;求 key1 与 key2 的交集&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SUNION key1 key2 ...&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;求 key1 与 key2 的并集&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SDIFF key1 key2 ...&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;求 key1 与 key2 的差集&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;sortedset类型&#34;&gt;SortedSet类型&lt;/h3&gt;
+&lt;p&gt;Redis的SortedSet是一个可排序的set集合，与Java中的TreeSet有些类似，但底层数据结构却差别很大。SortedSet中的每一个元素都带有一个score属性，可以基于score属性对元素排序，底层的实现是一个跳表（SkipList）加 hash表。&lt;/p&gt;
+&lt;p&gt;SortedSet具备下列特性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可排序&lt;/li&gt;
+&lt;li&gt;元素不重复&lt;/li&gt;
+&lt;li&gt;查询速度快
+因为SortedSet的可排序特性，经常被用来实现排行榜这样的功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;SortedSet的常见命令有：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ZADD key score member&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;添加一个或多个元素到 sorted set ，如果已经存在则更新其 score 值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ZREM key member&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;删除 sorted set 中的一个指定元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ZSCORE key member&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;获取 sorted set 中的指定元素的 score 值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ZRANK key member&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;获取 sorted set 中的指定元素的排名&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ZCARD key&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;获取 sorted set 中的元素个数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ZCOUNT key min max&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;统计 score 值在给定范围内的所有元素的个数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ZINCRBY key increment member&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;让 sorted set 中的指定元素自增，步长为指定的 increment 值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ZRANGE key min max&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;按照 score 排序后，获取指定排名范围内的元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ZRANGEBYSCORE key min max&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;按照 score 排序后，获取指定 score 范围内的元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ZDIFF&lt;/code&gt;、&lt;code&gt;ZINTER&lt;/code&gt;、&lt;code&gt;ZUNION&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;求差集、交集、并集&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;redis的java客户端&#34;&gt;Redis的Java客户端&lt;/h2&gt;
+&lt;p&gt;目前主流的Redis的Java客户端有三种&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Jedis和Lettuce：这两个主要是提供了Redis命令对应的API，方便我们操作Redis，而SpringDataRedis又对这两种做了抽象和封装，因此我们后期会直接以SpringDataRedis来学习。&lt;/li&gt;
+&lt;li&gt;Redisson：是在Redis基础上实现了分布式的可伸缩的java数据结构，例如Map、Queue等，而且支持跨进程的同步机制：Lock、Semaphore等待，比较适合用来实现特殊的功能需求。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;jedis客户端&#34;&gt;Jedis客户端&lt;/h3&gt;
+&lt;h4 id=&#34;快速入门&#34;&gt;快速入门&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;导入Jedis的maven坐标&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;!--jedis--&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;redis.clients&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;jedis&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;3.7.0&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;!--单元测试--&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.junit.jupiter&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;junit-jupiter&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;5.7.0&amp;lt;/version&amp;gt;
+    &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;建立连接
+新建一个单元测试类&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;private Jedis jedis;
+
+@BeforeEach
+void setUp() {
+    //1. 建立连接
+    jedis = new Jedis(&amp;#34;101.42.225.160&amp;#34;, 6379);
+    //2. 设置密码
+    jedis.auth(&amp;#34;root&amp;#34;);
+    //3. 选择库
+    jedis.select(0);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;测试&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@Test
+void testString(){
+    jedis.set(&amp;#34;name&amp;#34;,&amp;#34;Kyle&amp;#34;);
+    String name = jedis.get(&amp;#34;name&amp;#34;);
+    System.out.println(&amp;#34;name = &amp;#34; + name);
+}
+
+@Test
+void testHash(){
+    jedis.hset(&amp;#34;reggie:user:1&amp;#34;,&amp;#34;name&amp;#34;,&amp;#34;Jack&amp;#34;);
+    jedis.hset(&amp;#34;reggie:user:2&amp;#34;,&amp;#34;name&amp;#34;,&amp;#34;Rose&amp;#34;);
+    jedis.hset(&amp;#34;reggie:user:1&amp;#34;,&amp;#34;age&amp;#34;,&amp;#34;21&amp;#34;);
+    jedis.hset(&amp;#34;reggie:user:2&amp;#34;,&amp;#34;age&amp;#34;,&amp;#34;18&amp;#34;);
+    Map&amp;lt;String, String&amp;gt; map = jedis.hgetAll(&amp;#34;reggie:user:1&amp;#34;);
+    System.out.println(map);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;释放资源&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@AfterEach
+void tearDown(){
+    if (jedis != null){
+        jedis.close();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;连接池&#34;&gt;连接池&lt;/h4&gt;
+&lt;p&gt;Jedis本身是线程不安全的，并且频繁的创建和销毁连接会有性能损耗，因此我们推荐大家使用Jedis连接池代替Jedis的直连方式。&lt;/p&gt;
+&lt;p&gt;新建一个util，用于存放我们编写的工具类&lt;/p&gt;
+&lt;p&gt;后面我们使用SpringDataRedis的时候，可以直接在yml配置文件里配置这些内容&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;public class JedisConnectionFactory {
+
+    private static JedisPool jedisPool;
+
+    static {
+        // 配置连接池
+        JedisPoolConfig poolConfig = new JedisPoolConfig();
+        poolConfig.setMaxTotal(8);
+        poolConfig.setMaxIdle(8);
+        poolConfig.setMinIdle(0);
+        poolConfig.setMaxWaitMillis(1000);
+        // 创建连接池对象，参数：连接池配置、服务端ip、服务端端口、超时时间、密码
+        jedisPool = new JedisPool(poolConfig, &amp;#34;101.42.225.160&amp;#34;, 6379, 1000, &amp;#34;root&amp;#34;);
+    }
+
+    public static Jedis getJedis(){
+        return jedisPool.getResource();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之后我们的测试类就可以修改为如下&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@SpringBootTest
+class RedisTestApplicationTests {
+
+    private Jedis jedis = JedisConnectionFactory.getJedis();
+
+    @Test
+    void testString(){
+        jedis.set(&amp;#34;name&amp;#34;,&amp;#34;Kyle&amp;#34;);
+        String name = jedis.get(&amp;#34;name&amp;#34;);
+        System.out.println(&amp;#34;name = &amp;#34; + name);
+    }
+
+    @Test
+    void testHash(){
+        jedis.hset(&amp;#34;reggie:user:1&amp;#34;,&amp;#34;name&amp;#34;,&amp;#34;Jack&amp;#34;);
+        jedis.hset(&amp;#34;reggie:user:2&amp;#34;,&amp;#34;name&amp;#34;,&amp;#34;Rose&amp;#34;);
+        jedis.hset(&amp;#34;reggie:user:3&amp;#34;,&amp;#34;name&amp;#34;,&amp;#34;Kyle&amp;#34;);
+        jedis.hset(&amp;#34;reggie:user:1&amp;#34;,&amp;#34;age&amp;#34;,&amp;#34;21&amp;#34;);
+        jedis.hset(&amp;#34;reggie:user:2&amp;#34;,&amp;#34;age&amp;#34;,&amp;#34;18&amp;#34;);
+        jedis.hset(&amp;#34;reggie:user:3&amp;#34;,&amp;#34;age&amp;#34;,&amp;#34;18&amp;#34;);
+        Map&amp;lt;String, String&amp;gt; map = jedis.hgetAll(&amp;#34;reggie:user:1&amp;#34;);
+        System.out.println(map);
+    }
+
+    @AfterEach
+    void tearDown(){
+        if (jedis != null){
+            jedis.close();
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;springdataredis客户端&#34;&gt;SpringDataRedis客户端&lt;/h3&gt;
+&lt;p&gt;SpringData是Spring中数据操作的模块，包含对各种数据库的集成，其中对Redis的集成模块就叫做SpringDataRedis&lt;/p&gt;
+&lt;p&gt;官网地址：https://spring.io/projects/spring-data-redis&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提供了对不同Redis客户端的整合（Lettuce和Jedis）&lt;/li&gt;
+&lt;li&gt;提供了RedisTemplate统一API来操作Redis&lt;/li&gt;
+&lt;li&gt;支持Redis的发布订阅模型&lt;/li&gt;
+&lt;li&gt;支持Redis哨兵和Redis集群&lt;/li&gt;
+&lt;li&gt;支持基于Lettuce的响应式编程&lt;/li&gt;
+&lt;li&gt;支持基于JDK、JSON、字符串、Spring对象的数据序列化及反序列化&lt;/li&gt;
+&lt;li&gt;支持基于Redis的JDKCollection实现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;SpringDataRedis中提供了RedisTemplate工具类，其中封装了各种对Redis的操作。并且将不同数据类型的操作API封装到了不同的类型中：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;API&lt;/th&gt;
+&lt;th&gt;返回值类型&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;redisTemplate.opsForValue()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ValueOperations&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;操作 String 类型数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;redisTemplate.opsForHash()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;HashOperations&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;操作 Hash 类型数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;redisTemplate.opsForList()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ListOperations&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;操作 List 类型数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;redisTemplate.opsForSet()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;SetOperations&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;操作 Set 类型数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;redisTemplate.opsForZSet()&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ZSetOperations&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;操作 SortedSet 类型数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;redisTemplate&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;通用的命令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;快速入门-1&#34;&gt;快速入门&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;导入依赖&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;!--redis依赖--&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-boot-starter-data-redis&amp;lt;/artifactId&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;!--common-pool--&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.apache.commons&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;commons-pool2&amp;lt;/artifactId&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;!--Jackson依赖--&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;com.fasterxml.jackson.core&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;jackson-databind&amp;lt;/artifactId&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;!--lombok--&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;
+    &amp;lt;optional&amp;gt;true&amp;lt;/optional&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-boot-starter-test&amp;lt;/artifactId&amp;gt;
+    &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;配置Redis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;spring:
+  redis:
+    host: 101.42.225.160
+    port: 6379
+    password: root
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: 100ms
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;注入RedisTemplate&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@Autowired
+private RedisTemplate redisTemplate;
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;编写测试方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@Test
+void stringTest(){
+    redisTemplate.opsForValue().set(&amp;#34;username&amp;#34;,&amp;#34;David&amp;#34;);
+    String username = (String) redisTemplate.opsForValue().get(&amp;#34;username&amp;#34;);
+    System.out.println(username);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;自定义序列化&#34;&gt;自定义序列化&lt;/h4&gt;
+&lt;p&gt;RedisTemplate可以接收任意Object作为值写入Redis&lt;/p&gt;
+&lt;p&gt;只不过写入前会把Object序列化为字节形式，默认是采用JDK序列化，得到的结果是这样的&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;\xAC\xED\x00\x05t\x00\x06\xE5\xBC\xA0\xE4\xB8\x89
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可读性差&lt;/li&gt;
+&lt;li&gt;内存占用较大&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们可以自定义RedisTemplate的序列化方式，代码如下
+在config包下编写对应的配置类&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@Configuration
+public class RedisConfig {
+
+    @Bean
+    public RedisTemplate&amp;lt;String, Object&amp;gt; redisTemplate(RedisConnectionFactory connectionFactory) {
+        // 创建RedisTemplate对象
+        RedisTemplate&amp;lt;String, Object&amp;gt; template = new RedisTemplate&amp;lt;&amp;gt;();
+        // 设置连接工厂
+        template.setConnectionFactory(connectionFactory);
+        // 创建JSON序列化工具
+        GenericJackson2JsonRedisSerializer jsonRedisSerializer =
+                new GenericJackson2JsonRedisSerializer();
+        // 设置Key的序列化
+        template.setKeySerializer(RedisSerializer.string());
+        template.setHashKeySerializer(RedisSerializer.string());
+        // 设置Value的序列化
+        template.setValueSerializer(jsonRedisSerializer);
+        template.setHashValueSerializer(jsonRedisSerializer);
+        // 返回
+        return template;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我们编写一个User类，并尝试将其创建的对象存入Redis，看看是什么效果&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class User {
+    private String name;
+    private Integer age;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;测试方法&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
+@Test
+void stringTest(){
+    redisTemplate.opsForValue().set(&amp;#34;userdata&amp;#34;,new User(&amp;#34;张三&amp;#34;,18));
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里采用了JSON序列化来代替默认的JDK序列化方式。最终结果如下：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+  &amp;#34;@class&amp;#34;: &amp;#34;com.blog.entity.User&amp;#34;,
+  &amp;#34;name&amp;#34;: &amp;#34;张三&amp;#34;,
+  &amp;#34;age&amp;#34;: 18
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;整体可读性有了很大提升，并且能将Java对象自动的序列化为JSON字符串，并且查询时能自动把JSON反序列化为Java对象。不过，其中记录了序列化时对应的class名称，目的是为了查询时实现自动反序列化。这会带来额外的内存开销。&lt;/p&gt;
+&lt;p&gt;所以肯定会有更好的方法&lt;/p&gt;
+&lt;h4 id=&#34;stringredistemplate&#34;&gt;StringRedisTemplate&lt;/h4&gt;
+&lt;p&gt;为了节省内存空间，我们可以不使用JSON序列化器来处理value，而是统一使用String序列化器，要求只能存储String类型的key和value。当需要存储Java对象时，手动完成对象的序列化和反序列化。&lt;/p&gt;
+&lt;p&gt;因为存入和读取时的序列化及反序列化都是我们自己实现的，SpringDataRedis就不会将class信息写入Redis了&lt;/p&gt;
+&lt;p&gt;这种用法比较普遍，因此SpringDataRedis就提供了RedisTemplate的子类：StringRedisTemplate，它的key和value的序列化方式默认就是String方式。源码如下&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;public class StringRedisTemplate extends RedisTemplate&amp;lt;String, String&amp;gt; {
+    public StringRedisTemplate() {
+        this.setKeySerializer(RedisSerializer.string());
+        this.setValueSerializer(RedisSerializer.string());
+        this.setHashKeySerializer(RedisSerializer.string());
+        this.setHashValueSerializer(RedisSerializer.string());
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;省去了我们自定义RedisTemplate的序列化方式的步骤（可以将之前配置的RedisConfig删除掉），而是直接使用：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;@Test
+void stringTest() throws JsonProcessingException {
+    //创建对象
+    User user = new User(&amp;#34;张三&amp;#34;, 18);
+    //手动序列化
+    String json = mapper.writeValueAsString(user);
+    //写入数据
+    stringRedisTemplate.opsForValue().set(&amp;#34;userdata&amp;#34;, json);
+    //获取数据
+    String userdata = stringRedisTemplate.opsForValue().get(&amp;#34;userdata&amp;#34;);
+    //手动反序列化
+    User readValue = mapper.readValue(userdata, User.class);
+    System.out.println(readValue);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;存入Redis中是这样的&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+  &amp;#34;name&amp;#34;: &amp;#34;张三&amp;#34;,
+  &amp;#34;age&amp;#34;: 18
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;redis面试题&#34;&gt;Redis面试题&lt;/h2&gt;
+&lt;details&gt;
 &lt;summary&gt;什么是缓存穿透？怎么解决？&lt;/summary&gt;
 &lt;p&gt;缓存穿透是指查询一个不存在的数据，如果从存储层查询不到数据，则不会写入缓存，此时就会导致每次请求这个不存在的数据，都会到DB里去查询，可能会导致DB挂掉，这种情况大概率是遭到了攻击。&lt;/p&gt;
 &lt;p&gt;解决方案的话，一般可以缓存空数据，即缓存这个不存在的数据。另外一种解决方案就是使用布隆过滤器&lt;/p&gt;
