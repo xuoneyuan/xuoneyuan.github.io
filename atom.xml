@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">falcone&#39;s sweet home</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2024-05-03T17:48:00&#43;08:00</updated>
+    <updated>2024-05-05T20:47:50&#43;08:00</updated>
     <id>https://xuoneyuan.github.io/</id>
     <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://xuoneyuan.github.io/atom.xml" />
@@ -16,6 +16,350 @@
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.120.3">Hugo</generator>
+        <entry>
+            <title type="text">Redis</title>
+            <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/posts/21/" />
+            <id>https://xuoneyuan.github.io/posts/21/</id>
+            <updated>2024-05-05T20:47:23&#43;08:00</updated>
+            <published>2024-05-05T19:33:17&#43;08:00</published>
+            <author>
+                    <name>falcone</name>
+                    <uri>https://xuoneyuan.github.io/</uri>
+                    <email>xuoneyuan@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">什么是缓存穿透？怎么解决？ 缓存穿透是指查询一个不存在的数据，如果从存储层查询不到数据……</summary>
+            
+                <content type="html">&lt;details&gt;
+&lt;summary&gt;什么是缓存穿透？怎么解决？&lt;/summary&gt;
+&lt;p&gt;缓存穿透是指查询一个不存在的数据，如果从存储层查询不到数据，则不会写入缓存，此时就会导致每次请求这个不存在的数据，都会到DB里去查询，可能会导致DB挂掉，这种情况大概率是遭到了攻击。&lt;/p&gt;
+&lt;p&gt;解决方案的话，一般可以缓存空数据，即缓存这个不存在的数据。另外一种解决方案就是使用布隆过滤器&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;好的，那你能介绍一下布隆过滤器吗？&lt;/summary&gt;
+&lt;p&gt;布隆过滤器主要是用于检索一个元素绝对不在集合中或可能在集合中。它的底层主要是先去初始化一个比较大的数组，里面存放二进制的0或1，在一开始都是0，当一个key来了之后经过3个哈希函数的计算，模于数组长度找到数据的下标，然后把下标位置的0改为1，这样的话，三个数组下标的位置就能标明一个key的存在，查找的过程也是一样的。&lt;/p&gt;
+&lt;p&gt;当然这个也是有缺点的，布隆过滤器可能存在一些误判，我们一般是可以设置这个误判率的，大概不会超过5%，因为哈希冲突不可能避免，所以这个误判是必然存在的，要不然就增加数组长度。但其实5%的误判率一般项目也是能接受的，不至于高并发下压倒数据库。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xuoneyuan.github.io/images/redis1.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;用上图来举个例子&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;初始化布隆过滤器为 16 位，每一位初始值都为 0。&lt;/li&gt;
+&lt;li&gt;将 Fredy 录入布隆过滤器，经过三个哈希函数的计算，将第 1、3、7 位设为 1。&lt;/li&gt;
+&lt;li&gt;将 Eli 录入布隆过滤器，经过三个哈希函数的计算，将第 10、12、15 位设为 1。&lt;/li&gt;
+&lt;li&gt;查询 Tom，经过三个哈希函数的计算，得到第 0、2、5 位，这三个位置上的数字都是 0。根据布隆过滤器的规则，可以判断 Tom 绝对不在数据库中。&lt;/li&gt;
+&lt;li&gt;查询 Lily，经过三个哈希函数的计算，得到第 7、12、15 位，这三个位置上的数字都是 1。这里需要澄清一点：虽然这三个位置上的数字都是 1，但布隆过滤器只能判断 Lily 可能存在于数据库中，而不能确定 Lily 真的在数据库中。因为这三个位上的 1 可能是由 Fredy 和 Eli 共同组成的，所以存在一定的误判率。&lt;/li&gt;
+&lt;li&gt;当布隆过滤器判断数据一定不存在，就不用查询数据库，直接返回不存在的结果。当布隆过滤器判断可能存在，那么查询数据库，以确认元素是否真的存在。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;什么是缓存击穿？怎么解决？&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;缓存击穿是指在缓存中设置了过期时间的某个key，在某个时间点这个key正好过期，导致缓存失效，恰好此时有大量病发情趣同时访问该key，这些请求会直接访问后端数据库，造成数据库压力骤增，严重影响系统性能，甚至直接压垮数据库。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解决方案的话，我了解的有两种&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;方案一：使用互斥锁&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;当缓存失效时，不立即去加载数据库，而是先使用Redis的SETNX(Set if Not Exists)命令去设置一个互斥锁，只有一个请求能够成功设置互斥锁，其他请求会在这一步被阻塞&lt;/li&gt;
+&lt;li&gt;成功设置互斥锁的请求，再去加载数据库，并将加载的数据回设到缓存中&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;方案二：逻辑过期&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;在设置缓存key的同时，额外存储一个过期时间字段到缓存中，但是不给当前key设置过期时间&lt;/li&gt;
+&lt;li&gt;当查询请求到达时，首先从缓存中取出数据，并且额外判断一下存储key的过期时间字段，若过期则认为缓存失效&lt;/li&gt;
+&lt;li&gt;当缓存失效时，开启另外一个线程进行数据的异步加载和缓存更新，当前请求直接返回缓存中的旧数据，但这部分数据可能不是最新&lt;/li&gt;
+&lt;li&gt;这种方案一定程度上保证了高可用性，避免了大量请求直接打到数据库。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;当然两种方案各有利弊
+&lt;ul&gt;
+&lt;li&gt;方案一使用了互斥锁，保证了数据的强一致性，到哪性能可能会受到锁的竞争影响，而且需要考虑死锁的问题&lt;/li&gt;
+&lt;li&gt;方案二优先考虑的是高可用和性能，但不能保证强一致性，有可能会出现缓存和数据库数据不一致的情况。&lt;/li&gt;
+&lt;li&gt;实际使用中根据我们的需求来选择要保证一致性还是可用性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;什么是缓存雪崩？怎么解决？&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;缓存雪崩是指换成那种设置了相同的过期时间，导致大量缓存在同一时刻同时失效，进而导致所有的请求直接转发到了后端数据库，导致数据库瞬时压力过大，可能直接压垮数据库。它与缓存击穿的区别在于，缓存雪崩是很多key同时失效，而缓存击穿是某一个key缓存失效&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解决方案主要是在设置缓存的时候，可以给每个缓存的过期时间加上一个随机值，例如在原有的失效时间基础上，再加上一个1~5分钟的随机值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Redis作为缓存，MySQL的数据如何与Redis进行同步呢？（双写一致性问题）&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;嗯，这个需要分为两种情况。
+&lt;ul&gt;
+&lt;li&gt;保证强一致性：使用读写锁。
+&lt;ul&gt;
+&lt;li&gt;如果是需要保证强一致性的话，可以采用Redisson实现的读写锁，在读的时候添加共享锁，可以保证读读不互斥，读写互斥。当我们更新数据的时候，添加排他锁，它是读写、读读都互斥，这样能保证在写数据的同时不会让其他线程来读数据，避免其他线程读到脏数据。这里需要注意读方法和写方法上需要使用同一把锁。&lt;/li&gt;
+&lt;li&gt;排他锁的底层使用的也是setnx，保证同时只有一个线程操作被锁住的方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;然后不追求强一致性，数据同步可以有一定的延时。
+&lt;ul&gt;
+&lt;li&gt;可以采用阿里的canal组件来实现数据同步：不需要更改业务代码，部署一个canal服务，canal服务会把自己伪装成MySQL的一个从节点，当MySQL数据更新以后，canal会读取binlog数据，然后通过canal的客户端获取到数据，更新缓存即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Redis作为缓存，数据的持久化是怎么做的呢？&lt;/summary&gt;
+&lt;p&gt;在Redis中提供了两种数据持久化的方法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RDB
+&lt;ul&gt;
+&lt;li&gt;RDB是一个快照文件，它是把Redis内存存储的数据写到磁盘上，当Redis实例宕机恢复数据的时候，方便从RDB的快照文件中恢复数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;AOF
+&lt;ul&gt;
+&lt;li&gt;AOF的含义是追加文件，当Redis操作写命令的时候，都会存储到这个文件中，当Redis实例宕机恢复数据的时候，会从这个文件中再次执行一遍命令来恢复数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;那这两种方式，哪种恢复的比较快呢？&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;RDB因为是二进制文件，在保存的时候体积也是比较小的，所以恢复的比较快，但是它有可能会丢失数据，因为Redis内部设置了触发RDB的机制，所以可能会丢失一段时间的缓存&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;save 900 1      ## 900秒内，如果至少有1个key发生了变化，则触发一次持久化操作
+save 300 10     ## 300秒内，10个key变化
+save 60 10000   ## 60秒内，10000个key变化
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;AOF恢复的速度慢一些，但是它丢失数据的风险要小很多，在Redis的配置文件中也可以配置AOF的刷盘策略，采用everysec的话，最多丢失一秒的数据
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;配置项&lt;/th&gt;
+&lt;th&gt;刷盘时机&lt;/th&gt;
+&lt;th&gt;优点&lt;/th&gt;
+&lt;th&gt;缺点&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Always&lt;/td&gt;
+&lt;td&gt;同步刷盘&lt;/td&gt;
+&lt;td&gt;可靠性高，几乎不丢数据&lt;/td&gt;
+&lt;td&gt;性能影响大&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;everysec&lt;/td&gt;
+&lt;td&gt;每秒刷盘&lt;/td&gt;
+&lt;td&gt;性能适中&lt;/td&gt;
+&lt;td&gt;最多丢失1秒数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;操作系统控制&lt;/td&gt;
+&lt;td&gt;性能最好&lt;/td&gt;
+&lt;td&gt;可靠性较差，可能丢失大量数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;实际环境中，都是结合使用RDB和AOF来使用的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Redis的数据过期策略有哪些？&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;Redis提供了两种数据过期删除策略
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;第一种是惰性删除，在设置key过期时间后，我们不去管它，当我们需要使用该key时，我们再检查其是否过期，如果过期，我们就删除它，没过期，我们就返回该key。这种方法的缺点是，如果有大量冷数据，长时间不会被使用到，会占用内存空间，不会被及时清理掉。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第二种是定期删除，每隔一段时间，我们就对一些key进行检查，删除里面已经过期的key。定期清理的两种模式&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;SLOW模式是定时任务，执行频率默认为10HZ，每次不超过25ms，不过也可以通过Redis的配置文件来手动配置&lt;/li&gt;
+&lt;li&gt;FAST模式执行频率不固定，每次事件循环会尝试执行，但两次间隔不低于2ms，每次耗时不超过1ms&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Redis的过期删除策略，一般都是结合这二者一起来使用的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Redis的数据淘汰策略有哪些？&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;Redis支持八种不同的策略来选择要删除的key&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;noeviction： 不淘汰任何key，但是内存满时不允许写入新数据，默认就是这种策略&lt;/li&gt;
+&lt;li&gt;volatile-ttl： 对设置了TTL的key，比较key的剩余TTL值，TTL越小越先被淘汰&lt;/li&gt;
+&lt;li&gt;allkeys-random：对全体key ，随机进行淘汰&lt;/li&gt;
+&lt;li&gt;volatile-random：对设置了TTL的key ，随机进行淘汰&lt;/li&gt;
+&lt;li&gt;allkeys-lru： 对全体key，基于LRU算法进行淘汰，LRU的意思是最近最少使用&lt;/li&gt;
+&lt;li&gt;volatile-lru： 对设置了TTL的key，基于LRU算法进行淘汰&lt;/li&gt;
+&lt;li&gt;allkeys-lfu： 对全体key，基于LFU算法进行淘汰，LFU的意思是最少频率使用&lt;/li&gt;
+&lt;li&gt;volatile-lfu： 对设置了TTL的key，基于LFU算法进行淘汰&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;假如数据库中有1000w数据，Redis中只能缓存20w条数据，如何保证Redis中的数据都是热点数据？&lt;/summary&gt;
+&lt;p&gt;这个问题可以从Redis的数据淘汰策略来考虑，如果需要保留热点数据，那么可以根据最近最少使用来淘汰数据，即LRU算法，这样剩下的就是热点数据了。&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Redis内存用完了会发生什么？&lt;/summary&gt;
+&lt;p&gt;这个问题得看配置的Redis数据淘汰策略是什么，如果是默认的配置，Redis内存用完以后直接报错，可以根据自己的需求来设置数据淘汰策略，我一般都是使用的LRU来淘汰数据。&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Redis的分布式锁如何实现&lt;/summary&gt;
+&lt;p&gt;Redis中提供了一个SETNX命令，即Set if Not Exists&lt;/p&gt;
+&lt;p&gt;由于Redis是单线程的，所以使用该命令后，只能有一个客户端对某一个key设置值，在没有过期或删除该key之前，其他客户端是不能设置这个key的&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;那你是如何控制Redis实现分布式锁的有效时长呢？&lt;/summary&gt;
+&lt;p&gt;采用Redis的SETNX命令确实不太好控制这个时长，但是可以采用Redis的一个框架，Redisson来实现。&lt;/p&gt;
+&lt;p&gt;在Redisson中需要手动加锁，并且可以控制锁的失效时间和等待时间，当锁住的一个业务还没有执行完成时，Redisson的看门狗机制会每隔一段时间来检查当前业务是否还持有锁，如果持有锁，就增加锁的持久时间，当业务执行完成之后手动释放锁即可。&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Redis集群有哪些方案？&lt;/summary&gt;
+&lt;p&gt;Redis提供的集群方案有三种：主从复制、哨兵模式、Redis分片集群&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;那你来介绍一下主从同步&lt;/summary&gt;
+&lt;p&gt;单节点的Redis并发能力有限，要进一步提高Redis的并发能力，可以搭建主从集群，实现读写分离。一般都是一主多从，主节点负责写入数据，从节点负责读数据，主节点写入数据之后，需要将数据同步到从节点中。&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;那你继续说一下主从同步的流程吧&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;主从同步分为两个阶段，一个是全量同步，一个是增量同步&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;全量同步是指从节点第一次与主节点建立连接的时候&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;从节点请求主节点同步数据，从节点会携带自己的replication id和offset偏移量&lt;/li&gt;
+&lt;li&gt;主节点判断是否是第一次请求，判断的依据是，主节点与从节点是否是同一个replication id，然后不是，那主节点就会把自己的replication id和offset发送给从节点，让主节点和从节点的信息保持一致&lt;/li&gt;
+&lt;li&gt;与此同时，主节点会执行bgsave，生成RDB文件后，发送给从节点去执行，从节点先把自己的数据清空，然后执行主节点发来的RDB文件，这样就保持了一致。&lt;/li&gt;
+&lt;li&gt;如果在从节点执行RDB文件的期间，仍有请求到了主节点，那么主节点会以命令的方式记录到缓冲区，缓冲区是一个日志文件，最后把这个日志文件发送给从节点，这样就保证了主节点和从节点数据完全一致，后期再进行同步数据的时候，都是依赖于这个日志文件。这个就是全量同步&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;增量同步是指，当从节点服务重启之后，数据不一致了，这个时候，从节点会请求主节点同步数据，主节点还是先判断是不是第一次请求，判断的语句还是replication id，不是第一次请求的话，就获取从节点的offset值，然后主节点从命令日志中获取offset值之后的数据，发送给从节点进行数据同步。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;怎么保证Redis的高并发高可用&lt;/summary&gt;
+&lt;p&gt;首先可以搭建主从集群，再加上使用Redis中的哨兵模式，哨兵模式可以实现主从集群的自动故障恢复，里面就包含了对主从服务的监控、自动故障回复、通知；如果主节点故障，哨兵会将一个从节点提升为主节点，当故障实例恢复正常之后，也是以最新的主节点为主。同时哨兵也充当Redis客户端的服务发现来源，当集群发生故障转移的时候，会将最新消息推送给Redis客户端，所以一般项目都会采用哨兵模式来保证Redis的高并发高可用&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Redis是单线程的，为什么还那么快？&lt;/summary&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;首先Redis完全是基于内存的，内存的读写速度是非常快的，并且Redis是由C语言编写的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;采用单线程，可以避免不必要的上下文切换的竞争条件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用I/O多路复用模型，非阻塞IO&lt;/p&gt;
+&lt;p&gt;I/O多路复用指的是利用单个线程来监听多个socket，并在某个socket就绪的时候，得到通知，从而避免无效的等待，充分利用CPU资源。目前I/O多路复用都是采用的epoll模式实现，它会通知用户进程socket就绪的同时，把已就绪的socket写入用户空间，不需要挨个遍历socket来判断是否就绪。提升了性能。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Redis的网络模型使用I/O多路复用结合事件处理器来应对多个socket请求，例如，提供了连接应答处理器、命令回复处理器、命令请求处理器。&lt;/p&gt;
+&lt;p&gt;Redis因为是基于内存的，内存读写速度非常快，所以性能瓶颈不在内存，而是在网络I/O，具体是在命令的解析这一块，假如很多的客户端都来读数据，那么他们都会携带自己的命令，Redis需要接收网络请求的数据，转化为Redis命令，那么Redis此时可能就忙不过来了。在Redis 6.0之后引入了多线程，用于解析网络请求。但是真正去执行命令的时候，还是使用的单线程。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/details&gt;</content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/categories/java/" term="JAVA" label="JAVA" />
+                            
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/tags/redis/" term="Redis" label="Redis" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">对计算机专业就业出现的某些现象的一些看法——五四青年节特辑</title>
+            <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/posts/20/" />
+            <id>https://xuoneyuan.github.io/posts/20/</id>
+            <updated>2024-05-04T20:49:22&#43;08:00</updated>
+            <published>2024-05-04T20:20:15&#43;08:00</published>
+            <author>
+                    <name>falcone</name>
+                    <uri>https://xuoneyuan.github.io/</uri>
+                    <email>xuoneyuan@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">今天闲的没事在牛客上瞎逛，看了一些人的简历，心里很不是滋味。 A哥是双非本，东北大学软……</summary>
+            
+                <content type="html">&lt;p&gt;今天闲的没事在牛客上瞎逛，看了一些人的简历，心里很不是滋味。&lt;/p&gt;
+&lt;p&gt;A哥是双非本，东北大学软件工程硕士。简历写的可以说是纯纯的模板套路了。经典各种Java技术栈+黑马项目经历，黑马点评和苍穹外卖这两个项目我光看技术栈都猜出来是这两没跑了。往下拉了拉他还写了商务竞赛、创新创业大赛还有研究生奖学金之类的个人荣誉，可能是他自己也觉得不好意思，自觉划掉了，但是还是有一些部分没有打码。&lt;/p&gt;
+&lt;p&gt;B姐是云南大学本+中科大硕，这学历按理来说是乱杀的。离谱的是她专业是通信，专业技能却是一水的Java技术栈，项目更是乐享优选，外加硕士时期做的一个算法项目。个人荣誉方面不逊色于A哥，啥国家励志奖学金、本科优秀毕业生、中科大一等奖学金，还有数模之类的写的满满当当，让人一看就是一个标准的好学生，要是在高中，肯定是每周的升旗仪式都要着重表扬一下，让她发表个演讲，讲讲自己的学习心得。&lt;/p&gt;
+&lt;p&gt;我想说的重点不是他们多优秀或者多励志，我想说的是，中国的高等教育，真的就这？我敢说他们写的专业技能学校一个字都没教过吧？不说别的，git的使用方法要是自己不去钻研，信不信真有计算机专业大三的学生不会用？信不信真的有人连linux的常用命令5个都说不上来？即使这样，就业环境仍然内卷的一批。你可以说中国的高等教育和就业市场不匹配，学校和公司有脱节，但是中国的学生实在太他妈卷了，你学校教或者不教，照样给你大二就全栈，大三就搞底层+ai。&lt;/p&gt;
+&lt;p&gt;还能说啥呢，我看过一些985科班的学生，厦大为例子，真的给我惊到了。一般人都觉得厦大是个文科学校，主打一个浪漫，但他们的计算机专业学生有的自学的相当厉害，基础相当扎实，其视野和能力完全能在国内顶尖大厂的核心部门立足。&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/categories/%E6%9D%82%E6%96%87/" term="杂文" label="杂文" />
+                            
+                        
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://xuoneyuan.github.io/tags/%E8%8A%82%E6%97%A5%E5%BA%86%E5%85%B8/" term="节日庆典" label="节日庆典" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">ElasticSearch</title>
             <link rel="alternate" type="text/html" href="https://xuoneyuan.github.io/posts/19/" />

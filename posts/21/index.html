@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.120.3"><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>Redis | falcone&#39;s sweet home</title>
+
+    <link rel="stylesheet" href="/css/meme.min.f54cf40201186aaedb62a8b71c38be7d67b303686b40d9dd981bd07c903e14d6.css"/>
+
+    
+    
+        
+            <script src="/js/meme.min.e46abe484398824efc70edec3126437916974df592d7c395b44f8f60e0f57e9d.js"></script>
+
+        
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" media="print" onload="this.media='all'" />
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" /></noscript>
+
+    <meta name="author" content="falcone" /><meta name="description" content="什么是缓存穿透？怎么解决？ 缓存穿透是指查询一个不存在的数据，如果从存储层查询不到数据……" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="falcone&#39;s sweet home" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="falcone&#39;s sweet home" />
+    <meta name="msapplication-starturl" content="../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    
+    
+
+    
+        <link rel="canonical" href="https://xuoneyuan.github.io/posts/21/" />
+    
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2024-05-05T19:33:17+08:00",
+        "dateModified": "2024-05-05T20:47:23+08:00",
+        "url": "https://xuoneyuan.github.io/posts/21/",
+        "headline": "Redis",
+        "description": "什么是缓存穿透？怎么解决？ 缓存穿透是指查询一个不存在的数据，如果从存储层查询不到数据……",
+        "inLanguage" : "zh-CN",
+        "articleSection": "posts",
+        "wordCount":  5225 ,
+        "image": ["https://xuoneyuan.github.io/images/redis1.png"],
+        "author": {
+            "@type": "Person",
+            "description": "hello, world!",
+            "email": "xuoneyuan@gmail.com",
+            "image": "https://xuoneyuan.github.io/icons/apple-touch-icon.png",
+            "url": "https://xuoneyuan.github.io/",
+            "name": "falcone"
+        },
+        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
+        "publisher": {
+            "@type": "Organization",
+            "name": "falcone's sweet home",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://xuoneyuan.github.io/icons/apple-touch-icon.png"
+            },
+            "url": "https://xuoneyuan.github.io/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "https://xuoneyuan.github.io/"
+        }
+    }
+</script>
+
+    
+
+<meta name="twitter:card" content="summary_large_image" />
+
+
+<meta name="twitter:site" content="@realDonaldTrump" />
+<meta name="twitter:creator" content="@realDonaldTrump" />
+
+    
+
+
+
+<meta property="og:title" content="Redis" />
+<meta property="og:description" content="什么是缓存穿透？怎么解决？ 缓存穿透是指查询一个不存在的数据，如果从存储层查询不到数据……" />
+<meta property="og:url" content="https://xuoneyuan.github.io/posts/21/" />
+<meta property="og:site_name" content="falcone&#39;s sweet home" />
+<meta property="og:locale" content="zh" /><meta property="og:image" content="https://xuoneyuan.github.io/images/redis1.png" />
+<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2024-05-05T19:33:17&#43;08:00" />
+    <meta property="article:modified_time" content="2024-05-05T20:47:23&#43;08:00" />
+    
+    <meta property="article:section" content="posts" />
+
+
+
+    
+    
+
+    
+</head>
+
+    <body>
+        <div class="container">
+            
+    <header class="header">
+        
+            <div class="header-wrapper">
+                <div class="header-inner single">
+                    
+    <div class="site-brand">
+        
+            <a href="/" class="brand">falcone&#39;s sweet home</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+            
+        
+        
+        
+        
+            
+                <li class="menu-item active"><a href="/posts/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon archive"><path d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"/></svg><span class="menu-item-name">文章</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/categories/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon th"><path d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"/></svg><span class="menu-item-name">分类</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/tags/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="icon tags"><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg><span class="menu-item-name">标签</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/about/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon user-circle"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg><span class="menu-item-name">关于</span></a>
+                </li>
+            
+        
+            
+                
+                    
+                    
+                        <li class="menu-item">
+                            <a id="theme-switcher" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5l48.8-97.5a18 18 0 0128 0l48.8 97.5 103.4 -34.5a18 18 0 0119.8 19.8l-34.5 103.4l97.5 48.8a18 18 0 010 28l-97.5 48.8 34.5 103.4a18 18 0 01-19.8 19.8l-103.4-34.5-48.8 97.5a18 18 0 01-28 0l-48.8-97.5l-103.4 34.5a18 18 0 01-19.8-19.8l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8-34.5-103.4a18 18 0 0119.8-19.8zM256 128a128 128 0 10.01 0M256 160a96 96 0 10.01 0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412a256 256 0 10154-407a11.5 11.5 0 00-5 20a201.5 201.5 0 01-134 374a11.5 11.5 0 00-15 13"/></svg></a>
+                        </li>
+                    
+                
+            
+        
+            
+                
+            
+        
+    </ul>
+</nav>
+
+                    
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+    <main class="main single" id="main">
+    <div class="main-inner">
+
+        
+
+        <article class="content post h-entry" data-align="justify" data-type="posts" data-toc-num="true">
+
+            <h1 class="post-title p-name">Redis</h1>
+
+            
+
+            
+                
+            
+
+            
+                
+
+<div class="post-meta">
+    
+        
+        <time datetime="2024-05-05T19:33:17&#43;08:00" class="post-meta-item published dt-published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;2024.5.5</time>
+    
+    
+    
+    
+        
+        
+        
+            
+                <span class="post-meta-item category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>&nbsp;<a href="/categories/java/" class="category-link p-category">JAVA</a></span>
+            
+        
+    
+    
+    
+    
+    
+</div>
+
+            
+
+            <div class="post-body e-content">
+                <details>
+<summary>什么是缓存穿透？怎么解决？</summary>
+<p>缓存穿透是指查询一个不存在的数据，如果从存储层查询不到数据，则不会写入缓存，此时就会导致每次请求这个不存在的数据，都会到DB里去查询，可能会导致DB挂掉，这种情况大概率是遭到了攻击。</p>
+<p>解决方案的话，一般可以缓存空数据，即缓存这个不存在的数据。另外一种解决方案就是使用布隆过滤器</p>
+</details>
+<details>
+<summary>好的，那你能介绍一下布隆过滤器吗？</summary>
+<p>布隆过滤器主要是用于检索一个元素绝对不在集合中或可能在集合中。它的底层主要是先去初始化一个比较大的数组，里面存放二进制的0或1，在一开始都是0，当一个key来了之后经过3个哈希函数的计算，模于数组长度找到数据的下标，然后把下标位置的0改为1，这样的话，三个数组下标的位置就能标明一个key的存在，查找的过程也是一样的。</p>
+<p>当然这个也是有缺点的，布隆过滤器可能存在一些误判，我们一般是可以设置这个误判率的，大概不会超过5%，因为哈希冲突不可能避免，所以这个误判是必然存在的，要不然就增加数组长度。但其实5%的误判率一般项目也是能接受的，不至于高并发下压倒数据库。</p>
+<p><img src="/images/redis1.png" alt="1"></p>
+<p>用上图来举个例子</p>
+<ol>
+<li>初始化布隆过滤器为 16 位，每一位初始值都为 0。</li>
+<li>将 Fredy 录入布隆过滤器，经过三个哈希函数的计算，将第 1、3、7 位设为 1。</li>
+<li>将 Eli 录入布隆过滤器，经过三个哈希函数的计算，将第 10、12、15 位设为 1。</li>
+<li>查询 Tom，经过三个哈希函数的计算，得到第 0、2、5 位，这三个位置上的数字都是 0。根据布隆过滤器的规则，可以判断 Tom 绝对不在数据库中。</li>
+<li>查询 Lily，经过三个哈希函数的计算，得到第 7、12、15 位，这三个位置上的数字都是 1。这里需要澄清一点：虽然这三个位置上的数字都是 1，但布隆过滤器只能判断 Lily 可能存在于数据库中，而不能确定 Lily 真的在数据库中。因为这三个位上的 1 可能是由 Fredy 和 Eli 共同组成的，所以存在一定的误判率。</li>
+<li>当布隆过滤器判断数据一定不存在，就不用查询数据库，直接返回不存在的结果。当布隆过滤器判断可能存在，那么查询数据库，以确认元素是否真的存在。</li>
+</ol>
+</details>
+<details>
+<summary>什么是缓存击穿？怎么解决？</summary>
+<ul>
+<li>
+<p>缓存击穿是指在缓存中设置了过期时间的某个key，在某个时间点这个key正好过期，导致缓存失效，恰好此时有大量病发情趣同时访问该key，这些请求会直接访问后端数据库，造成数据库压力骤增，严重影响系统性能，甚至直接压垮数据库。</p>
+</li>
+<li>
+<p>解决方案的话，我了解的有两种</p>
+<ul>
+<li>方案一：使用互斥锁</li>
+</ul>
+<ol>
+<li>当缓存失效时，不立即去加载数据库，而是先使用Redis的SETNX(Set if Not Exists)命令去设置一个互斥锁，只有一个请求能够成功设置互斥锁，其他请求会在这一步被阻塞</li>
+<li>成功设置互斥锁的请求，再去加载数据库，并将加载的数据回设到缓存中</li>
+</ol>
+<ul>
+<li>方案二：逻辑过期</li>
+</ul>
+<ol>
+<li>在设置缓存key的同时，额外存储一个过期时间字段到缓存中，但是不给当前key设置过期时间</li>
+<li>当查询请求到达时，首先从缓存中取出数据，并且额外判断一下存储key的过期时间字段，若过期则认为缓存失效</li>
+<li>当缓存失效时，开启另外一个线程进行数据的异步加载和缓存更新，当前请求直接返回缓存中的旧数据，但这部分数据可能不是最新</li>
+<li>这种方案一定程度上保证了高可用性，避免了大量请求直接打到数据库。</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>当然两种方案各有利弊
+<ul>
+<li>方案一使用了互斥锁，保证了数据的强一致性，到哪性能可能会受到锁的竞争影响，而且需要考虑死锁的问题</li>
+<li>方案二优先考虑的是高可用和性能，但不能保证强一致性，有可能会出现缓存和数据库数据不一致的情况。</li>
+<li>实际使用中根据我们的需求来选择要保证一致性还是可用性。</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>什么是缓存雪崩？怎么解决？</summary>
+<ul>
+<li>
+<p>缓存雪崩是指换成那种设置了相同的过期时间，导致大量缓存在同一时刻同时失效，进而导致所有的请求直接转发到了后端数据库，导致数据库瞬时压力过大，可能直接压垮数据库。它与缓存击穿的区别在于，缓存雪崩是很多key同时失效，而缓存击穿是某一个key缓存失效</p>
+</li>
+<li>
+<p>解决方案主要是在设置缓存的时候，可以给每个缓存的过期时间加上一个随机值，例如在原有的失效时间基础上，再加上一个1~5分钟的随机值。</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>Redis作为缓存，MySQL的数据如何与Redis进行同步呢？（双写一致性问题）</summary>
+<ul>
+<li>嗯，这个需要分为两种情况。
+<ul>
+<li>保证强一致性：使用读写锁。
+<ul>
+<li>如果是需要保证强一致性的话，可以采用Redisson实现的读写锁，在读的时候添加共享锁，可以保证读读不互斥，读写互斥。当我们更新数据的时候，添加排他锁，它是读写、读读都互斥，这样能保证在写数据的同时不会让其他线程来读数据，避免其他线程读到脏数据。这里需要注意读方法和写方法上需要使用同一把锁。</li>
+<li>排他锁的底层使用的也是setnx，保证同时只有一个线程操作被锁住的方法</li>
+</ul>
+</li>
+<li>然后不追求强一致性，数据同步可以有一定的延时。
+<ul>
+<li>可以采用阿里的canal组件来实现数据同步：不需要更改业务代码，部署一个canal服务，canal服务会把自己伪装成MySQL的一个从节点，当MySQL数据更新以后，canal会读取binlog数据，然后通过canal的客户端获取到数据，更新缓存即可。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>Redis作为缓存，数据的持久化是怎么做的呢？</summary>
+<p>在Redis中提供了两种数据持久化的方法</p>
+<ul>
+<li>RDB
+<ul>
+<li>RDB是一个快照文件，它是把Redis内存存储的数据写到磁盘上，当Redis实例宕机恢复数据的时候，方便从RDB的快照文件中恢复数据。</li>
+</ul>
+</li>
+<li>AOF
+<ul>
+<li>AOF的含义是追加文件，当Redis操作写命令的时候，都会存储到这个文件中，当Redis实例宕机恢复数据的时候，会从这个文件中再次执行一遍命令来恢复数据。</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>那这两种方式，哪种恢复的比较快呢？</summary>
+<ul>
+<li>RDB因为是二进制文件，在保存的时候体积也是比较小的，所以恢复的比较快，但是它有可能会丢失数据，因为Redis内部设置了触发RDB的机制，所以可能会丢失一段时间的缓存</li>
+</ul>
+<pre tabindex="0"><code>save 900 1      ## 900秒内，如果至少有1个key发生了变化，则触发一次持久化操作
+save 300 10     ## 300秒内，10个key变化
+save 60 10000   ## 60秒内，10000个key变化
+</code></pre><ul>
+<li>AOF恢复的速度慢一些，但是它丢失数据的风险要小很多，在Redis的配置文件中也可以配置AOF的刷盘策略，采用everysec的话，最多丢失一秒的数据
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>刷盘时机</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Always</td>
+<td>同步刷盘</td>
+<td>可靠性高，几乎不丢数据</td>
+<td>性能影响大</td>
+</tr>
+<tr>
+<td>everysec</td>
+<td>每秒刷盘</td>
+<td>性能适中</td>
+<td>最多丢失1秒数据</td>
+</tr>
+<tr>
+<td>no</td>
+<td>操作系统控制</td>
+<td>性能最好</td>
+<td>可靠性较差，可能丢失大量数据</td>
+</tr>
+</tbody>
+</table></div>
+</li>
+<li>实际环境中，都是结合使用RDB和AOF来使用的。</li>
+</ul>
+</details>
+<details>
+<summary>Redis的数据过期策略有哪些？</summary>
+<ul>
+<li>Redis提供了两种数据过期删除策略
+<ul>
+<li>
+<p>第一种是惰性删除，在设置key过期时间后，我们不去管它，当我们需要使用该key时，我们再检查其是否过期，如果过期，我们就删除它，没过期，我们就返回该key。这种方法的缺点是，如果有大量冷数据，长时间不会被使用到，会占用内存空间，不会被及时清理掉。</p>
+</li>
+<li>
+<p>第二种是定期删除，每隔一段时间，我们就对一些key进行检查，删除里面已经过期的key。定期清理的两种模式</p>
+</li>
+</ul>
+<ol>
+<li>SLOW模式是定时任务，执行频率默认为10HZ，每次不超过25ms，不过也可以通过Redis的配置文件来手动配置</li>
+<li>FAST模式执行频率不固定，每次事件循环会尝试执行，但两次间隔不低于2ms，每次耗时不超过1ms</li>
+</ol>
+<ul>
+<li>Redis的过期删除策略，一般都是结合这二者一起来使用的。</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>Redis的数据淘汰策略有哪些？</summary>
+<ul>
+<li>Redis支持八种不同的策略来选择要删除的key</li>
+</ul>
+<ol>
+<li>noeviction： 不淘汰任何key，但是内存满时不允许写入新数据，默认就是这种策略</li>
+<li>volatile-ttl： 对设置了TTL的key，比较key的剩余TTL值，TTL越小越先被淘汰</li>
+<li>allkeys-random：对全体key ，随机进行淘汰</li>
+<li>volatile-random：对设置了TTL的key ，随机进行淘汰</li>
+<li>allkeys-lru： 对全体key，基于LRU算法进行淘汰，LRU的意思是最近最少使用</li>
+<li>volatile-lru： 对设置了TTL的key，基于LRU算法进行淘汰</li>
+<li>allkeys-lfu： 对全体key，基于LFU算法进行淘汰，LFU的意思是最少频率使用</li>
+<li>volatile-lfu： 对设置了TTL的key，基于LFU算法进行淘汰</li>
+</ol>
+</details>
+<details>
+<summary>假如数据库中有1000w数据，Redis中只能缓存20w条数据，如何保证Redis中的数据都是热点数据？</summary>
+<p>这个问题可以从Redis的数据淘汰策略来考虑，如果需要保留热点数据，那么可以根据最近最少使用来淘汰数据，即LRU算法，这样剩下的就是热点数据了。</p>
+</details>
+<details>
+<summary>Redis内存用完了会发生什么？</summary>
+<p>这个问题得看配置的Redis数据淘汰策略是什么，如果是默认的配置，Redis内存用完以后直接报错，可以根据自己的需求来设置数据淘汰策略，我一般都是使用的LRU来淘汰数据。</p>
+</details>
+<details>
+<summary>Redis的分布式锁如何实现</summary>
+<p>Redis中提供了一个SETNX命令，即Set if Not Exists</p>
+<p>由于Redis是单线程的，所以使用该命令后，只能有一个客户端对某一个key设置值，在没有过期或删除该key之前，其他客户端是不能设置这个key的</p>
+</details>
+<details>
+<summary>那你是如何控制Redis实现分布式锁的有效时长呢？</summary>
+<p>采用Redis的SETNX命令确实不太好控制这个时长，但是可以采用Redis的一个框架，Redisson来实现。</p>
+<p>在Redisson中需要手动加锁，并且可以控制锁的失效时间和等待时间，当锁住的一个业务还没有执行完成时，Redisson的看门狗机制会每隔一段时间来检查当前业务是否还持有锁，如果持有锁，就增加锁的持久时间，当业务执行完成之后手动释放锁即可。</p>
+</details>
+<details>
+<summary>Redis集群有哪些方案？</summary>
+<p>Redis提供的集群方案有三种：主从复制、哨兵模式、Redis分片集群</p>
+</details>
+<details>
+<summary>那你来介绍一下主从同步</summary>
+<p>单节点的Redis并发能力有限，要进一步提高Redis的并发能力，可以搭建主从集群，实现读写分离。一般都是一主多从，主节点负责写入数据，从节点负责读数据，主节点写入数据之后，需要将数据同步到从节点中。</p>
+</details>
+<details>
+<summary>那你继续说一下主从同步的流程吧</summary>
+<ul>
+<li>
+<p>主从同步分为两个阶段，一个是全量同步，一个是增量同步</p>
+<ul>
+<li>全量同步是指从节点第一次与主节点建立连接的时候</li>
+</ul>
+<ol>
+<li>从节点请求主节点同步数据，从节点会携带自己的replication id和offset偏移量</li>
+<li>主节点判断是否是第一次请求，判断的依据是，主节点与从节点是否是同一个replication id，然后不是，那主节点就会把自己的replication id和offset发送给从节点，让主节点和从节点的信息保持一致</li>
+<li>与此同时，主节点会执行bgsave，生成RDB文件后，发送给从节点去执行，从节点先把自己的数据清空，然后执行主节点发来的RDB文件，这样就保持了一致。</li>
+<li>如果在从节点执行RDB文件的期间，仍有请求到了主节点，那么主节点会以命令的方式记录到缓冲区，缓冲区是一个日志文件，最后把这个日志文件发送给从节点，这样就保证了主节点和从节点数据完全一致，后期再进行同步数据的时候，都是依赖于这个日志文件。这个就是全量同步</li>
+</ol>
+<ul>
+<li>增量同步是指，当从节点服务重启之后，数据不一致了，这个时候，从节点会请求主节点同步数据，主节点还是先判断是不是第一次请求，判断的语句还是replication id，不是第一次请求的话，就获取从节点的offset值，然后主节点从命令日志中获取offset值之后的数据，发送给从节点进行数据同步。</li>
+</ul>
+</li>
+</ul>
+</details>
+<details>
+<summary>怎么保证Redis的高并发高可用</summary>
+<p>首先可以搭建主从集群，再加上使用Redis中的哨兵模式，哨兵模式可以实现主从集群的自动故障恢复，里面就包含了对主从服务的监控、自动故障回复、通知；如果主节点故障，哨兵会将一个从节点提升为主节点，当故障实例恢复正常之后，也是以最新的主节点为主。同时哨兵也充当Redis客户端的服务发现来源，当集群发生故障转移的时候，会将最新消息推送给Redis客户端，所以一般项目都会采用哨兵模式来保证Redis的高并发高可用</p>
+</details>
+<details>
+<summary>Redis是单线程的，为什么还那么快？</summary>
+<ol>
+<li>
+<p>首先Redis完全是基于内存的，内存的读写速度是非常快的，并且Redis是由C语言编写的</p>
+</li>
+<li>
+<p>采用单线程，可以避免不必要的上下文切换的竞争条件</p>
+</li>
+<li>
+<p>使用I/O多路复用模型，非阻塞IO</p>
+<p>I/O多路复用指的是利用单个线程来监听多个socket，并在某个socket就绪的时候，得到通知，从而避免无效的等待，充分利用CPU资源。目前I/O多路复用都是采用的epoll模式实现，它会通知用户进程socket就绪的同时，把已就绪的socket写入用户空间，不需要挨个遍历socket来判断是否就绪。提升了性能。</p>
+</li>
+<li>
+<p>Redis的网络模型使用I/O多路复用结合事件处理器来应对多个socket请求，例如，提供了连接应答处理器、命令回复处理器、命令请求处理器。</p>
+<p>Redis因为是基于内存的，内存读写速度非常快，所以性能瓶颈不在内存，而是在网络I/O，具体是在命令的解析这一块，假如很多的客户端都来读数据，那么他们都会携带自己的命令，Redis需要接收网络请求的数据，转化为Redis命令，那么Redis此时可能就忙不过来了。在Redis 6.0之后引入了多线程，用于解析网络请求。但是真正去执行命令的时候，还是使用的单线程。</p>
+</li>
+</ol>
+</details>
+            </div>
+
+            
+
+
+        </article>
+
+        
+
+        
+
+
+        
+
+
+        
+
+
+        
+    
+    
+        <div class="related-posts">
+            <h2 class="related-title">相关文章：<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon related-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"/></svg></h2>
+            <ul class="related-list">
+                
+                    <li class="related-item">
+                        <a href="/posts/19/" class="related-link">ElasticSearch</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/posts/18/" class="related-link">从阿里云到RocketMQ</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/posts/16/" class="related-link">ThreadLocal</a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+
+
+        
+    
+        <div class="post-tags">
+            
+                
+                
+                
+                
+                    
+                    <a href="/tags/redis/" rel="tag" class="post-tags-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tag-icon"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>Redis</a>
+                
+            
+        </div>
+    
+
+
+
+        
+
+
+        
+
+
+        
+    
+        
+        
+    
+    
+    
+    
+        <ul class="post-nav">
+            
+            
+                <li class="post-nav-next">
+                    <a href="/posts/20/" rel="next">对计算机专业就业出现的某些现象的一些看法——五四青年节特辑 &gt;</a>
+                </li>
+            
+        </ul>
+    
+
+
+
+        
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
+    </div>
+
+
+            
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="site-info">©&nbsp;2023–2024&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;falcone</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div>
+
+            
+    
+        <ul class="socials"><li class="socials-item">
+                    <a href="/rss.xml" target="_blank" rel="external noopener" title="RSS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="mailto:xuoneyuan@gmail.com" target="_blank" rel="external noopener" title="Email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon social-icon"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://github.com/xuoneyuan" target="_blank" rel="external noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://twitter.com/" target="_blank" rel="external noopener" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon social-icon"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://t.me/" target="_blank" rel="external noopener" title="Telegram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon social-icon"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1157277847&amp;website=www.oicqzone.com" target="_blank" rel="external noopener" title="QQ"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon social-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
+                </li></ul>
+    
+
+
+
+            
+        </div>
+    </footer>
+
+
+        </div>
+        
+
+        
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js" type="module" defer></script>
+
+
+
+
+
+
+    </body>
+</html>
