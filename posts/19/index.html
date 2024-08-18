@@ -15,7 +15,7 @@
     
     <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <title>ElasticSearch | falcone&#39;s sweet home</title>
+    <title>ElasticSearch &amp;&amp; kafka | Notebook online</title>
 
     <link rel="stylesheet" href="/css/meme.min.f54cf40201186aaedb62a8b71c38be7d67b303686b40d9dd981bd07c903e14d6.css"/>
 
@@ -32,16 +32,16 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" media="print" onload="this.media='all'" />
         <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" /></noscript>
 
-    <meta name="author" content="falcone" /><meta name="description" content="倒排索引 倒排索引也叫反向索引，我们通常理解的索引是通过key寻找value，与之相反……" />
+    <meta name="author" content="falcone" /><meta name="description" content="一、消息不丢失 生产者层面 acks=all配置：设置生产者的acks参数为all，确保……" />
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="falcone&#39;s sweet home" />
+    <meta name="apple-mobile-web-app-title" content="Notebook online" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="falcone&#39;s sweet home" />
+    <meta name="application-name" content="Notebook online" />
     <meta name="msapplication-starturl" content="../../" />
     <meta name="msapplication-TileColor" content="#fff" />
     <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png" />
@@ -59,13 +59,13 @@
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "datePublished": "2024-04-23T23:40:42+08:00",
-        "dateModified": "2024-05-03T17:47:45+08:00",
+        "dateModified": "2024-08-18T11:36:40+08:00",
         "url": "https://xuoneyuan.github.io/posts/19/",
-        "headline": "ElasticSearch",
-        "description": "倒排索引 倒排索引也叫反向索引，我们通常理解的索引是通过key寻找value，与之相反……",
+        "headline": "ElasticSearch \u0026\u0026 kafka",
+        "description": "一、消息不丢失 生产者层面 acks=all配置：设置生产者的acks参数为all，确保……",
         "inLanguage" : "zh-CN",
         "articleSection": "posts",
-        "wordCount":  1059 ,
+        "wordCount":  2416 ,
         "image": "https://xuoneyuan.github.io/icons/apple-touch-icon.png",
         "author": {
             "@type": "Person",
@@ -78,7 +78,7 @@
         "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
         "publisher": {
             "@type": "Organization",
-            "name": "falcone's sweet home",
+            "name": "Notebook online",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://xuoneyuan.github.io/icons/apple-touch-icon.png"
@@ -103,14 +103,14 @@
 
 
 
-<meta property="og:title" content="ElasticSearch" />
-<meta property="og:description" content="倒排索引 倒排索引也叫反向索引，我们通常理解的索引是通过key寻找value，与之相反……" />
+<meta property="og:title" content="ElasticSearch &amp;&amp; kafka" />
+<meta property="og:description" content="一、消息不丢失 生产者层面 acks=all配置：设置生产者的acks参数为all，确保……" />
 <meta property="og:url" content="https://xuoneyuan.github.io/posts/19/" />
-<meta property="og:site_name" content="falcone&#39;s sweet home" />
+<meta property="og:site_name" content="Notebook online" />
 <meta property="og:locale" content="zh" /><meta property="og:image" content="https://xuoneyuan.github.io/icons/apple-touch-icon.png" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2024-04-23T23:40:42&#43;08:00" />
-    <meta property="article:modified_time" content="2024-05-03T17:47:45&#43;08:00" />
+    <meta property="article:modified_time" content="2024-08-18T11:36:40&#43;08:00" />
     
     <meta property="article:section" content="posts" />
 
@@ -132,7 +132,7 @@
                     
     <div class="site-brand">
         
-            <a href="/" class="brand">falcone&#39;s sweet home</a>
+            <a href="/" class="brand">Notebook online</a>
         
     </div>
 
@@ -206,7 +206,7 @@
 
         <article class="content post h-entry" data-align="justify" data-type="posts" data-toc-num="true">
 
-            <h1 class="post-title p-name">ElasticSearch</h1>
+            <h1 class="post-title p-name">ElasticSearch &amp;&amp; kafka</h1>
 
             
 
@@ -242,7 +242,45 @@
             
 
             <div class="post-body e-content">
-                <details>
+                <p>一、消息不丢失</p>
+<ol>
+<li>生产者层面</li>
+</ol>
+<p>acks=all配置：设置生产者的acks参数为all，确保消息在发送后需要等待所有ISR副本的确认才能认为消息发送成功。这样，即使Leader副本宕机，消息也能在其他副本中保存。</p>
+<p>启用重试机制：配置生产者的重试机制（retries），当发送消息失败时，生产者会自动重试，避免因临时网络故障或其他问题导致消息丢失。</p>
+<p>消息持久化：在发送消息前，将消息持久化到本地或外部存储系统（如数据库或文件系统）中，在确认消息被成功发送到Kafka之前，可以在重启时重新发送这些消息。</p>
+<ol start="2">
+<li>Broker层面</li>
+</ol>
+<p>ISR副本机制：配置Kafka集群的副本机制，确保每条消息至少有两个以上的副本存储（常用配置为3个副本），即使一个Broker出现故障，消息也不会丢失。</p>
+<p>日志刷盘策略：配置Kafka的日志刷盘策略，调整log.flush.interval.messages和log.flush.interval.ms参数，确保消息及时从内存刷写到磁盘，防止由于系统崩溃导致的消息丢失。</p>
+<p>数据恢复机制：启用Kafka的unclean.leader.election=false配置，确保在Leader故障后不会选举一个未完全同步的副本为新的Leader，防止丢失未同步的消息。</p>
+<ol start="3">
+<li>消费者层面</li>
+</ol>
+<p>手动提交offset：消费者在消费消息后，手动提交offset，确保消息成功处理后才提交offset，这样即使消费者在处理过程中失败，也能在恢复后重新消费未提交的消息。</p>
+<p>事务性消费：使用Kafka的事务性消费功能，确保消息处理与offset提交在一个事务中完成，防止未处理的消息被丢弃。</p>
+<p>二、避免重复消费</p>
+<ol>
+<li>生产者层面</li>
+</ol>
+<p>幂等性配置 (enable.idempotence=true)：开启Kafka生产者的幂等性功能，确保即使生产者在发送消息时出现网络抖动或重试，Kafka也能识别并过滤重复消息，防止重复写入。</p>
+<p>去重标识：在每条消息中添加唯一标识符（如UUID），以便消费者能够识别并避免重复处理相同的消息。</p>
+<ol start="2">
+<li>Broker层面</li>
+</ol>
+<p>精确一次语义：通过Kafka的exactly-once语义配置（需要配合Kafka Streams或事务性生产者/消费者），确保在整个消息流转过程中，每条消息只被处理一次，防止因为系统故障或重启导致的重复消费。</p>
+<ol start="3">
+<li>消费者层面</li>
+</ol>
+<p>幂等性处理：在消费消息时确保业务逻辑是幂等的。例如，在插入数据库之前，先检查记录是否存在，或者使用UPSERT（插入或更新）语句来处理重复数据，防止重复消费导致的数据不一致。</p>
+<p>消息记录表：使用一张专门的表记录每条消息的处理状态，消费者在处理消息之前，先检查该消息是否已被处理过，如果已处理则跳过，避免重复消费。</p>
+<p>手动管理offset：消费者可以通过手动管理offset来控制消息的消费进度。这样即使由于某种原因导致重复消费，也可以通过业务逻辑的幂等性检查来确保不会影响数据的一致性。</p>
+<p>综合策略</p>
+<p>监控与报警：建立完善的监控系统，监控Kafka集群的健康状况、消息处理进度、offset提交情况，及时发现消息丢失或重复消费的问题。</p>
+<p>自动化恢复机制：配置自动化的故障恢复机制，例如在Broker或消费者异常时，自动触发重新消费未提交的消息。</p>
+<p>日志与审计：记录所有关键操作的日志，以便在出现问题时进行审计和回溯，进一步确保系统的可靠性。</p>
+<details>
 <summary>倒排索引</summary>
 <p>倒排索引也叫反向索引，我们通常理解的索引是通过key寻找value，与之相反，倒排索引是通过value寻找key，故而被称作反向索引。</p>
 <p>为了创建索引，ES引擎通过分词器将每个文档的内容拆成单独的词（称之为词条，或term），再将这些词条创建成不含重复词条的排序列表，然后列出每个词条出现在哪个文档。</p>

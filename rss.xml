@@ -7,7 +7,7 @@
 
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>falcone&#39;s sweet home</title>
+        <title>Notebook online</title>
         <link>https://xuoneyuan.github.io/</link>
         <description>MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</description>
         <generator>Hugo 0.120.3 https://gohugo.io/</generator>
@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Sun, 28 Jul 2024 20:27:12 &#43;0800</lastBuildDate>
+        <lastBuildDate>Sun, 18 Aug 2024 11:36:59 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://xuoneyuan.github.io/rss.xml" />
         
@@ -1530,7 +1530,7 @@ save 60 10000   ## 60秒内，10000个key变化
             </item>
         
             <item>
-                <title>ElasticSearch</title>
+                <title>ElasticSearch &amp;&amp; kafka</title>
                 <link>https://xuoneyuan.github.io/posts/19/</link>
                 <guid isPermaLink="true">https://xuoneyuan.github.io/posts/19/</guid>
                 <pubDate>Tue, 23 Apr 2024 23:40:42 &#43;0800</pubDate>
@@ -1539,7 +1539,45 @@ save 60 10000   ## 60秒内，10000个key变化
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
                 
-                    <description>&lt;details&gt;
+                    <description>&lt;p&gt;一、消息不丢失&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;生产者层面&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;acks=all配置：设置生产者的acks参数为all，确保消息在发送后需要等待所有ISR副本的确认才能认为消息发送成功。这样，即使Leader副本宕机，消息也能在其他副本中保存。&lt;/p&gt;
+&lt;p&gt;启用重试机制：配置生产者的重试机制（retries），当发送消息失败时，生产者会自动重试，避免因临时网络故障或其他问题导致消息丢失。&lt;/p&gt;
+&lt;p&gt;消息持久化：在发送消息前，将消息持久化到本地或外部存储系统（如数据库或文件系统）中，在确认消息被成功发送到Kafka之前，可以在重启时重新发送这些消息。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Broker层面&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ISR副本机制：配置Kafka集群的副本机制，确保每条消息至少有两个以上的副本存储（常用配置为3个副本），即使一个Broker出现故障，消息也不会丢失。&lt;/p&gt;
+&lt;p&gt;日志刷盘策略：配置Kafka的日志刷盘策略，调整log.flush.interval.messages和log.flush.interval.ms参数，确保消息及时从内存刷写到磁盘，防止由于系统崩溃导致的消息丢失。&lt;/p&gt;
+&lt;p&gt;数据恢复机制：启用Kafka的unclean.leader.election=false配置，确保在Leader故障后不会选举一个未完全同步的副本为新的Leader，防止丢失未同步的消息。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;消费者层面&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;手动提交offset：消费者在消费消息后，手动提交offset，确保消息成功处理后才提交offset，这样即使消费者在处理过程中失败，也能在恢复后重新消费未提交的消息。&lt;/p&gt;
+&lt;p&gt;事务性消费：使用Kafka的事务性消费功能，确保消息处理与offset提交在一个事务中完成，防止未处理的消息被丢弃。&lt;/p&gt;
+&lt;p&gt;二、避免重复消费&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;生产者层面&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;幂等性配置 (enable.idempotence=true)：开启Kafka生产者的幂等性功能，确保即使生产者在发送消息时出现网络抖动或重试，Kafka也能识别并过滤重复消息，防止重复写入。&lt;/p&gt;
+&lt;p&gt;去重标识：在每条消息中添加唯一标识符（如UUID），以便消费者能够识别并避免重复处理相同的消息。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Broker层面&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;精确一次语义：通过Kafka的exactly-once语义配置（需要配合Kafka Streams或事务性生产者/消费者），确保在整个消息流转过程中，每条消息只被处理一次，防止因为系统故障或重启导致的重复消费。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;消费者层面&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;幂等性处理：在消费消息时确保业务逻辑是幂等的。例如，在插入数据库之前，先检查记录是否存在，或者使用UPSERT（插入或更新）语句来处理重复数据，防止重复消费导致的数据不一致。&lt;/p&gt;
+&lt;p&gt;消息记录表：使用一张专门的表记录每条消息的处理状态，消费者在处理消息之前，先检查该消息是否已被处理过，如果已处理则跳过，避免重复消费。&lt;/p&gt;
+&lt;p&gt;手动管理offset：消费者可以通过手动管理offset来控制消息的消费进度。这样即使由于某种原因导致重复消费，也可以通过业务逻辑的幂等性检查来确保不会影响数据的一致性。&lt;/p&gt;
+&lt;p&gt;综合策略&lt;/p&gt;
+&lt;p&gt;监控与报警：建立完善的监控系统，监控Kafka集群的健康状况、消息处理进度、offset提交情况，及时发现消息丢失或重复消费的问题。&lt;/p&gt;
+&lt;p&gt;自动化恢复机制：配置自动化的故障恢复机制，例如在Broker或消费者异常时，自动触发重新消费未提交的消息。&lt;/p&gt;
+&lt;p&gt;日志与审计：记录所有关键操作的日志，以便在出现问题时进行审计和回溯，进一步确保系统的可靠性。&lt;/p&gt;
+&lt;details&gt;
 &lt;summary&gt;倒排索引&lt;/summary&gt;
 &lt;p&gt;倒排索引也叫反向索引，我们通常理解的索引是通过key寻找value，与之相反，倒排索引是通过value寻找key，故而被称作反向索引。&lt;/p&gt;
 &lt;p&gt;为了创建索引，ES引擎通过分词器将每个文档的内容拆成单独的词（称之为词条，或term），再将这些词条创建成不含重复词条的排序列表，然后列出每个词条出现在哪个文档。&lt;/p&gt;
@@ -1911,7 +1949,7 @@ ThreadLocal变量尽量定义成static final类型，避免频繁创建ThreadLoc
             </item>
         
             <item>
-                <title>快来欣赏程序员的浪漫！——情人节特辑</title>
+                <title>情人节特辑 | 爱是躁动不安的世界之中的乱流</title>
                 <link>https://xuoneyuan.github.io/posts/15/</link>
                 <guid isPermaLink="true">https://xuoneyuan.github.io/posts/15/</guid>
                 <pubDate>Sat, 17 Feb 2024 11:09:30 &#43;0800</pubDate>
@@ -1934,7 +1972,7 @@ ThreadLocal变量尽量定义成static final类型，避免频繁创建ThreadLoc
 &lt;p&gt;&lt;strong&gt;构造函数 Xp():&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;使当前线程休眠24年（这显然是一个比喻，实际代码中这样做没有意义，因为它会阻塞程序那么长时间）。&lt;/li&gt;
-&lt;li&gt;创建一个Jx1类型的对象，并将其赋给m_love，这是一个std::unique_ptr&lt;People&gt;类型的智能指针，初始化为nullptr。&lt;/li&gt;
+&lt;li&gt;创建一个Jxl类型的对象，并将其赋给m_love，这是一个std::unique_ptr&lt;People&gt;类型的智能指针，初始化为nullptr。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;析构函数 ~Xp():&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
