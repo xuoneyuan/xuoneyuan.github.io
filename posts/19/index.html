@@ -32,7 +32,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" media="print" onload="this.media='all'" />
         <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" /></noscript>
 
-    <meta name="author" content="falcone" /><meta name="description" content="一、消息不丢失 生产者层面 acks=all配置：设置生产者的acks参数为all，确保……" />
+    <meta name="author" content="falcone" /><meta name="description" content="Producer Producer是Kafka中的消息生产者，主要用于生产带有特定Topic的消息，……" />
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
@@ -59,13 +59,13 @@
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "datePublished": "2024-04-23T23:40:42+08:00",
-        "dateModified": "2024-08-18T11:36:40+08:00",
+        "dateModified": "2024-08-25T23:01:46+08:00",
         "url": "https://xuoneyuan.github.io/posts/19/",
         "headline": "ElasticSearch \u0026\u0026 kafka",
-        "description": "一、消息不丢失 生产者层面 acks=all配置：设置生产者的acks参数为all，确保……",
+        "description": "Producer Producer是Kafka中的消息生产者，主要用于生产带有特定Topic的消息，……",
         "inLanguage" : "zh-CN",
         "articleSection": "posts",
-        "wordCount":  2416 ,
+        "wordCount":  3848 ,
         "image": "https://xuoneyuan.github.io/icons/apple-touch-icon.png",
         "author": {
             "@type": "Person",
@@ -104,13 +104,13 @@
 
 
 <meta property="og:title" content="ElasticSearch &amp;&amp; kafka" />
-<meta property="og:description" content="一、消息不丢失 生产者层面 acks=all配置：设置生产者的acks参数为all，确保……" />
+<meta property="og:description" content="Producer Producer是Kafka中的消息生产者，主要用于生产带有特定Topic的消息，……" />
 <meta property="og:url" content="https://xuoneyuan.github.io/posts/19/" />
 <meta property="og:site_name" content="Notebook online" />
 <meta property="og:locale" content="zh" /><meta property="og:image" content="https://xuoneyuan.github.io/icons/apple-touch-icon.png" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2024-04-23T23:40:42&#43;08:00" />
-    <meta property="article:modified_time" content="2024-08-18T11:36:40&#43;08:00" />
+    <meta property="article:modified_time" content="2024-08-25T23:01:46&#43;08:00" />
     
     <meta property="article:section" content="posts" />
 
@@ -242,7 +242,25 @@
             
 
             <div class="post-body e-content">
-                <p>一、消息不丢失</p>
+                <ol>
+<li>
+<p>Producer
+Producer是Kafka中的消息生产者，主要用于生产带有特定Topic的消息，生产者生产的消息通过Topic进行归类，保存在Kafka 集群的Broker上，具体的是保存在指定的partition 的目录下，以Segment的方式（.log文件和.index文件）进行存储。</p>
+</li>
+<li>
+<p>Consumer
+Consumer是Kafka中的消费者，主要用于消费指定Topic的消息，Consumer是通过主动拉取的方式从Kafka集群中消费消息，消费者一定属于某一个特定的消费组。</p>
+</li>
+<li>
+<p>Topic
+Kafka中的消息是根据Topic进行分类的，Topic是支持多订阅的，一个Topic可以有多个不同的订阅消息的消费者。Kafka集群Topic的数量没有限制，同一个Topic的数据会被划分在同一个目录下，一个Topic可以包含1至多个分区，所有分区的消息加在一起就是一个Topic的所有消息。</p>
+</li>
+<li>
+<p>Partition
+在Kafka中，为了提升消息的消费速度，可以为每个Topic分配多个Partition，这也是就之前我们说到的，Kafka是支持多分区的。默认情况下，一个Topic的消息只存放在一个分区中。Topic的所有分区的消息合并起来，就是一个Topic下的所有消息。每个分区都有一个从0开始的编号，每个分区内的数据都是有序的，但是不同分区直接的数据是不能保证有序的，因为不同的分区需要不同的Consumer去消费，每个Partition只能分配一个Consumer，但是一个Consumer可以同时一个Topic的多个Partition。</p>
+</li>
+</ol>
+<p>一、消息不丢失</p>
 <ol>
 <li>生产者层面</li>
 </ol>
@@ -280,6 +298,39 @@
 <p>监控与报警：建立完善的监控系统，监控Kafka集群的健康状况、消息处理进度、offset提交情况，及时发现消息丢失或重复消费的问题。</p>
 <p>自动化恢复机制：配置自动化的故障恢复机制，例如在Broker或消费者异常时，自动触发重新消费未提交的消息。</p>
 <p>日志与审计：记录所有关键操作的日志，以便在出现问题时进行审计和回溯，进一步确保系统的可靠性。</p>
+<p>三、消息堆积</p>
+<p>消息堆积原因</p>
+<p>消息堆积发生的常见原因有以下情况：</p>
+<ul>
+<li>生产者短期间生产大量消息到Broker, 消费者无法及时消费（消费者并发低）；</li>
+<li>生产者无法感知消息堆积，持续生产消息，导致消息堆积进一步加剧</li>
+<li>消费者能力不足，消费时间长，消费者宕机、网络异常与Broker无法通信</li>
+<li>分区设置异常</li>
+<li>新上线消费者功能存在bug,无法消费消息</li>
+</ul>
+<p>总结以上解决方案</p>
+<p>从主要消息堆积原因来看，主要分为这几个类型，消费者端，生产者端，服务端；</p>
+<p>消费者端</p>
+<ul>
+<li>增加消费者实例个数，并发消费线程数量</li>
+<li>提高消费者消费的速度，避免消费消息时间过长。如果消费者处理慢，可以提高每批次拉取的数量。批次拉取数量过少（拉取数据/处理时间 &lt; 生产速度），就容易堆积。</li>
+<li>消费kafka消息时，应该尽量减少每次消费时间，可通过减少调用三方接口、读库等操作， 从而减少消息堆积的可能性。</li>
+<li>增加消费组服务数量，合理增加 topic 的 partition 的个数，消费数 &gt;= 分区数 （二者缺一不可）</li>
+<li>消息者支持灰度发布</li>
+<li>配置消费者参数，任务启动从上次提交offset处开始消费处理(Offset 是消息在 Kafka 分区中的唯一标识符，表示消息在分区中的位置。每条消息都有一个偏移量，这个偏移量是消息在分区中的顺序位置)</li>
+<li>如果确实容易出现堆积，消息来不及消费，建议可以先存在数据库中，然后逐条消费，不仅方便重新触发生产消息，还可以保留消费记录）</li>
+</ul>
+<p>生产者端</p>
+<ul>
+<li>支持熔断与隔离， 当broker消息堆积时，对生产者能进行熔断，或将生产的消息先发送到其他topic</li>
+<li>设计时，Kafka消息key设置,给key加随机后缀，使其更均衡</li>
+</ul>
+<p>服务端</p>
+<ul>
+<li>合理设置parition很重要，Kafka parition数是Kafka并行度调优的最小单元，如果Kafka分区数设置的太少，会直接影响Kafka consumer消费的吞吐量</li>
+<li>生产环境kafka必须集群， 有条件的支持异地多活，应对极端情况</li>
+<li>需要注意kafka消息保留时间（修改kafka配置文件， 默认一周）</li>
+</ul>
 <details>
 <summary>倒排索引</summary>
 <p>倒排索引也叫反向索引，我们通常理解的索引是通过key寻找value，与之相反，倒排索引是通过value寻找key，故而被称作反向索引。</p>
@@ -363,6 +414,14 @@ cluster：集群，一个ES集群由多个节点（node）组成， 每个集群
                 
                     
                     <a href="/tags/elasticsearch/" rel="tag" class="post-tags-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tag-icon"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>ElasticSearch</a>
+                
+            
+                
+                
+                
+                
+                    
+                    <a href="/tags/kafka/" rel="tag" class="post-tags-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tag-icon"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>Kafka</a>
                 
             
         </div>
